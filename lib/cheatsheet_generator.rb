@@ -3,6 +3,7 @@ require 'redcarpet'
 require 'rouge'
 require 'rouge/plugins/redcarpet'
 require 'front_matter_parser'
+require 'date'
 require 'pp'
 
 module CheatSheetGenerator
@@ -23,7 +24,8 @@ module CheatSheetGenerator
   end
 
   def read_sections(f)
-    parsed = FrontMatterParser::Parser.parse_file(f)
+    loader = FrontMatterParser::Loader::Yaml.new(whitelist_classes: [Date])
+    parsed = FrontMatterParser::Parser.parse_file(f, loader: loader)
     md = parsed.content
     [parsed.front_matter, md.scan(/^#+?\s.+?(?=^#)/m), md.lines.size]
   end

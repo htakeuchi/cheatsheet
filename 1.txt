@@ -1,32 +1,10 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vim</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-  <link rel="stylesheet" href="css/rouge.css">
-  <style>
-    table {
-      font-size: small;
-      width: 100%;
-    }
-    div.highlight {
-      box-shadow: 0 1px 2px 1px #ddd;
-    }
-  </style>
-
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-</head>
-<body>
-  <section class="section">
-    <div class="container">
-      <h1 class="title">Vim</h1>
-      <div class="columns">
-        
-        <div class="column">
-          <h3 class='title is-3'>モード</h3><table class='table is-striped'><tbody><tr>
+{"title"=>"Vim",
+ "category"=>"Editor",
+ "tags"=>["Featured"],
+ "updated"=>"2018-12-18",
+ "columns"=>3,
+ "description"=>"Vim Editor"}
+<h3 class='title is-3'>モード</h3><table class='table is-striped'><tbody><tr>
 <td>i</td>
 <td>挿入モードへ</td>
 </tr>
@@ -166,11 +144,7 @@
 <td>gf</td>
 <td>カーソル位置にある文字列をファイル名とみなして開く</td>
 </tr>
-</tbody></table>
-        </div>
-        
-        <div class="column">
-          <h3 class='title is-3'>検索と置換</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-3'>検索と置換</h3><table class='table is-striped'><tbody><tr>
 <td>/word</td>
 <td>wordを検索（nで次の候補、Nで前の候補）</td>
 </tr>
@@ -382,11 +356,12 @@
 <td>5@a</td>
 <td>レジスタaに保存された操作を5回再生する</td>
 </tr>
+</tbody></table><h3 class='title is-3'>外部コマンドとの連携</h3><table class='table is-striped'><tbody><tr>
+<td>:!command</td>
+<td>外部コマンド実行(領域指定すると出力も取込）</td>
+</tr>
+<tr>
+<td>:r!command</td>
+<td>外部コマンド実行(カーソル位置へ出力挿入)</td>
+</tr>
 </tbody></table>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-</body>
-</html>
