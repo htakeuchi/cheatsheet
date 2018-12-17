@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rakeチートシート</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="css/rouge.css">
+  <style>
+    table {
+      font-size: small;
+      width: 100%;
+    }
+    div.highlight {
+      box-shadow: 0 1px 2px 1px #ddd;
+    }
+  </style>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Rakeチートシート</h1>
+      <div class="columns">
+        
+        <div class="column">
+          <h6 class='title is-6'>Basic syntax</h6><div class="highlight"><pre class="highlight ruby"><code><span class="n">namespace</span> <span class="ss">:foo</span> <span class="k">do</span>
+  <span class="n">desc</span> <span class="s2">"Description"</span>
+  <span class="n">task</span> <span class="ss">:bar</span> <span class="k">do</span>
+    <span class="o">...</span>
+  <span class="k">end</span>
+
+  <span class="n">task</span> <span class="ss">:baz</span> <span class="o">=&gt;</span> <span class="ss">:dependency</span> <span class="k">do</span>
+  <span class="k">end</span>
+
+  <span class="n">task</span> <span class="ss">:baz</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:dep1</span><span class="p">,</span> <span class="ss">:dep2</span><span class="p">,</span> <span class="ss">:dep3</span><span class="p">]</span> <span class="k">do</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+ <span class="c1"># rake foo:bar</span>
+</code></pre></div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</body>
+</html>

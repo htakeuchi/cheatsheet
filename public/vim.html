@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vimチートシート</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="css/rouge.css">
+  <style>
+    table {
+      font-size: small;
+      width: 100%;
+    }
+    div.highlight {
+      box-shadow: 0 1px 2px 1px #ddd;
+    }
+  </style>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">Vimチートシート</h1>
+      <div class="columns">
+        
+        <div class="column">
+          <h5 class='title is-5'>モード</h5><table class='table is-striped'><tbody><tr>
+<td>i</td>
+<td>挿入モードへ</td>
+</tr>
+<tr>
+<td>o</td>
+<td>新しい行を追加し挿入モードへ</td>
+</tr>
+<tr>
+<td>R</td>
+<td>置き換え(上書き)モードへ</td>
+</tr>
+<tr>
+<td>ESC</td>
+<td>編集モードへ</td>
+</tr>
+</tbody></table><h5 class='title is-5'>カーソル移動</h5><table class='table is-striped'><tbody><tr>
+<td>h</td>
+<td>←</td>
+</tr>
+<tr>
+<td>j</td>
+<td>↓</td>
+</tr>
+<tr>
+<td>k</td>
+<td>↑</td>
+</tr>
+<tr>
+<td>l</td>
+<td>→</td>
+</tr>
+<tr>
+<td>Ctrl+d</td>
+<td>半画面下に移動</td>
+</tr>
+<tr>
+<td>Ctrl+u</td>
+<td>半画面上に移動</td>
+</tr>
+<tr>
+<td>$</td>
+<td>行末に移動</td>
+</tr>
+<tr>
+<td>^ / 0</td>
+<td>行頭に移動</td>
+</tr>
+<tr>
+<td>w</td>
+<td>次の単語に移動</td>
+</tr>
+<tr>
+<td>zz</td>
+<td>カーソルが画面中央になるようにスクロール</td>
+</tr>
+<tr>
+<td>b</td>
+<td>前の単語に移動</td>
+</tr>
+<tr>
+<td>f(文字)</td>
+<td>今カーソルがある行のその(文字)に移動</td>
+</tr>
+<tr>
+<td>F(文字)</td>
+<td>今カーソルがある行のその(文字)に移動（逆向き）</td>
+</tr>
+<tr>
+<td>%</td>
+<td>対応する括弧に移動</td>
+</tr>
+<tr>
+<td>Ctrl+g</td>
+<td>ファイル中の現在の場所を知る</td>
+</tr>
+</tbody></table><h5 class='title is-5'>編集</h5><table class='table is-striped'><tbody><tr>
+<td>J</td>
+<td>行の連結</td>
+</tr>
+<tr>
+<td>D</td>
+<td>カーソル位置から行末まで削除</td>
+</tr>
+<tr>
+<td>yy / Y</td>
+<td>カーソルのある行をコピー</td>
+</tr>
+<tr>
+<td>dd / D</td>
+<td>カーソルのある行を切り取り</td>
+</tr>
+<tr>
+<td>x</td>
+<td>カーソルの下にある文字を削除</td>
+</tr>
+<tr>
+<td>p</td>
+<td>貼り付け</td>
+</tr>
+<tr>
+<td>u</td>
+<td>アンドゥ</td>
+</tr>
+<tr>
+<td>Ctrl+r</td>
+<td>リドゥ</td>
+</tr>
+</tbody></table><h5 class='title is-5'>ファイル</h5><table class='table is-striped'><tbody><tr>
+<td>:q</td>
+<td>終了(:q!で保存せずに強制終了)</td>
+</tr>
+<tr>
+<td>:w file</td>
+<td>fileという名前で保存</td>
+</tr>
+<tr>
+<td>ZZ</td>
+<td>保存して閉じる</td>
+</tr>
+<tr>
+<td>:set fileencoding=utf-8</td>
+<td>文字コードの指定</td>
+</tr>
+<tr>
+<td>:cd path</td>
+<td>カレントディレクトリをpathに設定</td>
+</tr>
+<tr>
+<td>:pwd</td>
+<td>カレントディレクトリを表示</td>
+</tr>
+<tr>
+<td>:help index</td>
+<td>vimコマンドの全目次を見る</td>
+</tr>
+<tr>
+<td>gf</td>
+<td>カーソル位置にある文字列をファイル名とみなして開く</td>
+</tr>
+</tbody></table><h5 class='title is-5'>検索と置換</h5><table class='table is-striped'><tbody><tr>
+<td>/word</td>
+<td>wordを検索（nで次の候補、Nで前の候補）</td>
+</tr>
+<tr>
+<td>?word</td>
+<td>wordを逆方向に検索</td>
+</tr>
+<tr>
+<td>*</td>
+<td>カーソル位置にある単語を検索</td>
+</tr>
+<tr>
+<td>:%s/four/4/g</td>
+<td>単語の置換(fourを4へ置換)</td>
+</tr>
+<tr>
+<td>:set ignorecase</td>
+<td>大文字小文字を無視(:set noignorecaseで戻る)</td>
+</tr>
+<tr>
+<td>:set hlsearch</td>
+<td>ヒット結果のハイライト表示</td>
+</tr>
+</tbody></table>
+        </div>
+        
+        <div class="column">
+          <h5 class='title is-5'>領域選択</h5><table class='table is-striped'><tbody><tr>
+<td>v</td>
+<td>領域選択スタート</td>
+</tr>
+<tr>
+<td>Ctrl+v</td>
+<td>矩形選択スタート</td>
+</tr>
+<tr>
+<td>Shift+v</td>
+<td>行選択スタート</td>
+</tr>
+<tr>
+<td>y</td>
+<td>コピー</td>
+</tr>
+<tr>
+<td>d</td>
+<td>切り取り</td>
+</tr>
+<tr>
+<td>=</td>
+<td>選択領域をオートインデント</td>
+</tr>
+</tbody></table><h5 class='title is-5'>タグ移動</h5><table class='table is-striped'><tbody><tr>
+<td>:tag function 関数</td>
+<td>functionへ移動</td>
+</tr>
+<tr>
+<td>:tags</td>
+<td>タグリストを表示</td>
+</tr>
+<tr>
+<td>:tag</td>
+<td>タグリストの先頭へ移動</td>
+</tr>
+<tr>
+<td>Ctrl+]</td>
+<td>カーソル行の関数定義位置へ移動</td>
+</tr>
+<tr>
+<td>Ctrl+T</td>
+<td>直前のタグへ戻る</td>
+</tr>
+</tbody></table><h5 class='title is-5'>ウィンドウ</h5><table class='table is-striped'><tbody><tr>
+<td>:split</td>
+<td>画面を上下に分割する</td>
+</tr>
+<tr>
+<td>:vsplit</td>
+<td>画面を左右に分割する</td>
+</tr>
+<tr>
+<td>:close</td>
+<td>ウィンドウを閉じる</td>
+</tr>
+<tr>
+<td>:new filename</td>
+<td>新規ウィンドゥ作成（垂直方向）</td>
+</tr>
+<tr>
+<td>:vnew filename</td>
+<td>新規ウィンドゥ作成（水平方向）</td>
+</tr>
+<tr>
+<td>:e filename</td>
+<td>今いるウィンドゥにファイルを開く</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>ウィンドゥの削除</td>
+</tr>
+<tr>
+<td>:hide</td>
+<td>ウィンドゥを隠す（バッファには残る）</td>
+</tr>
+<tr>
+<td>Ctrl+w +</td>
+<td>ウィンドゥを拡大</td>
+</tr>
+<tr>
+<td>Ctrl+w -</td>
+<td>ウィンドゥを縮小</td>
+</tr>
+<tr>
+<td>Ctrl+w w</td>
+<td>別のウィンドゥへ移動</td>
+</tr>
+<tr>
+<td>Ctrl+w k</td>
+<td>上のウィンドゥへ移動</td>
+</tr>
+<tr>
+<td>Ctrl+w j</td>
+<td>下のウィンドゥへ移動</td>
+</tr>
+<tr>
+<td>Ctrl+w h</td>
+<td>左のウィンドゥへ移動</td>
+</tr>
+<tr>
+<td>Ctrl+w l</td>
+<td>右のウィンドゥへ移動</td>
+</tr>
+<tr>
+<td>Ctrl+w r</td>
+<td>左右/上下のウィンドゥを入れ替え</td>
+</tr>
+</tbody></table><h5 class='title is-5'>buffer（バッファ管理）</h5><table class='table is-striped'><tbody><tr>
+<td>:ls</td>
+<td>バッファ一覧を表示</td>
+</tr>
+<tr>
+<td>b buffnum</td>
+<td>今いるwindowに特定のバッファを呼び出す</td>
+</tr>
+<tr>
+<td>:bd buffnum</td>
+<td>そのバッファを削除</td>
+</tr>
+<tr>
+<td>:bn</td>
+<td>次のバッファに移動</td>
+</tr>
+<tr>
+<td>:bp</td>
+<td>前のバッファに移動</td>
+</tr>
+</tbody></table><h5 class='title is-5'>register(レジスタ管理)</h5><table class='table is-striped'><tbody><tr>
+<td>&quot;ay</td>
+<td>選択範囲をレジスタaに保存</td>
+</tr>
+<tr>
+<td>&quot;ayy</td>
+<td>今いる行をレジスタaに保存</td>
+</tr>
+<tr>
+<td>&quot;ap</td>
+<td>レジスタaの内容をカーソル位置にペースト</td>
+</tr>
+<tr>
+<td>:reg</td>
+<td>レジスタに格納されている情報を一覧表示</td>
+</tr>
+</tbody></table><h5 class='title is-5'>mark（マーク）</h5><table class='table is-striped'><tbody><tr>
+<td>ma</td>
+<td>現在のカーソル位置をマーク名aに保存</td>
+</tr>
+<tr>
+<td>&#39;a マーク名</td>
+<td>aの位置に移動</td>
+</tr>
+<tr>
+<td>:marks</td>
+<td>マークの一覧を表示する</td>
+</tr>
+</tbody></table><h5 class='title is-5'>folding（折りたたみ）</h5><table class='table is-striped'><tbody><tr>
+<td>zf</td>
+<td>選択領域を折りたたむ</td>
+</tr>
+<tr>
+<td>スペース</td>
+<td>折りたたみを展開する</td>
+</tr>
+</tbody></table><h5 class='title is-5'>word completion（単語補完）</h5><table class='table is-striped'><tbody><tr>
+<td>Ctrl+p</td>
+<td>単語補完（前方検索）</td>
+</tr>
+<tr>
+<td>Ctrl+n</td>
+<td>単語補完（後方検索）</td>
+</tr>
+</tbody></table><h5 class='title is-5'>recording（操作記憶）</h5><table class='table is-striped'><tbody><tr>
+<td>qa</td>
+<td>操作の記録を開始し、レジスタaに保存する</td>
+</tr>
+<tr>
+<td>q</td>
+<td>操作の記録を終了する</td>
+</tr>
+<tr>
+<td>@a</td>
+<td>レジスタaに保存された操作を再生する</td>
+</tr>
+<tr>
+<td>5@a</td>
+<td>レジスタaに保存された操作を5回再生する</td>
+</tr>
+</tbody></table>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</body>
+</html>
