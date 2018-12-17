@@ -1,5 +1,8 @@
-# Vimチートシート
-
+---
+title: Vim
+category: Editor
+columns: 3
+---
 #####  モード
 
 |||

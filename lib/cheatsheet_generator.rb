@@ -2,11 +2,11 @@ require 'erb'
 require 'redcarpet'
 require 'rouge'
 require 'rouge/plugins/redcarpet'
+require 'front_matter_parser'
 require 'pp'
 
 module CheatSheetGenerator
   COLUMNS = 3
-  MAX_LINES = 40
 
   class MyRenderer < Redcarpet::Render::HTML
     include Rouge::Plugins::Redcarpet
@@ -20,17 +20,18 @@ module CheatSheetGenerator
     def header(text, header_level)
       "<h#{header_level} class='title is-#{header_level}'>#{text}</h#{header_level}>"
     end
-
   end
 
   def read_sections(f)
-    m = f.read
-    [m.scan(/^#+?\s.+?(?=^#)/m), m.lines.size]
+    parsed = FrontMatterParser::Parser.parse_file(f)
+    md = parsed.content
+    [parsed.front_matter, md.scan(/^#+?\s.+?(?=^#)/m), md.lines.size]
   end
 
-  def generate(sections, lines, col_num)
-    erb = ERB.new(File.read("./template/cheatsheet.erb"))
-    
+  def generate(front_matter, sections, lines)
+    erb = ERB.new(File.read("./template/cheatsheet.erb"))    
+    col_num = front_matter["column"].nil? ? COLUMNS : front_matter["column"]
+
     renderer = MyRenderer.new
     markdown = Redcarpet::Markdown.new(renderer, {
                                         tables: true,
@@ -39,14 +40,9 @@ module CheatSheetGenerator
     columns = []
     counter = 0
     sec = ""
-    title = ""
+    title = front_matter["title"]
 
     sections.each do |s|
-      if title.size == 0 && s =~ /^#\s(.+)/
-        title = $1
-        next
-      end
-
       sec << s
       if (sec.lines.size > lines / col_num) && (counter < col_num - 1)
         columns << sec
@@ -60,11 +56,9 @@ module CheatSheetGenerator
   end
 
   def self.convert(src, dest)
-    File.open(src, 'r') do |f|
-      sections, lines = read_sections(f)
-      File.open(dest.to_s, 'w') do |fw|
-        fw.print generate(sections, lines, COLUMNS)
-      end
+    front_matter, sections, lines = read_sections(src)
+    File.open(dest.to_s, 'w') do |fw|
+      fw.print generate(front_matter, sections, lines)
     end
   end
 
