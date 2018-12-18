@@ -19,41 +19,58 @@ module CheatSheetGenerator
     end
 
     def header(text, header_level)
-      "<h#{header_level} class='title is-#{header_level}'>#{text}</h#{header_level}>"
+      "<h#{header_level} class='title is-#{header_level+1}'>#{text}</h#{header_level}>"
     end
   end
 
   def read_sections(f)
     loader = FrontMatterParser::Loader::Yaml.new(whitelist_classes: [Date])
     parsed = FrontMatterParser::Parser.parse_file(f, loader: loader)
-    md = parsed.content
-    [parsed.front_matter, md.scan(/^#+?\s.+?(?=^#)/m), md.lines.size]
+
+    sections = []
+    s = ''
+    counter = 0
+
+    parsed.content.split(/(^#+?\s.+?$)/).each do |line|
+    counter += line.lines.size
+      if /^#+?\s/ =~ line
+        sections << s if s.size > 0
+        s = line
+      else
+        s << line
+      end      
+    end
+    sections << s
+
+    [parsed.front_matter, sections, counter]
   end
 
   def generate(front_matter, sections, lines)
     erb = ERB.new(File.read("./template/cheatsheet.erb"))    
-    col_num = front_matter["column"].nil? ? COLUMNS : front_matter["column"]
-
+    col_num = front_matter["columns"].nil? ? COLUMNS : front_matter["columns"]
     renderer = MyRenderer.new
     markdown = Redcarpet::Markdown.new(renderer, {
                                         tables: true,
                                         fenced_code_blocks: true
                                        })
     columns = []
-    counter = 0
-    sec = ""
+    counter, line_cnt= 0, 0
+    sec = []
     title = front_matter["title"]
 
-    sections.each do |s|
+    sections.each do |s|    
       sec << s
-      if (sec.lines.size > lines / col_num) && (counter < col_num - 1)
+      line_cnt += s.lines.size
+
+      if (line_cnt > (lines/col_num)) && (counter < col_num-1)
         columns << sec
-        sec = ""
+        sec = []
+        line_cnt = 0
         counter += 1
       end
     end
 
-    columns[-1] << sec
+    columns << sec
     erb.result(binding)
   end
 

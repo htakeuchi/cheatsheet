@@ -1,6 +1,12 @@
-# Rakeチートシート
-
-###### Basic syntax
+---
+title: Rake
+category: Ruby
+tags: [Featured]
+updated: 2018-12-18
+columns: 2
+description: Rake
+---
+### Basic syntax
 
 ```ruby
 namespace :foo do
@@ -19,7 +25,7 @@ end
  # rake foo:bar
 ```
 
-###### Rake task with arguments
+### Rake task with arguments
 
 ```ruby
 desc "Do something"

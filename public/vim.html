@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vim</title>
+  <title>Vim cheatsheet</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
   <link rel="stylesheet" href="css/rouge.css">
   <style>
@@ -15,6 +15,9 @@
     div.highlight {
       box-shadow: 0 1px 2px 1px #ddd;
     }
+    h1 {
+      padding-bottom: 0.5em;
+    }
   </style>
 
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -22,11 +25,41 @@
 <body>
   <section class="section">
     <div class="container">
-      <h1 class="title">Vim</h1>
+
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, & modern CSS framework based on Flexbox" width="112" height="28">
+          </a>   
+        </div>
+
+        <div class="navbar-end">
+          <div class="field is-grouped">
+            <p class="control">
+              <a class="button is-rounded is-link">
+                <span class="icon">
+                  <i class="fab fa-twitter" aria-hidden="true"></i>
+                </span>
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-rounded">
+                <span class="icon">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </span>
+                <span>Edit</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </nav>
+
+      <h1 class="title is-1 has-text-centered">Vim cheatsheet</h1>
+
       <div class="columns">
         
         <div class="column">
-          <h3 class='title is-3'>モード</h3><table class='table is-striped'><tbody><tr>
+          <h3 class='title is-4'>モード</h3><table class='table is-striped'><tbody><tr>
 <td>i</td>
 <td>挿入モードへ</td>
 </tr>
@@ -42,7 +75,7 @@
 <td>ESC</td>
 <td>編集モードへ</td>
 </tr>
-</tbody></table><h3 class='title is-3'>カーソル移動</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-4'>カーソル移動</h3><table class='table is-striped'><tbody><tr>
 <td>h</td>
 <td>←</td>
 </tr>
@@ -102,7 +135,7 @@
 <td>Ctrl+g</td>
 <td>ファイル中の現在の場所を知る</td>
 </tr>
-</tbody></table><h3 class='title is-3'>編集</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-4'>編集</h3><table class='table is-striped'><tbody><tr>
 <td>J</td>
 <td>行の連結</td>
 </tr>
@@ -134,7 +167,7 @@
 <td>Ctrl+r</td>
 <td>リドゥ</td>
 </tr>
-</tbody></table><h3 class='title is-3'>ファイル</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-4'>ファイル</h3><table class='table is-striped'><tbody><tr>
 <td>:q</td>
 <td>終了(:q!で保存せずに強制終了)</td>
 </tr>
@@ -166,11 +199,7 @@
 <td>gf</td>
 <td>カーソル位置にある文字列をファイル名とみなして開く</td>
 </tr>
-</tbody></table>
-        </div>
-        
-        <div class="column">
-          <h3 class='title is-3'>検索と置換</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-4'>検索と置換</h3><table class='table is-striped'><tbody><tr>
 <td>/word</td>
 <td>wordを検索（nで次の候補、Nで前の候補）</td>
 </tr>
@@ -194,7 +223,11 @@
 <td>:set hlsearch</td>
 <td>ヒット結果のハイライト表示</td>
 </tr>
-</tbody></table><h3 class='title is-3'>領域選択</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </div>
+        
+        <div class="column">
+          <h3 class='title is-4'>領域選択</h3><table class='table is-striped'><tbody><tr>
 <td>v</td>
 <td>領域選択スタート</td>
 </tr>
@@ -218,7 +251,7 @@
 <td>=</td>
 <td>選択領域をオートインデント</td>
 </tr>
-</tbody></table><h3 class='title is-3'>タグ移動</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-4'>タグ移動</h3><table class='table is-striped'><tbody><tr>
 <td>:tag function 関数</td>
 <td>functionへ移動</td>
 </tr>
@@ -238,7 +271,7 @@
 <td>Ctrl+T</td>
 <td>直前のタグへ戻る</td>
 </tr>
-</tbody></table><h3 class='title is-3'>ウィンドウ</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-4'>ウィンドウ</h3><table class='table is-striped'><tbody><tr>
 <td>:split</td>
 <td>画面を上下に分割する</td>
 </tr>
@@ -302,7 +335,7 @@
 <td>Ctrl+w r</td>
 <td>左右/上下のウィンドゥを入れ替え</td>
 </tr>
-</tbody></table><h3 class='title is-3'>buffer（バッファ管理）</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-4'>buffer（バッファ管理）</h3><table class='table is-striped'><tbody><tr>
 <td>:ls</td>
 <td>バッファ一覧を表示</td>
 </tr>
@@ -322,7 +355,7 @@
 <td>:bp</td>
 <td>前のバッファに移動</td>
 </tr>
-</tbody></table><h3 class='title is-3'>register(レジスタ管理)</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-4'>register(レジスタ管理)</h3><table class='table is-striped'><tbody><tr>
 <td>&quot;ay</td>
 <td>選択範囲をレジスタaに保存</td>
 </tr>
@@ -338,7 +371,11 @@
 <td>:reg</td>
 <td>レジスタに格納されている情報を一覧表示</td>
 </tr>
-</tbody></table><h3 class='title is-3'>mark（マーク）</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </div>
+        
+        <div class="column">
+          <h3 class='title is-4'>mark（マーク）</h3><table class='table is-striped'><tbody><tr>
 <td>ma</td>
 <td>現在のカーソル位置をマーク名aに保存</td>
 </tr>
@@ -350,7 +387,7 @@
 <td>:marks</td>
 <td>マークの一覧を表示する</td>
 </tr>
-</tbody></table><h3 class='title is-3'>folding（折りたたみ）</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-4'>folding（折りたたみ）</h3><table class='table is-striped'><tbody><tr>
 <td>zf</td>
 <td>選択領域を折りたたむ</td>
 </tr>
@@ -358,7 +395,7 @@
 <td>スペース</td>
 <td>折りたたみを展開する</td>
 </tr>
-</tbody></table><h3 class='title is-3'>word completion（単語補完）</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-4'>word completion（単語補完）</h3><table class='table is-striped'><tbody><tr>
 <td>Ctrl+p</td>
 <td>単語補完（前方検索）</td>
 </tr>
@@ -366,7 +403,7 @@
 <td>Ctrl+n</td>
 <td>単語補完（後方検索）</td>
 </tr>
-</tbody></table><h3 class='title is-3'>recording（操作記憶）</h3><table class='table is-striped'><tbody><tr>
+</tbody></table><h3 class='title is-4'>recording（操作記憶）</h3><table class='table is-striped'><tbody><tr>
 <td>qa</td>
 <td>操作の記録を開始し、レジスタaに保存する</td>
 </tr>
@@ -381,6 +418,14 @@
 <tr>
 <td>5@a</td>
 <td>レジスタaに保存された操作を5回再生する</td>
+</tr>
+</tbody></table><h3 class='title is-4'>外部コマンドとの連携</h3><table class='table is-striped'><tbody><tr>
+<td>:!command</td>
+<td>外部コマンド実行(領域指定すると出力も取込）</td>
+</tr>
+<tr>
+<td>:r!command</td>
+<td>外部コマンド実行(カーソル位置へ出力挿入)</td>
 </tr>
 </tbody></table>
         </div>
