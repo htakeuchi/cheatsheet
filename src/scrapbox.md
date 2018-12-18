@@ -60,11 +60,13 @@ description: Wiki
 ### コードブロック
 `code:言語名`もしくは`code:ファイル名`もしくは`code:ファイル名(言語名)`の下のブロックがシンタックスハイライトされる。
 
+```javascript
     code:hello.js
       function () {
         alert(document.location.href)
         console.log("hello")
       }
+```
 
 ### アイコン
 | | |
