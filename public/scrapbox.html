@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scrapbox cheatsheet</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="css/rouge.css">
+  <style>
+    table {
+      font-size: small;
+      width: 100%;
+    }
+    div.highlight {
+      box-shadow: 0 1px 2px 1px #ddd;
+    }
+    h1 {
+      padding-bottom: 0.5em;
+    }
+    h2,h3,h4,h5,h6 {
+      padding-top: 1em;
+      padding-bottom: 0.2em;
+      margin-top: 0.2em;
+    }
+    div.highlight {
+      padding: 0.5em;
+    }
+  </style>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, & modern CSS framework based on Flexbox" width="112" height="28">
+          </a>   
+        </div>
+
+        <div class="navbar-end">
+          <div class="field is-grouped">
+            <p class="control">
+              <a class="button is-rounded is-link">
+                <span class="icon">
+                  <i class="fab fa-twitter" aria-hidden="true"></i>
+                </span>
+              </a>
+            </p>
+            <p class="control">
+              <a class="button is-rounded">
+                <span class="icon">
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                </span>
+                <span>Edit</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </nav>
+
+      <h1 class="title is-1 has-text-centered">Scrapbox cheatsheet</h1>
+
+      <div class="columns">
+        
+        <div class="column">
+          <h3 class='title is-4'>文字修飾</h3><table class='table is-striped'><tbody><tr>
+<td>太字</td>
+<td>[太字]</td>
+</tr>
+<tr>
+<td>太字</td>
+<td>[* 太字]</td>
+</tr>
+<tr>
+<td>もっと太字</td>
+<td>[**** 太字]</td>
+</tr>
+<tr>
+<td>斜体文字</td>
+<td>[/ 斜体文字]</td>
+</tr>
+<tr>
+<td>太字斜体文字</td>
+<td>[/* 太字斜体文字]</td>
+</tr>
+<tr>
+<td>打ち消し線</td>
+<td>[- 打ち消し線]</td>
+</tr>
+<tr>
+<td>斜体太字打ち消し線</td>
+<td>[-***/ 打ち消し線]</td>
+</tr>
+</tbody></table><h3 class='title is-4'>箇条書き</h3>
+<p>行頭にスペースかタブを入力する。文字数に応じてインデントが深くなる。</p>
+<h3 class='title is-4'>リンク</h3><table class='table is-striped'><tbody><tr>
+<td>Scrapboxページへのリンク</td>
+<td>[Scrapboxの特長]</td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td>http://yahoo.co.jp</td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td>[http://yahoo.co.jp]</td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td>[http://yahoo.co.jp Yahoo!]</td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td>[Yahoo! http://yahoo.co.jp]</td>
+</tr>
+</tbody></table><h3 class='title is-4'>ハッシュタグ記法</h3>
+<p><code>#ハッシュ</code> と<code>[ハッシュ]</code> は同じ意味。</p>
+
+<p>文章の中では<code>[ハッシュ]</code>と書き、文書外では <code>#ハッシュ</code> と書くとわかりやすい。</p>
+
+        </div>
+        
+        <div class="column">
+          <h3 class='title is-4'>画像</h3><table class='table is-striped'><tbody><tr>
+<td>画像の引用</td>
+<td>[https://gyazo.com/da78d.png]</td>
+</tr>
+<tr>
+<td>画像+リンク</td>
+<td>[http://yahoo.co.jp https://i.gyazo.com/da78d.png]</td>
+</tr>
+<tr>
+<td>画像+リンク</td>
+<td>[https://i.gyazo.com/da78d.png http://yahoo.co.jp]</td>
+</tr>
+</tbody></table><h3 class='title is-4'>引用</h3>
+<p>行頭に<code>&gt;</code>を書くと引用になります</p>
+<h3 class='title is-4'>テーブル</h3>
+<p><code>table:テーブル名</code> の後、インデントしてタブ区切りで行を書く。</p>
+<div class="highlight"><pre class="highlight plaintext"><code>table:テーブルの例
+  abc   def
+  12345 6789
+  すごく長い文字列  短い文字列
+</code></pre></div><h3 class='title is-4'>コード（インライン）</h3>
+<p>バッククオートで括る。</p>
+<div class="highlight"><pre class="highlight plaintext"><code>`function() {  return true }`
+</code></pre></div><h3 class='title is-4'>コードブロック</h3>
+<p><code>code:言語名</code>もしくは<code>code:ファイル名</code>もしくは<code>code:ファイル名(言語名)</code>の下のブロックがシンタックスハイライトされる。</p>
+<div class="highlight"><pre class="highlight plaintext"><code>code:hello.js
+  function () {
+    alert(document.location.href)
+    console.log("hello")
+  }
+</code></pre></div>
+        </div>
+        
+        <div class="column">
+          <h3 class='title is-4'>アイコン</h3><table class='table is-striped'><tbody><tr>
+<td>アイコン</td>
+<td>[rakusai.icon]</td>
+</tr>
+<tr>
+<td>アイコン</td>
+<td>[/icons/炎上.icon]</td>
+</tr>
+</tbody></table><h3 class='title is-4'>数式</h3><div class="highlight"><pre class="highlight plaintext"><code>[$ \frac{-b \pm \sqrt{b^2-4ac}}{2a}]
+</code></pre></div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</body>
+</html>
