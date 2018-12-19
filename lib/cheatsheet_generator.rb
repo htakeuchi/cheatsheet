@@ -82,6 +82,7 @@ module CheatSheetGenerator
 
   def self.convert(src, dest)
     front_matter, sections, lines = read_sections(src)
+    front_matter["html"] = src.sub(/src\//, '').sub(/\.md$/, '.html')
     File.open(dest.to_s, 'w') do |fw|
       fw.print generate(front_matter, sections, lines)
     end

@@ -9,6 +9,9 @@
 
   <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+  <style>
+  </style>
 </head>
 <body>
   <section class="hero is-primary">
@@ -18,7 +21,7 @@
         Cheatsheets
       </h1>
       <h2 class="subtitle">
-        @htakeuchi's
+        @htakeuchi
       </h2>
     </div>
   </div>
@@ -26,24 +29,16 @@
 
   <section class="section">
     <div class="container">
-      <% Hash[category.sort].each do |key, value| %>
+      <% category.sort.each do |cat| %>
         <div class="box">
-          <article class="media">
-            <div class="media-content">
-              <div class="content">
-                <h3 class="title is-3"><%= key %></h3>
-                <p>
-                <ul>
-                <% value.each do |v| %>
-                  <li><a href="<%= v[:filename].sub(/src\//, '').sub(/\.md$/, '.html') %>"><%= v[:title]%></a></li>
-                <% end %>
-                </ul>
-                </p>
-              </div>
-            </div>
-          </article>
+          <h3 class="title is-3"><%= cat[0] %></h3>
+          <ul>
+            <% cat[1].each do |v| %>
+            <li><a href="<%= v[:filename].sub(/src\//, '').sub(/\.md$/, '.html') %>"><%= v[:title]%></a></li>
+            <% end %>
+          </ul>
         </div>
-      <% end %>
+        <% end %>
     </div>
   </section>
 </body>
