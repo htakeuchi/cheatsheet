@@ -7,68 +7,44 @@
   <title>@htakeuchi cheatsheet</title>
   <meta name="description" content="自作のチートシートをまとめているページです。" >
 
-  <!---
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-  -->
   <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
-  <style>
-    table {
-      font-size: small;
-      width: 100%;
-    }
-    h1 {
-      padding-bottom: 0.5em;
-    }
-    h2,h3,h4,h5,h6 {
-      padding-top: 1em;
-      padding-bottom: 0.2em;
-      margin-top: 0.2em;
-    }
-    div.highlight {
-      padding: 0.5em;
-    }
-  </style>
-
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
   <section class="hero is-primary">
-    <!-- Hero header: will stick at the top -->
-    <div class="hero-head">
-      <nav class="main-nav navbar ">
-        <div class="container">
-          <div class="navbar-start">
-            <a class="navbar-item" href="/">
-              <h1 class="title is-5">@htakeuchi's cheatsheets</h1>
-            </a>
-          </div>
-
-          <div class="navbar-end navbar-menu">
-            <a class="navbar-item" href="//github.com/jenil/bulmaswatch" target="_blank" onclick="ga('send', 'event', 'nav', 'click', 'github');">
-              <span class="icon"> <i class="fab fa-github"></i> </span>
-            </a>
-            <a class="navbar-item" href="//twitter.com/geekGogari" target="_blank" onclick="ga('send', 'event', 'nav', 'click', 'twitter');">
-              <span class="icon"> <i class="fab fa-twitter"></i> </span>
-            </a>
-          </div>
-        </div>
-      </nav>
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Cheatsheets
+      </h1>
+      <h2 class="subtitle">
+        @htakeuchi's
+      </h2>
     </div>
+  </div>
   </section>
 
-
   <section class="section">
-    <div class="container">
-
+    <div class="container"><div class="columns">
       <% Hash[category.sort].each do |key, value| %>
-        <h3 class="title is-3"><%= key %></h3>
-        <ul>
-        <% value.each do |v| %>
-          <li><a href="<%= v[:filename].sub(/src\//, '').sub(/\.md$/, '.html') %>"><%= v[:title]%></a></li>
-        <% end %>
-        </ul>
+        <div class="column is-one-third"><div class="box">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <h3 class="title is-3"><%= key %></h3>
+                <p>
+                <ul>
+                <% value.each do |v| %>
+                  <li><a href="<%= v[:filename].sub(/src\//, '').sub(/\.md$/, '.html') %>"><%= v[:title]%></a></li>
+                <% end %>
+                </ul>
+                </p>
+              </div>
+            </div>
+          </article>
+        </div></div>
       <% end %>
-    </div>
+    </div></div>
   </section>
 </body>
 </html>

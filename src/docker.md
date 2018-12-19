@@ -3,7 +3,7 @@ title: Docker
 category: Devops
 tags: 
 updated: 2018-12-19
-columns: 3
+columns: 2
 description: よく使うDockerコマンドのまとめ
 ---
 
