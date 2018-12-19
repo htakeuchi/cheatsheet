@@ -5,7 +5,7 @@ Markdownで書いたチートシートを、指定した段数で段組したHTM
 ## セットアップ
 
 ```
-$ bundle install --path=vendor/bundle
+$ bundle install
 ```
 
 ## 使用法
