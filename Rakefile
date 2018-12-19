@@ -5,10 +5,10 @@ include CheatSheetGenerator
 include IndexGenerator
 
 SRC = FileList['src/*.md']
-DEST = SRC.pathmap('%{^src,public}X.html')
+DEST = SRC.pathmap('%{^src,docs}X.html')
 CACHE = FileList['cache/*.yml']
 
-rule /public\/.*\.html/ => '%{^public,src}X.md' do |t|
+rule /docs\/.*\.html/ => '%{^docs,src}X.md' do |t|
   puts "generate #{t.source} --> #{t}"
   CheatSheetGenerator::convert(t.source, t)
   IndexGenerator::generate(t.source)
@@ -31,5 +31,5 @@ task :default => DEST
 
 desc 'Start Web Server'
 task :server do
-  WEBrick::HTTPServer.new(:DocumentRoot => "./public", :Port => 8000).start
+  WEBrick::HTTPServer.new(:DocumentRoot => "./docs", :Port => 8000).start
 end

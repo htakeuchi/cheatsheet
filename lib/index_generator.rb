@@ -58,7 +58,7 @@ description: Wiki
 
   def create_index(category, tags, last_modify)
     erb = ERB.new(File.read("./template/index.erb"))    
-    File.open("./public/index.html", "w") {|f| f.print erb.result(binding)}
+    File.open("./docs/index.html", "w") {|f| f.print erb.result(binding)}
   end
 
   def self.generate(f)
