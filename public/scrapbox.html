@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scrapbox cheatsheet</title>
+  <meta name="description" content="Wiki" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <style>
+    table {
+      font-size: small;
+      width: 100%;
+    }
+    h1 {
+      padding-bottom: 0.5em;
+    }
+    h2,h3,h4,h5,h6 {
+      padding-top: 1em;
+      padding-bottom: 0.2em;
+      margin-top: 0.2em;
+    }
+    div.highlight {
+      padding: 0.5em;
+    }
+  </style>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script async type="text/javascript" src="/js/bulma.js"></script>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <a class="navbar-item" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Scrapbox&amp;url=https://cheatsheets.namaraii.com/scrapbox.html" >
+        <span class="icon">
+          <i class="fab fa-twitter"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/scrapbox.md">
+        <span class="icon">
+          <i class="fab fa-github""></i>
+        </span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="section sheet padding-10m">
+    <div class="container">
+      <h1 class="title has-text-centered">Scrapbox</h1>
+
+      <div class="columns">
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>文字修飾</h3>
+<p>いわゆるHeadingに該当する記法は無いため、見出しは太字を使って表現する。</p>
+<table class='table is-striped'><tbody><tr>
+<td>太字</td>
+<td>[太字]</td>
+</tr>
+<tr>
+<td>太字</td>
+<td>[* 太字]</td>
+</tr>
+<tr>
+<td>もっと太字</td>
+<td>[**** 太字]</td>
+</tr>
+<tr>
+<td>斜体文字</td>
+<td>[/ 斜体文字]</td>
+</tr>
+<tr>
+<td>太字斜体文字</td>
+<td>[/* 太字斜体文字]</td>
+</tr>
+<tr>
+<td>打ち消し線</td>
+<td>[- 打ち消し線]</td>
+</tr>
+<tr>
+<td>斜体太字打ち消し線</td>
+<td>[-***/ 打ち消し線]</td>
+</tr>
+</tbody></table><h3 class='title is-4'>箇条書き</h3>
+<p>行頭にスペースかタブを入力する。文字数に応じてインデントが深くなる。</p>
+<h3 class='title is-4'>リンク</h3><table class='table is-striped'><tbody><tr>
+<td>Scrapboxページへのリンク</td>
+<td>[Scrapboxの特長]</td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td><a href="http://yahoo.co.jp">http://yahoo.co.jp</a></td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td>[<a href="http://yahoo.co.jp">http://yahoo.co.jp</a>]</td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td>[<a href="http://yahoo.co.jp">http://yahoo.co.jp</a> Yahoo!]</td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td>[Yahoo! <a href="http://yahoo.co.jp">http://yahoo.co.jp</a>]</td>
+</tr>
+</tbody></table><h3 class='title is-4'>ハッシュタグ記法</h3>
+<p><code>#ハッシュ</code> と<code>[ハッシュ]</code> は同じ意味。</p>
+
+<p>文章の中では<code>[ハッシュ]</code>と書き、文書外では <code>#ハッシュ</code> と書くとわかりやすい。</p>
+
+        </div>
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>画像</h3><table class='table is-striped'><tbody><tr>
+<td>画像の引用</td>
+<td>[<a href="https://gyazo.com/da78d.png">https://gyazo.com/da78d.png</a>]</td>
+</tr>
+<tr>
+<td>画像+リンク</td>
+<td>[<a href="http://yahoo.co.jp">http://yahoo.co.jp</a> <a href="https://i.gyazo.com/da78d.png">https://i.gyazo.com/da78d.png</a>]</td>
+</tr>
+<tr>
+<td>画像+リンク</td>
+<td>[<a href="https://i.gyazo.com/da78d.png">https://i.gyazo.com/da78d.png</a> <a href="http://yahoo.co.jp">http://yahoo.co.jp</a>]</td>
+</tr>
+</tbody></table><h3 class='title is-4'>引用</h3>
+<p>行頭に<code>&gt;</code>を書くと引用になる。</p>
+<h3 class='title is-4'>テーブル</h3>
+<p><code>table:テーブル名</code> の後、インデントしてタブ区切りで行を書く。</p>
+<div class="CodeRay">
+  <div class="code"><pre>table:テーブルの例
+  abc   def
+  12345 6789
+  すごく長い文字列  短い文字列
+</pre></div>
+</div>
+<h3 class='title is-4'>コード（インライン）</h3>
+<p>バッククオートで括る。</p>
+<div class="CodeRay">
+  <div class="code"><pre>`function() {  return true }`
+</pre></div>
+</div>
+<h3 class='title is-4'>コードブロック</h3>
+<p><code>code:言語名</code>もしくは<code>code:ファイル名</code>もしくは<code>code:ファイル名(言語名)</code>の下のブロックがシンタックスハイライトされる。</p>
+<div class="CodeRay">
+  <div class="code"><pre>    code:hello.js
+      <span style="color:#080;font-weight:bold">function</span> () {
+        alert(document.location.href)
+        console.log(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">hello</span><span style="color:#710">&quot;</span></span>)
+      }
+</pre></div>
+</div>
+
+        </div>
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>アイコン</h3><table class='table is-striped'><tbody><tr>
+<td>アイコン</td>
+<td>[rakusai.icon]</td>
+</tr>
+<tr>
+<td>アイコン</td>
+<td>[/icons/炎上.icon]</td>
+</tr>
+</tbody></table><h3 class='title is-4'>数式</h3><div class="CodeRay">
+  <div class="code"><pre>[$ \frac{-b \pm \sqrt{b^2-4ac}}{2a}]
+</pre></div>
+</div>
+
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</body>
+</html>

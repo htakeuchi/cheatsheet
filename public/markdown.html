@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Markdown cheatsheet</title>
+  <meta name="description" content="A quick reference to the Markdown syntax." />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <style>
+    table {
+      font-size: small;
+      width: 100%;
+    }
+    h1 {
+      padding-bottom: 0.5em;
+    }
+    h2,h3,h4,h5,h6 {
+      padding-top: 1em;
+      padding-bottom: 0.2em;
+      margin-top: 0.2em;
+    }
+    div.highlight {
+      padding: 0.5em;
+    }
+  </style>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script async type="text/javascript" src="/js/bulma.js"></script>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <a class="navbar-item" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Markdown&amp;url=https://cheatsheets.namaraii.com/markdown.html" >
+        <span class="icon">
+          <i class="fab fa-twitter"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/markdown.md">
+        <span class="icon">
+          <i class="fab fa-github""></i>
+        </span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="section sheet padding-10m">
+    <div class="container">
+      <h1 class="title has-text-centered">Markdown</h1>
+
+      <div class="columns">
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>Overview</h3>
+<p>This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can&#39;t cover every edge case, so if you need more information about any of these elements, refer to our reference guides for <a href="/basic-syntax">basic syntax</a> and <a href="/extended-syntax">extended syntax</a>.</p>
+<h3 class='title is-4'>Basic Syntax</h3>
+<p>These are the elements outlined in John Gruber&#39;s original design document. All Markdown applications support these elements.</p>
+
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>Element</th>
+      <th>Markdown Syntax</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/basic-syntax/#headings">Heading</a></td>
+      <td><code># H1<br>
+          ## H2<br>
+          ### H3</code></td>
+    </tr>
+    <tr>
+      <td><a href="/basic-syntax/#bold">Bold</a></td>
+      <td><code>**bold text**</code></td>
+    </tr>
+    <tr>
+      <td><a href="/basic-syntax/#italic">Italic</a></td>
+      <td><code>*italicized text*</code></td>
+    </tr>
+    <tr>
+      <td><a href="/basic-syntax/#blockquotes-1">Blockquote</a></td>
+      <td><code>> blockquote</code></td>
+    </tr>
+    <tr>
+      <td><a href="/basic-syntax/#ordered-lists">Ordered List</a></td>
+      <td><code>
+        1. First item<br>
+        2. Second item<br>
+        3. Third item<br>
+      </code></td>
+    </tr>
+    <tr>
+      <td><a href="/basic-syntax/#unordered-lists">Unordered List</a></td>
+      <td>
+        <code>
+          - First item<br>
+          - Second item<br>
+          - Third item<br>
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="/basic-syntax/#code">Code</a></td>
+      <td><code>`code`</code></td>
+    </tr>
+    <tr>
+      <td><a href="/basic-syntax/#horizontal-rules">Horizontal Rule</a></td>
+      <td><code>---</code></td>
+    </tr>
+    <tr>
+      <td><a href="/basic-syntax/#links">Link</a></td>
+      <td><code>[title](https://www.example.com)</code></td>
+    </tr>
+    <tr>
+      <td><a href="/basic-syntax/#images-1">Image</a></td>
+      <td><code>![alt text](image.jpg)</code></td>
+    </tr>
+  </tbody>
+</table>
+
+        </div>
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>Extended Syntax</h3>
+<p>These elements extend the basic syntax by adding additional features. Not all Markdown applications support these elements.</p>
+
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>Element</th>
+      <th>Markdown Syntax</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/extended-syntax/#tables">Table</a></td>
+      <td><code>
+          | Syntax      | Description |<br>
+          | ----------- | ----------- |<br>
+          | Header      | Title       |<br>
+          | Paragraph   | Text        |
+      </code></td>
+    </tr>
+    <tr>
+      <td><a href="/extended-syntax/#fenced-code-blocks">Fenced Code Block</a></td>
+      <td><code>```<br>
+      {<br>
+      &nbsp;&nbsp;"firstName": "John",<br>
+      &nbsp;&nbsp;"lastName": "Smith",<br>
+      &nbsp;&nbsp;"age": 25<br>
+      }<br>
+      ```
+      </code></td>
+    </tr>
+    <tr>
+      <td><a href="/extended-syntax/#footnotes">Footnote</a></td>
+      <td><code>
+        Here's a sentence with a footnote. [^1]<br><br>
+
+        [^1]: This is the footnote.
+      </code></td>
+    </tr>
+    <tr>
+      <td><a href="/extended-syntax/#heading-ids">Heading ID</a></td>
+      <td><code>### My Great Heading {#custom-id}</code></td>
+    </tr>
+    <tr>
+      <td><a href="/extended-syntax/#definition-lists">Definition List</a></td>
+      <td><code>
+        term<br>
+        : definition
+      </code></td>
+    </tr>
+    <tr>
+      <td><a href="/extended-syntax/#strikethrough">Strikethrough</a></td>
+      <td><code>~~The world is flat.~~</code></td>
+    </tr>
+    <tr>
+      <td><a href="/extended-syntax/#task-lists">Task List</a></td>
+      <td><code>
+        - [x] Write the press release<br>
+        - [ ] Update the website<br>
+        - [ ] Contact the media
+      </code></td>
+    </tr>
+  </tbody>
+</table>
+
+        </div>
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>License</h3>
+<p><a href="https://github.com/mattcone/markdown-guide">https://github.com/mattcone/markdown-guide</a></p>
+
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</body>
+</html>

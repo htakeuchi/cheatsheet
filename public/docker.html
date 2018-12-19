@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Docker cheatsheet</title>
+  <meta name="description" content="よく使うDockerコマンドのまとめ" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <style>
+    table {
+      font-size: small;
+      width: 100%;
+    }
+    h1 {
+      padding-bottom: 0.5em;
+    }
+    h2,h3,h4,h5,h6 {
+      padding-top: 1em;
+      padding-bottom: 0.2em;
+      margin-top: 0.2em;
+    }
+    div.highlight {
+      padding: 0.5em;
+    }
+  </style>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script async type="text/javascript" src="/js/bulma.js"></script>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <a class="navbar-item" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Docker&amp;url=https://cheatsheets.namaraii.com/docker.html" >
+        <span class="icon">
+          <i class="fab fa-twitter"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/docker.md">
+        <span class="icon">
+          <i class="fab fa-github""></i>
+        </span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="section sheet padding-10m">
+    <div class="container">
+      <h1 class="title has-text-centered">Docker</h1>
+
+      <div class="columns">
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>TIPS</h3>
+<ul>
+<li>データベースなど永続化したいデータはホストOS上に作成してマウントした方が良い。</li>
+<li>コンテナ内で作業するためにsshdをインストールしない。</li>
+</ul>
+<h3 class='title is-4'>コンテナの実行</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker run —name=“コンテナ名” イメージ名 
+</pre></div>
+</div>
+
+<p>バックグラウンド実行/ホストの80番ポートのパケットをコンテナの80番ポートへ転送/httpdのタグ2.2.31を取得 </p>
+<div class="CodeRay">
+  <div class="code"><pre>$ docker run -d -p 8080:80 httpd:2.2.31 
+</pre></div>
+</div>
+<h3 class='title is-4'>稼働中コンテナの状態を表示</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker ps -a 
+</pre></div>
+</div>
+<h3 class='title is-4'>停止中コンテナの再実行</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker start -a コンテナ名 
+</pre></div>
+</div>
+<h3 class='title is-4'>コンテナの削除</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker rm コンテナ名 
+</pre></div>
+</div>
+<h3 class='title is-4'>ローカル環境のイメージ一覧を表示する</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker images 
+</pre></div>
+</div>
+<h3 class='title is-4'>イメージの削除</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker rmi イメージ名 
+</pre></div>
+</div>
+<h3 class='title is-4'>Docker HUBを検索する</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker search 検索文字列  
+</pre></div>
+</div>
+<h3 class='title is-4'>カスタマイズしたコンテナからイメージを作成</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker commit -c “EXPOSE 22” -c “CMD /usr/sbin/sshd -D” static_pare htakeuchi/sshd
+</pre></div>
+</div>
+
+<ul>
+<li>TCP22番ポートをlisten</li>
+<li>コンテナ起動時にsshdをバックグラウンドで起動</li>
+<li>static_pare: コンテナ名</li>
+<li>htakeuchi/sshd: カスタムイメージ名</li>
+</ul>
+
+        </div>
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>ローカルにあるイメージを強制的に削除</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker rmi -f $(docker images -aq)
+</pre></div>
+</div>
+<h3 class='title is-4'>イメージにリポジトリ名やタグ名を付与する</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker tag ubuntu:14.04 htakeuchi/ubuntu:14.04
+</pre></div>
+</div>
+
+<p>ローカルイメージubuntu:14.04をhtakeuchi/ubuntu:14.04に変更する</p>
+<h3 class='title is-4'>イメージやコンテナの詳細情報を表示する</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker inspect コンテナまたはイメージ
+$ docker inspect -f  ‘{{{ . Config.Hostname }}}’ ubuntu:14.04
+</pre></div>
+</div>
+<h3 class='title is-4'>イメージの作成履歴を表示する</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker history イメージ
+</pre></div>
+</div>
+<h3 class='title is-4'>Dockerfileからイメージを作成する</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker build ディレクトリまたはURL
+$ docker build -t myimage:v1.0 /home/htakeuchi/newimage
+$ docker buiild -t myimage:v1.0 git://example.com/sample.git
+$ docker buiild -t myimage:v1.0 git://example.com/sample.git#newbranch:docker
+</pre></div>
+</div>
+<h3 class='title is-4'>イメージをtarアーカイブ形式で保存する</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker save -o ubuntu-all.tar イメージ
+$ docker save ubuntu:14.04 | gzip &gt; ubuntu-14.04.tar.gz
+</pre></div>
+</div>
+<h3 class='title is-4'>tarアーカイブからイメージを復元する</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker load -i ubuntu-14.04.tar.gz
+</pre></div>
+</div>
+<h3 class='title is-4'>ファイルシステムデータからイメージを作成する</h3><div class="CodeRay">
+  <div class="code"><pre>$ tar -c home/newimage | docker import - newimage:v1.0
+$ docker import -c “CMD /bin/bash” sample.tar.gz newimage:v1.0
+$ docker import -m “Imported from tarball” sample.tar.gz newimage:v1.0
+</pre></div>
+</div>
+<h3 class='title is-4'>コンテナとクライアント環境の間でファイルをコピーする</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker cp コンテナ:パス クライアント環境のパス
+$ docker cp クライアント環境のパス コンテナ:パス 
+</pre></div>
+</div>
+
+<p>コンテナはコンテナ名かコンテナIDを指定する。</p>
+
+        </div>
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>DockerHubへの公開</h3><div class="CodeRay">
+  <div class="code"><pre>$ docker login
+$ docker build -t username/sample-image:latest .
+$ docker push username/sample-image
+</pre></div>
+</div>
+<h3 class='title is-4'>ロケールの設定</h3>
+<p>デフォルトのロケールはPOSIXになっているので、Dockerファイルへ以下を書く。</p>
+<div class="CodeRay">
+  <div class="code"><pre>RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8
+</pre></div>
+</div>
+<h3 class='title is-4'>Webサーバを起動する</h3><div class="CodeRay">
+  <div class="code"><pre>$ ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot =&gt; &quot;./&quot;, :Port =&gt; 8000).start'
+$ ruby​​ -run -e httpd -p 8000
+</pre></div>
+</div>
+<h3 class='title is-4'>参考サイト</h3>
+<ul>
+<li><a href="https://goo.gl/KV9Dt3">docker-compose による nginx + HTTPruby /2 + PHP-FPM7 + MySQL 環境の構築方法 – PSYENCE:MEDIA</a></li>
+<li><a href="https://goo.gl/Ahh7D">Middleman で作った web サイトを Travis + GitHub pages でお手軽に運用する - tricknotesのぼうけんのしょ</a></li>
+</ul>
+
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</body>
+</html>
