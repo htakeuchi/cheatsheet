@@ -53,7 +53,9 @@ module CheatSheetGenerator
     renderer = MyRenderer.new
     markdown = Redcarpet::Markdown.new(renderer, {
                                         tables: true,
-                                        :space_after_headers => true,
+                                        quote: true,
+                                        autolink: true,
+                                        hard_wrap: true,
                                         fenced_code_blocks: true
                                        })
     columns = []

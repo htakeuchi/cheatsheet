@@ -5,7 +5,6 @@ GEM
     front_matter_parser (0.2.0)
     rake (12.3.2)
     redcarpet (3.4.0)
-    rouge (3.3.0)
 
 PLATFORMS
   ruby
@@ -16,7 +15,6 @@ DEPENDENCIES
   front_matter_parser
   rake
   redcarpet
-  rouge
 
 BUNDLED WITH
    1.17.1

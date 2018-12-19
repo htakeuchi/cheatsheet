@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
   <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
-
   <style>
     table {
       font-size: small;
@@ -27,46 +26,34 @@
       padding: 0.5em;
     }
   </style>
-  
+
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script async type="text/javascript" src="/js/bulma.js"></script>
 </head>
 <body>
-  <section class="section">
+  <!-- Navigation bar -->
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <a class="navbar-item" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=<%= title %>&amp;url=https://cheatsheets.namaraii.com/<%= front_matter['html'] %>" >
+        <span class="icon">
+          <i class="fab fa-twitter"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/<%= front_matter['html'].sub(/\.html$/, '.md') %>">
+        <span class="icon">
+          <i class="fab fa-github""></i>
+        </span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="section sheet padding-10m">
     <div class="container">
-
-      <nav class="navbar  is-transparent">
-          <div class="navbar-brand">
-            <a class="button" href="/">
-              <span class="icon">
-                <i class="fas fa-home"></i>
-              </span>
-            </a>
-          </div>
-
-          <div id="navbarExampleTransparentExample" class="navbar-menu">
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="field is-grouped">
-                  <p class="control">
-                    <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=<%= title %>&amp;url=https://cheatsheets.namaraii.com/<%= front_matter['html'] %>" >  
-                      <span class="icon">
-                        <i class="fab fa-twitter"></i>
-                      </span>
-                    </a>
-                  </p>
-                  <p class="control">
-                    <a class="button" target="_blank" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/<%= front_matter['html'] %>">
-                      <span class="icon">
-                        <i class="fab fa-github"></i>
-                      </span>
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-
       <h1 class="title has-text-centered"><%= title %></h1>
 
       <div class="columns">

@@ -3,7 +3,7 @@ title: Scrapbox
 category: Wiki
 tags: [Featured]
 updated: 2018-12-18
-columns: 2
+columns: 3
 description: Wiki
 ---
 ### 文字修飾

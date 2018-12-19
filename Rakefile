@@ -1,3 +1,4 @@
+require 'webrick'
 require_relative 'lib/cheatsheet_generator'
 require_relative 'lib/index_generator'
 include CheatSheetGenerator
@@ -27,3 +28,8 @@ end
 
 desc 'Generate Cheetsheets from Markdown'
 task :default => DEST
+
+desc 'Start Web Server'
+task :server do
+  WEBrick::HTTPServer.new(:DocumentRoot => "./public", :Port => 8000).start
+end
