@@ -1,7 +1,7 @@
 ---
 title: Vim
 category: Editor
-tags: [Featured]
+tags: ["Featured", "Text"]
 updated: 2018-12-18
 columns: 3
 description: Vim Editor

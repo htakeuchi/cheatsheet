@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>bl.ocks.org cheatsheet</title>
+  <meta name="description" content="bl.ocks.orgでD3.jsのグラフを公開する" />
+
+  <!---
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  -->
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <style>
+    table {
+      font-size: small;
+      width: 100%;
+    }
+    h1 {
+      padding-bottom: 0.5em;
+    }
+    h2,h3,h4,h5,h6 {
+      padding-top: 1em;
+      padding-bottom: 0.2em;
+      margin-top: 0.2em;
+    }
+    div.highlight {
+      padding: 0.5em;
+    }
+  </style>
+
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+  <section class="section">
+    <div class="container">
+
+      <h1 class="title is-1 has-text-centered">bl.ocks.org</h1>
+
+      <div class="columns">
+        
+        <div class="column is-half">
+          <h3 class='title is-4'>Gistを作成する</h3>
+<ul>
+<li>index.html</li>
+<li>.block (ライセンス）</li>
+<li>README.md</li>
+</ul>
+<h3 class='title is-4'>bl.ocks.orgへアクセスする</h3>
+<p>https://bl.ocks.org/htakeuchi</p>
+<h3 class='title is-4'>Gistをcloneする</h3><div class="CodeRay">
+  <div class="code"><pre>cd /Users/hitoshi/project/raw
+git clone https://gist.github.com/a60c0ecb55713c06c054c26c6dbed57a.git
+</pre></div>
+</div>
+<h3 class='title is-4'>サムネイルを作成する</h3><div class="CodeRay">
+  <div class="code"><pre>webkit2png -W 960 -H 500 -F -o thumbnail https://bl.ocks.org/htakeuchi/raw/a60c0ecb55713c06c054c26c6dbed57a/ 
+mogrify -resize 230x120 thumbnail-full.png
+mv thumbnail-full.png thumbnail.png 
+git add thumbnail.png 
+git commit -am &quot;add thumnail&quot;
+git push
+</pre></div>
+</div>
+
+        </div>
+        
+        <div class="column is-half">
+          <h3 class='title is-4'>Webページのスクリーンショットを作成するためのコマンドをインストールしておく</h3><div class="CodeRay">
+  <div class="code"><pre>brew install webkit2png
+brew install imagemagick 
+</pre></div>
+</div>
+
+        </div>
+        
+      </div>
+    </div>
+  </section>
+</body>
+</html>

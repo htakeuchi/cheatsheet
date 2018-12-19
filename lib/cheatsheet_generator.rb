@@ -1,7 +1,6 @@
 require 'erb'
 require 'redcarpet'
-require 'rouge'
-require 'rouge/plugins/redcarpet'
+require 'coderay'
 require 'front_matter_parser'
 require 'date'
 require 'pp'
@@ -10,7 +9,10 @@ module CheatSheetGenerator
   COLUMNS = 3
 
   class MyRenderer < Redcarpet::Render::HTML
-    include Rouge::Plugins::Redcarpet
+    def block_code(code, language)
+      lang = (language.nil? ? "plaintext" : language).to_sym
+      CodeRay.scan(code, lang).div
+    end
 
     def table(header, body)
       "<table class='table is-striped'>" \
@@ -51,12 +53,14 @@ module CheatSheetGenerator
     renderer = MyRenderer.new
     markdown = Redcarpet::Markdown.new(renderer, {
                                         tables: true,
+                                        :space_after_headers => true,
                                         fenced_code_blocks: true
                                        })
     columns = []
     counter, line_cnt= 0, 0
     sec = []
-    title = front_matter["title"]
+    title = front_matter["title"] || ''
+    description = front_matter["description"] || ''
 
     sections.each do |s|    
       sec << s
@@ -71,6 +75,8 @@ module CheatSheetGenerator
     end
 
     columns << sec
+    column_class = %w(is-full is-half is-one-third)[col_num - 1]
+
     erb.result(binding)
   end
 

@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Scrapbox cheatsheet</title>
+  <meta name="description" content="Wiki" />
+
+  <!---
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-  <link rel="stylesheet" href="css/rouge.css">
+  -->
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
   <style>
     table {
       font-size: small;
@@ -31,40 +35,14 @@
   <section class="section">
     <div class="container">
 
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, & modern CSS framework based on Flexbox" width="112" height="28">
-          </a>   
-        </div>
-
-        <div class="navbar-end">
-          <div class="field is-grouped">
-            <p class="control">
-              <a class="button is-rounded is-link">
-                <span class="icon">
-                  <i class="fab fa-twitter" aria-hidden="true"></i>
-                </span>
-              </a>
-            </p>
-            <p class="control">
-              <a class="button is-rounded">
-                <span class="icon">
-                  <i class="fab fa-github" aria-hidden="true"></i>
-                </span>
-                <span>Edit</span>
-              </a>
-            </p>
-          </div>
-        </div>
-      </nav>
-
-      <h1 class="title is-1 has-text-centered">Scrapbox cheatsheet</h1>
+      <h1 class="title is-1 has-text-centered">Scrapbox</h1>
 
       <div class="columns">
         
-        <div class="column">
-          <h3 class='title is-4'>文字修飾</h3><table class='table is-striped'><tbody><tr>
+        <div class="column is-one-third">
+          <h3 class='title is-4'>文字修飾</h3>
+<p>いわゆるHeadingに該当する記法は無いため、見出しは太字を使って表現する。</p>
+<table class='table is-striped'><tbody><tr>
 <td>太字</td>
 <td>[太字]</td>
 </tr>
@@ -121,7 +99,7 @@
 
         </div>
         
-        <div class="column">
+        <div class="column is-one-third">
           <h3 class='title is-4'>画像</h3><table class='table is-striped'><tbody><tr>
 <td>画像の引用</td>
 <td>[https://gyazo.com/da78d.png]</td>
@@ -135,27 +113,36 @@
 <td>[https://i.gyazo.com/da78d.png http://yahoo.co.jp]</td>
 </tr>
 </tbody></table><h3 class='title is-4'>引用</h3>
-<p>行頭に<code>&gt;</code>を書くと引用になります</p>
+<p>行頭に<code>&gt;</code>を書くと引用になる。</p>
 <h3 class='title is-4'>テーブル</h3>
 <p><code>table:テーブル名</code> の後、インデントしてタブ区切りで行を書く。</p>
-<div class="highlight"><pre class="highlight plaintext"><code>table:テーブルの例
+<div class="CodeRay">
+  <div class="code"><pre>table:テーブルの例
   abc   def
   12345 6789
   すごく長い文字列  短い文字列
-</code></pre></div><h3 class='title is-4'>コード（インライン）</h3>
+</pre></div>
+</div>
+<h3 class='title is-4'>コード（インライン）</h3>
 <p>バッククオートで括る。</p>
-<div class="highlight"><pre class="highlight plaintext"><code>`function() {  return true }`
-</code></pre></div><h3 class='title is-4'>コードブロック</h3>
+<div class="CodeRay">
+  <div class="code"><pre>`function() {  return true }`
+</pre></div>
+</div>
+<h3 class='title is-4'>コードブロック</h3>
 <p><code>code:言語名</code>もしくは<code>code:ファイル名</code>もしくは<code>code:ファイル名(言語名)</code>の下のブロックがシンタックスハイライトされる。</p>
-<div class="highlight"><pre class="highlight javascript"><code>    <span class="nx">code</span><span class="p">:</span><span class="nx">hello</span><span class="p">.</span><span class="nx">js</span>
-      <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">)</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">)</span>
-      <span class="p">}</span>
-</code></pre></div>
+<div class="CodeRay">
+  <div class="code"><pre>    code:hello.js
+      <span style="color:#080;font-weight:bold">function</span> () {
+        alert(document.location.href)
+        console.log(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">hello</span><span style="color:#710">&quot;</span></span>)
+      }
+</pre></div>
+</div>
+
         </div>
         
-        <div class="column">
+        <div class="column is-one-third">
           <h3 class='title is-4'>アイコン</h3><table class='table is-striped'><tbody><tr>
 <td>アイコン</td>
 <td>[rakusai.icon]</td>
@@ -164,8 +151,11 @@
 <td>アイコン</td>
 <td>[/icons/炎上.icon]</td>
 </tr>
-</tbody></table><h3 class='title is-4'>数式</h3><div class="highlight"><pre class="highlight plaintext"><code>[$ \frac{-b \pm \sqrt{b^2-4ac}}{2a}]
-</code></pre></div>
+</tbody></table><h3 class='title is-4'>数式</h3><div class="CodeRay">
+  <div class="code"><pre>[$ \frac{-b \pm \sqrt{b^2-4ac}}{2a}]
+</pre></div>
+</div>
+
         </div>
         
       </div>

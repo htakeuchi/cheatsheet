@@ -5,18 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Rake cheatsheet</title>
+  <meta name="description" content="Rake" />
+
+  <!---
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-  <link rel="stylesheet" href="css/rouge.css">
+  -->
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
   <style>
     table {
       font-size: small;
       width: 100%;
     }
-    div.highlight {
-      box-shadow: 0 1px 2px 1px #ddd;
-    }
     h1 {
       padding-bottom: 0.5em;
+    }
+    h2,h3,h4,h5,h6 {
+      padding-top: 1em;
+      padding-bottom: 0.2em;
+      margin-top: 0.2em;
+    }
+    div.highlight {
+      padding: 0.5em;
     }
   </style>
 
@@ -26,64 +35,42 @@
   <section class="section">
     <div class="container">
 
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, & modern CSS framework based on Flexbox" width="112" height="28">
-          </a>   
-        </div>
-
-        <div class="navbar-end">
-          <div class="field is-grouped">
-            <p class="control">
-              <a class="button is-rounded is-link">
-                <span class="icon">
-                  <i class="fab fa-twitter" aria-hidden="true"></i>
-                </span>
-              </a>
-            </p>
-            <p class="control">
-              <a class="button is-rounded">
-                <span class="icon">
-                  <i class="fab fa-github" aria-hidden="true"></i>
-                </span>
-                <span>Edit</span>
-              </a>
-            </p>
-          </div>
-        </div>
-      </nav>
-
-      <h1 class="title is-1 has-text-centered">Rake cheatsheet</h1>
+      <h1 class="title is-1 has-text-centered">Rake</h1>
 
       <div class="columns">
         
-        <div class="column">
-          <h3 class='title is-4'>Basic syntax</h3><div class="highlight"><pre class="highlight ruby"><code><span class="n">namespace</span> <span class="ss">:foo</span> <span class="k">do</span>
-  <span class="n">desc</span> <span class="s2">"Description"</span>
-  <span class="n">task</span> <span class="ss">:bar</span> <span class="k">do</span>
-    <span class="o">...</span>
-  <span class="k">end</span>
+        <div class="column is-half">
+          <h3 class='title is-4'>Basic syntax</h3><div class="CodeRay">
+  <div class="code"><pre>namespace <span style="color:#A60">:foo</span> <span style="color:#080;font-weight:bold">do</span>
+  desc <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Description</span><span style="color:#710">&quot;</span></span>
+  task <span style="color:#A60">:bar</span> <span style="color:#080;font-weight:bold">do</span>
+    ...
+  <span style="color:#080;font-weight:bold">end</span>
 
-  <span class="n">task</span> <span class="ss">:baz</span> <span class="o">=&gt;</span> <span class="ss">:dependency</span> <span class="k">do</span>
-  <span class="k">end</span>
+  task <span style="color:#A60">:baz</span> =&gt; <span style="color:#A60">:dependency</span> <span style="color:#080;font-weight:bold">do</span>
+  <span style="color:#080;font-weight:bold">end</span>
 
-  <span class="n">task</span> <span class="ss">:baz</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:dep1</span><span class="p">,</span> <span class="ss">:dep2</span><span class="p">,</span> <span class="ss">:dep3</span><span class="p">]</span> <span class="k">do</span>
-  <span class="k">end</span>
-<span class="k">end</span>
+  task <span style="color:#A60">:baz</span> =&gt; [<span style="color:#A60">:dep1</span>, <span style="color:#A60">:dep2</span>, <span style="color:#A60">:dep3</span>] <span style="color:#080;font-weight:bold">do</span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span>
 
- <span class="c1"># rake foo:bar</span>
-</code></pre></div>
+ <span style="color:#777"># rake foo:bar</span>
+</pre></div>
+</div>
+
         </div>
         
-        <div class="column">
-          <h3 class='title is-4'>Rake task with arguments</h3><div class="highlight"><pre class="highlight ruby"><code><span class="n">desc</span> <span class="s2">"Do something"</span>
-<span class="n">task</span> <span class="ss">:workit</span><span class="p">,</span> <span class="p">[</span><span class="ss">:id</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="ss">:environment</span> <span class="k">do</span> <span class="o">|</span><span class="n">_</span><span class="p">,</span> <span class="n">args</span><span class="o">|</span>
-  <span class="nb">id</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="ss">:id</span><span class="p">]</span>
-<span class="k">end</span>
+        <div class="column is-half">
+          <h3 class='title is-4'>Rake task with arguments</h3><div class="CodeRay">
+  <div class="code"><pre>desc <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Do something</span><span style="color:#710">&quot;</span></span>
+task <span style="color:#A60">:workit</span>, [<span style="color:#A60">:id</span>] =&gt; <span style="color:#A60">:environment</span> <span style="color:#080;font-weight:bold">do</span> |_, args|
+  id = args[<span style="color:#A60">:id</span>]
+<span style="color:#080;font-weight:bold">end</span>
 
- <span class="c1"># rake workit[234]</span>
-</code></pre></div>
+ <span style="color:#777"># rake workit[234]</span>
+</pre></div>
+</div>
+
         </div>
         
       </div>

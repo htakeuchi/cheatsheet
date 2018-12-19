@@ -1,12 +1,15 @@
 ---
 title: Scrapbox
-category: Web service
+category: Wiki
 tags: [Featured]
 updated: 2018-12-18
 columns: 3
 description: Wiki
 ---
 ### 文字修飾
+
+いわゆるHeadingに該当する記法は無いため、見出しは太字を使って表現する。
+
 | | |
 |---|---|
 |太字|[太字]|
@@ -42,7 +45,7 @@ description: Wiki
 |画像+リンク|[https://i.gyazo.com/da78d.png http://yahoo.co.jp]|
 
 ### 引用
-行頭に`>`を書くと引用になります
+行頭に`>`を書くと引用になる。
 
 ### テーブル
 `table:テーブル名` の後、インデントしてタブ区切りで行を書く。
