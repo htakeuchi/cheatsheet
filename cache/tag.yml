@@ -2,6 +2,8 @@
 ! '':
 - :filename: src/docker.md
   :title: Docker
+- :filename: src/vscode.md
+  :title: Visual Studio Code
 Featured:
 - :filename: src/markdown.md
   :title: Markdown

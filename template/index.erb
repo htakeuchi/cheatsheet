@@ -15,6 +15,40 @@
 </head>
 <body>
   <section class="hero is-primary">
+
+
+  <div class="hero-head">
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="../">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+        <a class="navbar-item" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Cheatsheet&amp;url=https://www.namaraii.com/cheatsheet/" >
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+        </a>
+        <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/ ">
+          <span class="icon">
+            <i class="fab fa-github""></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+  </div>
+
+
+
+
+
+
+
+
+
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
@@ -32,11 +66,11 @@
       <% category.sort.each do |cat| %>
         <div class="box">
           <h3 class="title is-3"><%= cat[0] %></h3>
-          <ul>
+          <div class="buttons">
             <% cat[1].each do |v| %>
-            <li><a href="<%= v[:filename].sub(/src\//, '').sub(/\.md$/, '.html') %>"><%= v[:title]%></a></li>
+              <span class="button is-info"><a href="<%= v[:filename].sub(/src\//, '').sub(/\.md$/, '.html') %>"><%= v[:title]%></a></span>
             <% end %>
-          </ul>
+          </div>
         </div>
         <% end %>
     </div>

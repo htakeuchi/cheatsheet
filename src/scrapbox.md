@@ -1,10 +1,10 @@
 ---
 title: Scrapbox
-category: Wiki
+category: Markup
 tags: [Featured]
 updated: 2018-12-18
 columns: 3
-description: Wiki
+description: Scrapbox
 ---
 ### 文字修飾
 
