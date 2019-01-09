@@ -97,7 +97,11 @@
   <div class="code"><pre>$ docker search 検索文字列  
 </pre></div>
 </div>
-<h3 class='title is-4'>カスタマイズしたコンテナからイメージを作成</h3><div class="CodeRay">
+
+        </div>
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>カスタマイズしたコンテナからイメージを作成</h3><div class="CodeRay">
   <div class="code"><pre>$ docker commit -c “EXPOSE 22” -c “CMD /usr/sbin/sshd -D” static_pare htakeuchi/sshd
 </pre></div>
 </div>
@@ -108,11 +112,7 @@
 <li>static_pare: コンテナ名</li>
 <li>htakeuchi/sshd: カスタムイメージ名</li>
 </ul>
-
-        </div>
-        
-        <div class="column is-one-third">
-          <h3 class='title is-4'>ローカルにあるイメージを強制的に削除</h3><div class="CodeRay">
+<h3 class='title is-4'>ローカルにあるイメージを強制的に削除</h3><div class="CodeRay">
   <div class="code"><pre>$ docker rmi -f $(docker images -aq)
 </pre></div>
 </div>
@@ -143,7 +143,11 @@ $ docker buiild -t myimage:v1.0 git://example.com/sample.git#newbranch:docker
 $ docker save ubuntu:14.04 | gzip &gt; ubuntu-14.04.tar.gz
 </pre></div>
 </div>
-<h3 class='title is-4'>tarアーカイブからイメージを復元する</h3><div class="CodeRay">
+
+        </div>
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>tarアーカイブからイメージを復元する</h3><div class="CodeRay">
   <div class="code"><pre>$ docker load -i ubuntu-14.04.tar.gz
 </pre></div>
 </div>
@@ -160,11 +164,7 @@ $ docker cp クライアント環境のパス コンテナ:パス
 </div>
 
 <p>コンテナはコンテナ名かコンテナIDを指定する。</p>
-
-        </div>
-        
-        <div class="column is-one-third">
-          <h3 class='title is-4'>DockerHubへの公開</h3><div class="CodeRay">
+<h3 class='title is-4'>DockerHubへの公開</h3><div class="CodeRay">
   <div class="code"><pre>$ docker login
 $ docker build -t username/sample-image:latest .
 $ docker push username/sample-image

@@ -33,8 +33,8 @@ MacOS用のキーボードショートカットです。
 |⇧⌘\|対応するブラケットへ飛ぶ|
 |⌘] / ⌘[|行のインデント/行のインデント解除|
 |Home / End|行の先頭へ/行の末尾へ|
-|⌘↑ / ⌘↓|Go to beginning/end of file|
-|⌃PgUp / ⌃PgDn|Scroll line up/down|
+|⌘↑ / ⌘↓|先頭行へ/最終行へ|
+|⌃PgUp / ⌃PgDn|1行上へスクロール/1行下へ|
 |⌘PgUp /⌘PgDn|Scroll page up/down|
 |⌥⌘[ / ⌥⌘]|Fold/unfold region|
 |⌘K ⌘[ / ⌘K ⌘]|Fold/unfold all subregions|

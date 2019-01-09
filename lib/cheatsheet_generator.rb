@@ -46,7 +46,7 @@ module CheatSheetGenerator
 
     [parsed.front_matter, sections, counter]
   end
-
+  
   def generate(front_matter, sections, lines)
     erb = ERB.new(File.read("./template/cheatsheet.erb"))    
     col_num = front_matter["columns"].nil? ? COLUMNS : front_matter["columns"]
@@ -68,7 +68,7 @@ module CheatSheetGenerator
       sec << s
       line_cnt += s.lines.size
 
-      if (line_cnt > (lines/col_num)) && (counter < col_num-1)
+      if (line_cnt > (lines/col_num) * 0.8) && (counter < col_num-1)
         columns << sec
         sec = []
         line_cnt = 0
