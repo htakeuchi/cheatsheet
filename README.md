@@ -16,9 +16,11 @@ $ bundle install
 $ bundle exec rake
 ```
 
+src配下のMarkdownからdoc配下へチートシートを生成する。同時にチートシートのインデクスページを更新する。
+
+
 ### Webサーバを起動する
 
 ```
 $ bundle exec rake server
 ```
-
