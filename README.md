@@ -19,6 +19,6 @@ $ bundle exec rake
 ### Webサーバを起動する
 
 ```
-$ bundle exec server
+$ bundle exec rake server
 ```
 
