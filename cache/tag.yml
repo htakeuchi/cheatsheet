@@ -16,3 +16,8 @@ Featured:
 Text:
 - :filename: src/vim.md
   :title: Vim
+- :filename: src/notion.md
+  :title: Notion Shortcuts
+Markdown:
+- :filename: src/notion.md
+  :title: Notion Shortcuts

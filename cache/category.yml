@@ -15,3 +15,6 @@ Editor:
   :title: Vim
 - :filename: src/vscode.md
   :title: Visual Studio Code
+Service:
+- :filename: src/notion.md
+  :title: Notion Shortcuts

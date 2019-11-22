@@ -8,6 +8,7 @@ GEM
 
 PLATFORMS
   ruby
+  x64-mingw32
   x86-mingw32
 
 DEPENDENCIES
@@ -17,4 +18,4 @@ DEPENDENCIES
   redcarpet
 
 BUNDLED WITH
-   1.17.1
+   1.17.2
