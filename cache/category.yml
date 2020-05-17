@@ -18,3 +18,10 @@ Editor:
 Service:
 - :filename: src/notion.md
   :title: Notion Shortcuts
+- :filename: src/scrapbox.md
+  :title: Scrapbox
+Music:
+- :filename: src/studio4.md
+  :title: Studio One 4
+- :filename: src/flstudio.md
+  :title: FL Studio 20

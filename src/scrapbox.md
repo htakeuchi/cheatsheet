@@ -1,6 +1,6 @@
 ---
 title: Scrapbox
-category: Markup
+category: [Markup, Service]
 tags: [Featured]
 updated: 2018-12-18
 columns: 3
