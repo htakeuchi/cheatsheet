@@ -2,28 +2,26 @@
 ! '':
 - :filename: src/docker.md
   :title: Docker
-- :filename: src/vscode.md
-  :title: Visual Studio Code
-- :filename: src/studio4_full.md
-  :title: Studio One 4(全機能)
-- :filename: src/studio4.md
-  :title: Studio One 4
 - :filename: src/flstudio.md
   :title: FL Studio 20
+- :filename: src/studio4.md
+  :title: Studio One 4
+- :filename: src/vscode.md
+  :title: Visual Studio Code
 Featured:
 - :filename: src/markdown.md
   :title: Markdown
 - :filename: src/rake.md
   :title: Rake
-- :filename: src/vim.md
-  :title: Vim
 - :filename: src/scrapbox.md
   :title: Scrapbox
-Text:
 - :filename: src/vim.md
   :title: Vim
-- :filename: src/notion.md
-  :title: Notion Shortcuts
 Markdown:
 - :filename: src/notion.md
   :title: Notion Shortcuts
+Text:
+- :filename: src/notion.md
+  :title: Notion Shortcuts
+- :filename: src/vim.md
+  :title: Vim
