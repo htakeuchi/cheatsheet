@@ -17,19 +17,11 @@ jobs:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Set up Ruby version
-        uses: actions/setup-ruby@master
+      - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: ${{ matrix.ruby }}
-
-      - name: Set up bundler
-        run: gem install bundler
-
-      - name: bundle install
-        run: bundle install --jobs 4 --retry 3
-
-      - name: Build
-        run: bundle exec rake
+          ruby-version: 2.7 
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - run: bundle exec rake
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
