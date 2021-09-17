@@ -2,7 +2,7 @@
 
 Markdownで書いたチートシートを指定した段数で段組したHTMLへ変換し、自動的にインデクスページを生成する。
 
-出力例は[こちら](https://namaraii.com/cheatsheet/)。
+出力例は[こちら](https://cheatsheets.namaraii.com/)
 
 ## セットアップ
 

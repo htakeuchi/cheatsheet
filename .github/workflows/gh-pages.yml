@@ -1,0 +1,39 @@
+name: GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # Set a branch name to trigger deployment
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Set up Ruby version
+        uses: actions/setup-ruby@master
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - name: Set up bundler
+        run: gem install bundler
+
+      - name: bundle install
+        run: bundle install --jobs 4 --retry 3
+
+      - name: Build
+        run: bundle exec rake
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: ./docs
+        cname: cheatsheets.namaraii.com

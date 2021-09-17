@@ -3,6 +3,6 @@
 source "https://rubygems.org"
 
 gem "rake", ">= 12.3.3"
-gem "redcarpet"
+gem "redcarpet", ">= 3.5.1"
 gem "front_matter_parser"
 gem "coderay"

@@ -8,6 +8,14 @@ description: Visual Studio Code
 ---
 MacOS用のキーボードショートカットです。
 
+### 凡例
+
+|||
+|---|---|
+|⌘|Cmd| 
+|⌥|Option|
+|⇧|Shift|
+|^|Ctrl|
 
 ### 一般
 
@@ -34,8 +42,8 @@ MacOS用のキーボードショートカットです。
 |⌘] / ⌘[|行のインデント/行のインデント解除|
 |Home / End|行の先頭へ/行の末尾へ|
 |⌘↑ / ⌘↓|先頭行へ/最終行へ|
-|⌃PgUp / ⌃PgDn|1行上へスクロール/1行下へ|
-|⌘PgUp /⌘PgDn|Scroll page up/down|
+|⌃PgUp / ⌃PgDn|1行 スクロールアップ/ダウン|
+|⌘PgUp /⌘PgDn|1ページ スクロールアップ/ダウン|
 |⌥⌘[ / ⌥⌘]|Fold/unfold region|
 |⌘K ⌘[ / ⌘K ⌘]|Fold/unfold all subregions|
 |⌘K ⌘0 / ⌘K ⌘J|Fold/unfold all regions|
