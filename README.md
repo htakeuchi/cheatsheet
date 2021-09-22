@@ -25,4 +25,5 @@ src配下のMarkdownからdoc配下へチートシートを生成する。同時
 
 ```
 $ bundle exec rake server
+
 ```

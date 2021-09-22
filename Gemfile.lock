@@ -15,5 +15,8 @@ DEPENDENCIES
   rake (>= 12.3.3)
   redcarpet (>= 3.5.1)
 
+RUBY VERSION
+   ruby 2.7.3p183
+
 BUNDLED WITH
    2.1.4

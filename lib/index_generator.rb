@@ -23,7 +23,7 @@ description: Wiki
 =end
 
   def front_matter(f)
-    loader = FrontMatterParser::Loader::Yaml.new(whitelist_classes: [Date])
+    loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Date])
     parsed = FrontMatterParser::Parser.parse_file(f, loader: loader)
     parsed.front_matter
   end
