@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>@htakeuchi cheatsheet</title>
-  <meta name="description" content="自作のチートシートをまとめているページです。" >
+  <meta name="description" content="cheatsheets" >
 
   <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
 
   <style>
   </style>
@@ -20,14 +20,9 @@
   <nav class="navbar">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://namaraii.com/cheatsheet/">
+        <a class="navbar-item" href="<%= @config['home'] %>">
           <span class="icon">
             <i class="fas fa-home"></i>
-          </span>
-        </a>
-        <a class="navbar-item" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Cheatsheet&amp;url=https://namaraii.com/cheatsheet/" >
-          <span class="icon">
-            <i class="fab fa-twitter"></i>
           </span>
         </a>
         <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/ ">
@@ -43,10 +38,10 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        Cheatsheets
+        <%= @config['title'] %>
       </h1>
       <h2 class="subtitle">
-        @htakeuchi
+        <%= @config['description'] %>
       </h2>
     </div>
   </div>
@@ -66,5 +61,41 @@
         <% end %>
     </div>
   </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+      Copyright by <%= @config['author'] %>
+      <% if @config['links']['site']['url'] %>
+       ( <a href="<%= @config['links']['site']['url'] %>"><%= @config['links']['site']['title'] %></a> )
+      <% end %>
+      </p>
+    </div>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <% links = @config['links'] %>
+          <% if links['email'] %>          
+            <a class="navbar-item" href="mailto: <%= links['email'] %> ">
+              <span class="icon">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+            </a>
+          <% end %>
+
+          <% %w(bluesky mastodon threads github x).each do |sns| %>
+          <% if links[sns] %>          
+            <a class="navbar-item" href="<%= links[sns] %> ">
+              <span class="icon">
+                <i class="fab fa-<%= sns%>"></i>
+              </span>
+            </a>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+  </footer>
+
 </body>
 </html>

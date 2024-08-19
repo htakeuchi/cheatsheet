@@ -26,21 +26,16 @@
       padding: 0.5em;
     }
   </style>
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
   <script async type="text/javascript" src="/js/bulma.js"></script>
 </head>
 <body>
   <!-- Navigation bar -->
   <nav class="navbar is-fixed-top is-transparent">
     <div class="navbar-brand">
-      <a class="navbar-item" href="index.html">
+      <a class="navbar-item" href="<%= @config['home'] %>">
         <span class="icon">
           <i class="fas fa-home"></i>
-        </span>
-      </a>
-      <a class="navbar-item" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=<%= title %>&amp;url=https://namaraii.com/cheatsheet/<%= front_matter['html'] %>" >
-        <span class="icon">
-          <i class="fab fa-twitter"></i>
         </span>
       </a>
       <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/<%= front_matter['html'].sub(/\.html$/, '.md') %>">
@@ -64,5 +59,41 @@
       </div>
     </div>
   </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+      Copyright by <%= @config['author'] %>
+      <% if @config['links']['site']['url'] %>
+       ( <a href="<%= @config['links']['site']['url'] %>"><%= @config['links']['site']['title'] %></a> )
+      <% end %>
+      </p>
+    </div>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <% links = @config['links'] %>
+          <% if links['email'] %>          
+            <a class="navbar-item" href="mailto: <%= links['email'] %> ">
+              <span class="icon">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+            </a>
+          <% end %>
+
+          <% %w(bluesky mastodon threads github x).each do |sns| %>
+          <% if links[sns] %>          
+            <a class="navbar-item" href="<%= links[sns] %> ">
+              <span class="icon">
+                <i class="fab fa-<%= sns%>"></i>
+              </span>
+            </a>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+  </footer>
+
 </body>
 </html>

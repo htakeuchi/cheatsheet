@@ -49,6 +49,7 @@ module CheatSheetGenerator
   
   def generate(front_matter, sections, lines)
     erb = ERB.new(File.read("./template/cheatsheet.erb"))    
+    @config = YAML.load_file('./config.yaml')
     col_num = front_matter["columns"].nil? ? COLUMNS : front_matter["columns"]
     renderer = MyRenderer.new
     markdown = Redcarpet::Markdown.new(renderer, {

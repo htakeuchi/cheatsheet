@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>YAMAHA SEQTRAK cheatsheet</title>
+  <meta name="description" content="YAMAHA SEQTRAKショートカット" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <style>
+    table {
+      font-size: small;
+      width: 100%;
+    }
+    h1 {
+      padding-bottom: 0.5em;
+    }
+    h2,h3,h4,h5,h6 {
+      padding-top: 1em;
+      padding-bottom: 0.2em;
+      margin-top: 0.2em;
+    }
+    div.highlight {
+      padding: 0.5em;
+    }
+  </style>
+  <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
+  <script async type="text/javascript" src="/js/bulma.js"></script>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://cheatsheets.namaraii.com/">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/seqtrak.md">
+        <span class="icon">
+          <i class="fab fa-github""></i>
+        </span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="section sheet padding-10m">
+    <div class="container">
+      <h1 class="title has-text-centered">YAMAHA SEQTRAK</h1>
+
+      <div class="columns">
+        
+        <div class="column is-half">
+          <h3 class='title is-4'>プロジェクト</h3><table class='table is-striped'><tbody><tr>
+<td>プロジェクト切り替え</td>
+<td><code>PROJECT↑</code>+Drumキー</td>
+</tr>
+<tr>
+<td>プロジェクト削除</td>
+<td><code>PROJECT↑</code>+<code>DELETE</code>+Drumキー</td>
+</tr>
+<tr>
+<td>テンポ変更</td>
+<td><code>BPM+</code> or <code>BMP-</code></td>
+</tr>
+<tr>
+<td>スイングをかける</td>
+<td><code>SWING</code></td>
+</tr>
+<tr>
+<td>メトロノームON/OFF</td>
+<td><code>ALL</code>+<code>BPM+</code></td>
+</tr>
+<tr>
+<td>一時保存(OS V1.10)</td>
+<td><code>PROJECT↑</code>+Drumキー(上段の黄色)</td>
+</tr>
+<tr>
+<td>復元(OS V1.10)</td>
+<td><code>PROJECT↑</code>+Drumキー(下段の水色)</td>
+</tr>
+</tbody></table><h3 class='title is-4'>トラックとパターン</h3><table class='table is-striped'><tbody><tr>
+<td>パターンの切替</td>
+<td>トラックノブを回す</td>
+</tr>
+<tr>
+<td>パターンの切替</td>
+<td>トラックノブを押す+Drumキーダブルクリック</td>
+</tr>
+<tr>
+<td>パターンの予約切替</td>
+<td>トラックノブを押しながら回す</td>
+</tr>
+<tr>
+<td>パターンの予約切替</td>
+<td>トラックノブを押す+Drumキー</td>
+</tr>
+<tr>
+<td>ローンチクオンタイズの変更</td>
+<td><code>PROJECT↑</code>+<code>ALL</code>を回す</td>
+</tr>
+<tr>
+<td>パターン長変更(Drum)</td>
+<td><code>PAGE</code>+Drumトラックノブを回す</td>
+</tr>
+<tr>
+<td>パターン長変更</td>
+<td><code>PAGE</code>+Drumトラックノブを回す</td>
+</tr>
+<tr>
+<td>パターン数変更(3→6)</td>
+<td>トラックノブ+Drumトラック4</td>
+</tr>
+<tr>
+<td>パターン数変更(6→3)</td>
+<td>トラックノブ+Drumトラック4+5+6</td>
+</tr>
+<tr>
+<td>パターン削除</td>
+<td><code>DELETE</code>トラックノブ</td>
+</tr>
+<tr>
+<td>パターンのコピー</td>
+<td>トラックノブ+Drumキー長押し</td>
+</tr>
+<tr>
+<td>パターンのペースト</td>
+<td>トラックノブ+<code>Page</code>+Drumキー</td>
+</tr>
+<tr>
+<td>トラックの選択</td>
+<td>トラックノブ</td>
+</tr>
+<tr>
+<td>トラックのサウンドを変更</td>
+<td>Sound Designノブ1回す(Page1)</td>
+</tr>
+<tr>
+<td>サウンドカテゴリー変更</td>
+<td>Sound Designノブ1(Page1)＋Drumキー</td>
+</tr>
+<tr>
+<td>トラックをミュート</td>
+<td><code>MUTE</code>+トラックノブ</td>
+</tr>
+<tr>
+<td>トラックをソロ</td>
+<td><code>SOLO</code>+トラックノブ</td>
+</tr>
+<tr>
+<td>ステップのコピー</td>
+<td>Drumキー長押し</td>
+</tr>
+<tr>
+<td>ステップのペースト</td>
+<td><code>Page</code>+Drumキー</td>
+</tr>
+</tbody></table><h4 class='title is-5'>Dramトラックのサウンドカテゴリー</h4><table class='table is-striped'><tbody><tr>
+<td>KICK</td>
+<td>SNARE</td>
+<td>RIM</td>
+<td>CLAP</td>
+<td>SNAP</td>
+<td>CHAT</td>
+<td>OHAT</td>
+<td>SHAKER</td>
+</tr>
+<tr>
+<td>RIDE</td>
+<td>CRUSH</td>
+<td>TOM</td>
+<td>BELL</td>
+<td>CONGA</td>
+<td>WORLD</td>
+<td>SFX</td>
+<td>FAV</td>
+</tr>
+</tbody></table>
+        </div>
+        
+        <div class="column is-half">
+          <h4 class='title is-5'>Synthトラックのサウンドカテゴリー</h4><table class='table is-striped'><tbody><tr>
+<td>BASS</td>
+<td>LEAD</td>
+<td>PIANO</td>
+<td>KEY</td>
+<td>ORGAN</td>
+<td>PAD</td>
+<td>STRINGS</td>
+<td>BRASS</td>
+</tr>
+<tr>
+<td>WIND</td>
+<td>GUITAR</td>
+<td>WORLD</td>
+<td>MALLET</td>
+<td>BELL</td>
+<td>RHYTHMIC</td>
+<td>SFX</td>
+<td>FAV</td>
+</tr>
+</tbody></table><h4 class='title is-5'>SAMPLERトラックのサウンドカテゴリー</h4><table class='table is-striped'><tbody><tr>
+<td>VOCAL1</td>
+<td>VOCAL2</td>
+<td>VOCAL3</td>
+<td>ROBOTIC</td>
+<td>RISER</td>
+<td>LASER</td>
+<td>IMPACT</td>
+<td>NOISE</td>
+</tr>
+<tr>
+<td>AMBIENT</td>
+<td>SFX</td>
+<td>SCRATCH</td>
+<td>NATURE</td>
+<td>HIT</td>
+<td>PERC</td>
+<td>RECORDED</td>
+<td>FAV</td>
+</tr>
+</tbody></table><h3 class='title is-4'>Drumトラック</h3><table class='table is-striped'><tbody><tr>
+<td>ステップ入力</td>
+<td>Drumキー</td>
+</tr>
+<tr>
+<td>ページ切替</td>
+<td><code>Page</code></td>
+</tr>
+<tr>
+<td>マイクロタイミング</td>
+<td>Drumキー+トラックノブ回す</td>
+</tr>
+<tr>
+<td>サブステップ</td>
+<td>Drumキー長押し後、別段1〜5のDrumキー</td>
+</tr>
+<tr>
+<td>リアルタイム入力</td>
+<td>Drumトラックノブ+Synthキー</td>
+</tr>
+<tr>
+<td>ステップの発音確率変更(OS V1.10)</td>
+<td>Drumキー+<code>MUTE</code></td>
+</tr>
+</tbody></table><h3 class='title is-4'>Synthトラック</h3><table class='table is-striped'><tbody><tr>
+<td>リアルタイム入力</td>
+<td><code>Record</code>を押してSynthキー</td>
+</tr>
+<tr>
+<td>クオンタイズ切替</td>
+<td><code>ALL</code>+<code>Record</code></td>
+</tr>
+<tr>
+<td>オクターブ変更</td>
+<td><code>OCTAVE</code></td>
+</tr>
+<tr>
+<td>スケール変更</td>
+<td><code>OCTAVE</code></td>
+</tr>
+<tr>
+<td>キーの変更</td>
+<td><code>KEY</code></td>
+</tr>
+<tr>
+<td>コードで演奏する</td>
+<td>Sound Designノブ2(Page1)回す</td>
+</tr>
+<tr>
+<td>コードを編集する</td>
+<td><code>ALL</code>+Synthキー後Drumキーで設定</td>
+</tr>
+<tr>
+<td>鍵盤入力モード</td>
+<td><code>ALL</code>+<code>KEY</code></td>
+</tr>
+<tr>
+<td>ステップ入力(OS V1.10)</td>
+<td><code>PAGE</code>+Synthトラックノブ</td>
+</tr>
+<tr>
+<td>ノートの長さ変更(OS V1.10)</td>
+<td>Drumキー+<code>ALL</code>回す</td>
+</tr>
+</tbody></table><h3 class='title is-4'>Samplerトラック</h3><h4 class='title is-5'>スケールと対応するLED</h4>
+<ul>
+<li>MINOR</li>
+<li>MAJOR</li>
+<li>MINOR PENTATONIC</li>
+<li>MAJOR PENTATONIC</li>
+<li>LYDIAN</li>
+<li>DORIAN</li>
+<li>MIXOLYDIAN</li>
+<li>PHRYGIAN</li>
+</ul>
+
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+      Copyright by TAKEUCHI Hitoshi
+      
+       ( <a href="https://namaraii.com/">namaraii.com</a> )
+      
+      </p>
+    </div>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          
+                    
+            <a class="navbar-item" href="mailto: hitoshi@namaraii.com ">
+              <span class="icon">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+            </a>
+          
+
+          
+                    
+            <a class="navbar-item" href="https://bsky.app/profile/namaraii.com ">
+              <span class="icon">
+                <i class="fab fa-bluesky"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://fedibird.com/@htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-mastodon"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://www.threads.net/@htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-threads"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://github.com/htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://x.com/htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-x"></i>
+              </span>
+            </a>
+          
+          
+        </div>
+      </div>
+    </nav>
+  </footer>
+
+</body>
+</html>

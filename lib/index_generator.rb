@@ -58,6 +58,7 @@ description: Wiki
 
   def create_index(category, tags, last_modify)
     erb = ERB.new(File.read("./template/index.erb"))    
+    @config = YAML.load_file('./config.yaml')
     File.open("./docs/index.html", "w") {|f| f.print erb.result(binding)}
   end
 
