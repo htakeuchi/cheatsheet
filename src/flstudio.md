@@ -2,9 +2,9 @@
 title: FL Studio 20(Mac)
 category: Music
 tags: 
-updated: 2021-09-23
+updated: 2025-07-20
 columns: 3
-description: FL Studio 20 キーボードショートカット(Mac)
+description: FL Studio 2025 キーボードショートカット(Mac)
 ---
 
 ### グローバル
@@ -90,3 +90,4 @@ description: FL Studio 20 キーボードショートカット(Mac)
 |横方向のズーム変更|⌘ + マウスホイール|
 |縦方向のズーム変更|⌘ + マウスホイール押下 + 上下|
 |ノートをチョップ|⌥ + u|
+|パターンをコピー|Shit + ドラッグ|

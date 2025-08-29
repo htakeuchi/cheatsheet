@@ -40,15 +40,15 @@ module CheatSheetGenerator
         s = line
       else
         s << line
-      end      
+      end
     end
     sections << s
 
     [parsed.front_matter, sections, counter]
   end
-  
+
   def generate(front_matter, sections, lines)
-    erb = ERB.new(File.read("./template/cheatsheet.erb"))    
+    erb = ERB.new(File.read("./template/cheatsheet.erb"))
     @config = YAML.load_file('./config.yaml')
     col_num = front_matter["columns"].nil? ? COLUMNS : front_matter["columns"]
     renderer = MyRenderer.new
@@ -65,7 +65,7 @@ module CheatSheetGenerator
     title = front_matter["title"] || ''
     description = front_matter["description"] || ''
 
-    sections.each do |s|    
+    sections.each do |s|
       sec << s
       line_cnt += s.lines.size
 

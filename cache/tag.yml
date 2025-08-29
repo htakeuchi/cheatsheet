@@ -1,7 +1,5 @@
 ---
 ! '':
-- :filename: src/flstudio.md
-  :title: FL Studio 20(Mac)
 - :filename: src/seqtrak.md
   :title: YAMAHA SEQTRAK
 - :filename: src/studio4.md
@@ -10,6 +8,10 @@
   :title: Visual Studio Code
 - :filename: src/docker.md
   :title: Docker
+- :filename: src/flstudio.md
+  :title: FL Studio 20(Mac)
+- :filename: src/zed.md
+  :title: zed
 Featured:
 - :filename: src/markdown.md
   :title: Markdown
