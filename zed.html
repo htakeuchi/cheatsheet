@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>zed cheatsheet</title>
+  <meta name="description" content="zed" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <style>
+    table {
+      font-size: small;
+      width: 100%;
+    }
+    h1 {
+      padding-bottom: 0.5em;
+    }
+    h2,h3,h4,h5,h6 {
+      padding-top: 1em;
+      padding-bottom: 0.2em;
+      margin-top: 0.2em;
+    }
+    div.highlight {
+      padding: 0.5em;
+    }
+  </style>
+  <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
+  <script async type="text/javascript" src="/js/bulma.js"></script>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://cheatsheets.namaraii.com/">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/zed.md">
+        <span class="icon">
+          <i class="fab fa-github""></i>
+        </span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="section sheet padding-10m">
+    <div class="container">
+      <h1 class="title has-text-centered">zed</h1>
+
+      <div class="columns">
+        
+        <div class="column is-one-third">
+          <p>MasOS用のショートカットです。</p>
+<h3 class='title is-4'>凡例</h3><table class='table is-striped'><tbody><tr>
+<td>⌘</td>
+<td>Cmd</td>
+</tr>
+<tr>
+<td>⌥</td>
+<td>Option</td>
+</tr>
+<tr>
+<td>⇧</td>
+<td>Shift</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Ctrl</td>
+</tr>
+</tbody></table><h3 class='title is-4'>基本操作</h3><table class='table is-striped'><tbody><tr>
+<td><code>⌘N</code></td>
+<td>新規ファイル</td>
+</tr>
+<tr>
+<td><code>⌘O</code></td>
+<td>フォルダを開く</td>
+</tr>
+<tr>
+<td><code>⌘S</code></td>
+<td>保存</td>
+</tr>
+<tr>
+<td><code>⌘⇧S</code></td>
+<td>名前を付けて保存</td>
+</tr>
+<tr>
+<td><code>⌘Q</code></td>
+<td>Zedを終了</td>
+</tr>
+<tr>
+<td><code>⌘,</code></td>
+<td>設定を開く</td>
+</tr>
+<tr>
+<td><code>⌘K⌘S</code></td>
+<td>ショートカット設定を開く</td>
+</tr>
+<tr>
+<td><code>⌘⇧W</code></td>
+<td>現在のウィンドウを閉じる</td>
+</tr>
+<tr>
+<td><code>⌘⇧N</code></td>
+<td>新しいウィンドウを開く</td>
+</tr>
+</tbody></table><h3 class='title is-4'>編集</h3><table class='table is-striped'><tbody><tr>
+<td><code>⌘Z</code></td>
+<td>元に戻す</td>
+</tr>
+<tr>
+<td><code>⌘⇧Z</code></td>
+<td>やり直し</td>
+</tr>
+<tr>
+<td><code>⌘X</code></td>
+<td>切り取り</td>
+</tr>
+<tr>
+<td><code>⌘C</code></td>
+<td>コピー</td>
+</tr>
+<tr>
+<td><code>⌘V</code></td>
+<td>貼り付け</td>
+</tr>
+<tr>
+<td><code>⌘A</code></td>
+<td>すべて選択</td>
+</tr>
+<tr>
+<td><code>⌘/</code></td>
+<td>行コメントの切り替え</td>
+</tr>
+</tbody></table>
+        </div>
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>行の操作</h3><table class='table is-striped'><tbody><tr>
+<td><code>⌥↑</code></td>
+<td>行を上に移動</td>
+</tr>
+<tr>
+<td><code>⌥↓</code></td>
+<td>行を下に移動</td>
+</tr>
+<tr>
+<td><code>⌥⇧↑</code></td>
+<td>行を上に複製</td>
+</tr>
+<tr>
+<td><code>⌥⇧↓</code></td>
+<td>行を下に複製</td>
+</tr>
+<tr>
+<td><code>⌘⇧K</code></td>
+<td>行を削除</td>
+</tr>
+</tbody></table><h3 class='title is-4'>マルチカーソル・選択</h3><table class='table is-striped'><tbody><tr>
+<td><code>⌘⇧L</code></td>
+<td>すべての同じ選択を選択</td>
+</tr>
+<tr>
+<td><code>⌘⌥↑</code></td>
+<td>上にカーソルを追加</td>
+</tr>
+<tr>
+<td><code>⌘⌥↓</code></td>
+<td>下にカーソルを追加</td>
+</tr>
+<tr>
+<td><code>^⇧→</code></td>
+<td>選択範囲を拡張</td>
+</tr>
+<tr>
+<td><code>^⇧←</code></td>
+<td>選択範囲を縮小</td>
+</tr>
+</tbody></table><h3 class='title is-4'>検索・置換</h3><table class='table is-striped'><tbody><tr>
+<td><code>⌘F</code></td>
+<td>バッファ内検索</td>
+</tr>
+<tr>
+<td><code>⌘⇧F</code></td>
+<td>プロジェクト内検索</td>
+</tr>
+<tr>
+<td><code>⌘⌥F</code></td>
+<td>置換</td>
+</tr>
+<tr>
+<td><code>⌘G</code></td>
+<td>次のマッチを選択</td>
+</tr>
+<tr>
+<td><code>⌘⇧G</code></td>
+<td>前のマッチを選択</td>
+</tr>
+</tbody></table><h3 class='title is-4'>タブ操作</h3><table class='table is-striped'><tbody><tr>
+<td><code>⌘{</code></td>
+<td>前のタブに移動</td>
+</tr>
+<tr>
+<td><code>⌘}</code></td>
+<td>次のタブに移動</td>
+</tr>
+<tr>
+<td><code>⌥⌘←</code></td>
+<td>前のタブに移動</td>
+</tr>
+<tr>
+<td><code>⌥⌘→</code></td>
+<td>次のタブに移動</td>
+</tr>
+<tr>
+<td><code>^1〜^9</code></td>
+<td>1〜9番目のタブに移動</td>
+</tr>
+<tr>
+<td><code>^0</code></td>
+<td>最後のタブに移動</td>
+</tr>
+</tbody></table>
+        </div>
+        
+        <div class="column is-one-third">
+          <h3 class='title is-4'>分割・ペイン</h3><table class='table is-striped'><tbody><tr>
+<td><code>⌘\</code></td>
+<td>右に分割</td>
+</tr>
+<tr>
+<td><code>⌘K ↑</code></td>
+<td>上に分割</td>
+</tr>
+<tr>
+<td><code>⌘K ↓</code></td>
+<td>下に分割</td>
+</tr>
+<tr>
+<td><code>⌘K ←</code></td>
+<td>左に分割</td>
+</tr>
+<tr>
+<td><code>⌘K →</code></td>
+<td>右に分割</td>
+</tr>
+</tbody></table><h3 class='title is-4'>パネル・ドック</h3><table class='table is-striped'><tbody><tr>
+<td><code>⌘B</code></td>
+<td>左ドックの切り替え</td>
+</tr>
+<tr>
+<td><code>⌘J</code></td>
+<td>下ドックの切り替え</td>
+</tr>
+<tr>
+<td><code>⌘⇧B</code></td>
+<td>アウトラインパネル</td>
+</tr>
+<tr>
+<td><code>^~</code></td>
+<td>ターミナル</td>
+</tr>
+</tbody></table><h3 class='title is-4'>コード編集・ナビゲーション</h3><table class='table is-striped'><tbody><tr>
+<td><code>F12</code></td>
+<td>定義に移動</td>
+</tr>
+<tr>
+<td><code>⌥F12</code></td>
+<td>定義を分割で開く</td>
+</tr>
+<tr>
+<td><code>⇧F12</code></td>
+<td>実装に移動</td>
+</tr>
+<tr>
+<td><code>F2</code></td>
+<td>名前変更</td>
+</tr>
+<tr>
+<td><code>⌘.</code></td>
+<td>コードアクション</td>
+</tr>
+<tr>
+<td><code>^Space</code></td>
+<td>補完表示</td>
+</tr>
+<tr>
+<td><code>⌘⇧I</code></td>
+<td>コードをフォーマット</td>
+</tr>
+</tbody></table><h3 class='title is-4'>AI・エージェント機能</h3><table class='table is-striped'><tbody><tr>
+<td><code>^↵</code></td>
+<td>インラインアシスト</td>
+</tr>
+<tr>
+<td><code>⌘&gt;</code></td>
+<td>選択範囲を引用</td>
+</tr>
+</tbody></table>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+      Copyright by TAKEUCHI Hitoshi
+      
+       ( <a href="https://namaraii.com/">namaraii.com</a> )
+      
+      </p>
+    </div>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          
+                    
+            <a class="navbar-item" href="mailto: hitoshi@namaraii.com ">
+              <span class="icon">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+            </a>
+          
+
+          
+                    
+            <a class="navbar-item" href="https://bsky.app/profile/namaraii.com ">
+              <span class="icon">
+                <i class="fab fa-bluesky"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://fedibird.com/@htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-mastodon"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://www.threads.net/@htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-threads"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://github.com/htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://x.com/htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-x"></i>
+              </span>
+            </a>
+          
+          
+        </div>
+      </div>
+    </nav>
+  </footer>
+
+</body>
+</html>
