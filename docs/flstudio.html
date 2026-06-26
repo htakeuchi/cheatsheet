@@ -58,7 +58,7 @@
 <td><code>F7</code></td>
 </tr>
 <tr>
-<td>ノート描画</td>
+<td>描画ツール</td>
 <td><code>P</code></td>
 </tr>
 <tr>
@@ -66,16 +66,24 @@
 <td><code>B</code></td>
 </tr>
 <tr>
-<td>カット</td>
+<td>スライスツール</td>
 <td><code>C</code></td>
 </tr>
 <tr>
-<td>消しゴム</td>
-<td><code>Delete</code> または <code>右クリック</code></td>
+<td>削除ツール</td>
+<td><code>D</code></td>
+</tr>
+<tr>
+<td>ノート削除</td>
+<td><code>fn + Delete</code> または <code>右クリック</code></td>
 </tr>
 <tr>
 <td>ノート選択</td>
-<td><code>⌘ + Drag</code></td>
+<td><code>⌘ + Click</code></td>
+</tr>
+<tr>
+<td>選択に追加</td>
+<td><code>⌘ + ⇧ + Click</code></td>
 </tr>
 <tr>
 <td>全選択</td>
@@ -98,24 +106,36 @@
 <td><code>⌘ + B</code></td>
 </tr>
 <tr>
-<td>元に戻す</td>
+<td>元に戻す / やり直し</td>
 <td><code>⌘ + Z</code></td>
 </tr>
 <tr>
-<td>やり直し</td>
-<td><code>⌘ + ⇧ + Z</code></td>
+<td>段階的に元に戻す</td>
+<td><code>⌘ + ⌥ + Z</code></td>
+</tr>
+<tr>
+<td>カット</td>
+<td><code>⌘ + X</code></td>
 </tr>
 </tbody></table><h3 class='title is-4'>ノート移動・長さ調整</h3><table class='table is-striped'><tbody><tr>
 <td>ノート移動</td>
 <td><code>Drag</code></td>
 </tr>
 <tr>
-<td>微調整移動</td>
-<td><code>⌘ + Drag</code></td>
+<td>スナップ無視移動</td>
+<td><code>⌥ + Drag</code></td>
+</tr>
+<tr>
+<td>ナッジ移動</td>
+<td><code>⌥ + 矢印キー</code></td>
 </tr>
 <tr>
 <td>ノート長変更</td>
 <td>ノート端をDrag</td>
+</tr>
+<tr>
+<td>ノートプロパティ変更</td>
+<td><code>⌥ + マウスホイール</code></td>
 </tr>
 <tr>
 <td>ベロシティ変更</td>
@@ -123,15 +143,19 @@
 </tr>
 <tr>
 <td>複数ノート同時移動</td>
-<td><code>⇧ + Drag</code></td>
+<td>選択してDrag</td>
 </tr>
 <tr>
 <td>ノート削除</td>
-<td><code>Delete</code></td>
+<td><code>fn + Delete</code> または <code>右クリック</code></td>
 </tr>
 </tbody></table><h3 class='title is-4'>高速入力系</h3><table class='table is-striped'><tbody><tr>
 <td>クオンタイズ</td>
-<td><code>⌘ + Q</code></td>
+<td><code>⌥ + Q</code></td>
+</tr>
+<tr>
+<td>クイッククオンタイズ</td>
+<td><code>⌥ + ⌘ + Q</code></td>
 </tr>
 <tr>
 <td>クイックレガート</td>
@@ -146,7 +170,7 @@
 <td><code>⌥ + A</code></td>
 </tr>
 <tr>
-<td>Humanize</td>
+<td>ランダマイズ</td>
 <td><code>⌥ + R</code></td>
 </tr>
 <tr>
@@ -158,36 +182,28 @@
 <td><code>⌥ + U</code></td>
 </tr>
 <tr>
-<td>ランダマイズ</td>
-<td><code>⌥ + R</code></td>
-</tr>
-<tr>
-<td>スケール強制</td>
-<td><code>Stamp Tool</code> 使用</td>
+<td>クイックChop</td>
+<td><code>⌘ + U</code></td>
 </tr>
 </tbody></table>
         </div>
         
         <div class="column ">
           <h3 class='title is-4'>ズーム・ナビゲーション</h3><table class='table is-striped'><tbody><tr>
-<td>横ズーム</td>
-<td><code>⌘ + マウスホイール</code></td>
+<td>ズームイン / アウト</td>
+<td><code>Page Up</code> / <code>Page Down</code></td>
 </tr>
 <tr>
-<td>縦ズーム</td>
-<td><code>⌥ + マウスホイール</code></td>
+<td>選択範囲へズーム</td>
+<td><code>⌘ + 右クリック + Drag</code></td>
 </tr>
 <tr>
-<td>全体表示</td>
-<td><code>Backspace</code></td>
+<td>画面パン</td>
+<td><code>Middle Click + Drag</code></td>
 </tr>
 <tr>
-<td>スクロール</td>
-<td><code>⇧ + マウスホイール</code></td>
-</tr>
-<tr>
-<td>再生位置へ移動</td>
-<td><code>0</code></td>
+<td>グローバルスナップ切替</td>
+<td><code>Delete (Backspace)</code></td>
 </tr>
 </tbody></table><h3 class='title is-4'>MIDI編集高度操作</h3><table class='table is-striped'><tbody><tr>
 <td>ゴーストノート表示</td>
@@ -195,27 +211,39 @@
 </tr>
 <tr>
 <td>ノートスライド</td>
-<td>Slide Note使用</td>
+<td><code>S</code></td>
 </tr>
 <tr>
 <td>ポルタメント</td>
-<td>Portamento Note使用</td>
+<td><code>O</code></td>
 </tr>
 <tr>
-<td>ミュートノート</td>
-<td><code>Alt</code> モード使用</td>
+<td>ミュート選択</td>
+<td><code>⌥ + M</code></td>
+</tr>
+<tr>
+<td>ミュート解除</td>
+<td><code>⌥ + ⇧ + M</code></td>
 </tr>
 <tr>
 <td>ノートカラー変更</td>
-<td><code>1〜9</code></td>
+<td><code>⌥ + C</code></td>
 </tr>
 <tr>
 <td>ノート分割</td>
-<td><code>⌥ + U</code></td>
+<td><code>右⇧ + 左クリック/Drag</code></td>
 </tr>
 <tr>
 <td>ノート結合</td>
 <td><code>⌘ + G</code></td>
+</tr>
+<tr>
+<td>ノートグループ化</td>
+<td><code>⇧ + G</code></td>
+</tr>
+<tr>
+<td>ノートグループ解除</td>
+<td><code>⌥ + G</code></td>
 </tr>
 </tbody></table><h3 class='title is-4'>ピアノロールツール一覧</h3><table class='table is-striped'><tbody><tr>
 <td>Draw</td>
@@ -228,6 +256,10 @@
 <tr>
 <td>Slice</td>
 <td><code>C</code></td>
+</tr>
+<tr>
+<td>Delete</td>
+<td><code>D</code></td>
 </tr>
 <tr>
 <td>Select</td>
@@ -246,7 +278,7 @@
 <td><code>T</code></td>
 </tr>
 </tbody></table><h2 class='title is-3'>基本操作</h2><table class='table is-striped'><tbody><tr>
-<td>新規プロジェクト</td>
+<td>新規バージョン保存</td>
 <td><code>⌘ + N</code></td>
 </tr>
 <tr>
@@ -262,12 +294,12 @@
 <td><code>⌘ + O</code></td>
 </tr>
 <tr>
-<td>元に戻す</td>
+<td>元に戻す / やり直し</td>
 <td><code>⌘ + Z</code></td>
 </tr>
 <tr>
-<td>やり直し</td>
-<td><code>⌘ + ⇧ + Z</code></td>
+<td>段階的に元に戻す</td>
+<td><code>⌘ + ⌥ + Z</code></td>
 </tr>
 <tr>
 <td>再生 / 停止</td>
@@ -282,12 +314,12 @@
 <td><code>⌘ + M</code></td>
 </tr>
 <tr>
-<td>カウントイン ON/OFF</td>
+<td>録音プリカウント ON/OFF</td>
 <td><code>⌘ + P</code></td>
 </tr>
 <tr>
-<td>スナップ切替</td>
-<td><code>⌘</code> を押しながらスナップ選択</td>
+<td>グローバルスナップ切替</td>
+<td><code>Delete (Backspace)</code></td>
 </tr>
 <tr>
 <td>全画面表示</td>
@@ -325,10 +357,6 @@
 <td>Plugin Picker</td>
 <td><code>F8</code></td>
 </tr>
-<tr>
-<td>Recording Panel</td>
-<td><code>⌥ + ⌘ + R</code></td>
-</tr>
 </tbody></table><h2 class='title is-3'>プレイリスト操作</h2><table class='table is-striped'><tbody><tr>
 <td>描画ツール</td>
 <td><code>P</code></td>
@@ -338,8 +366,12 @@
 <td><code>B</code></td>
 </tr>
 <tr>
-<td>カットツール</td>
+<td>スライスツール</td>
 <td><code>C</code></td>
+</tr>
+<tr>
+<td>削除ツール</td>
+<td><code>D</code></td>
 </tr>
 <tr>
 <td>ミュートツール</td>
@@ -350,36 +382,60 @@
 <td><code>E</code></td>
 </tr>
 <tr>
-<td>ズーム</td>
+<td>再生ツール</td>
+<td><code>Y</code></td>
+</tr>
+<tr>
+<td>ズームツール</td>
+<td><code>Z</code></td>
+</tr>
+<tr>
+<td>タイムラインズーム</td>
 <td><code>⌘ + マウスホイール</code></td>
 </tr>
 <tr>
-<td>水平スクロール</td>
-<td><code>⇧ + マウスホイール</code></td>
+<td>ズームイン / アウト</td>
+<td><code>Page Up</code> / <code>Page Down</code></td>
 </tr>
 <tr>
-<td>クローン</td>
+<td>選択範囲へズーム</td>
+<td><code>⌘ + 右クリック + Drag</code></td>
+</tr>
+<tr>
+<td>複製</td>
 <td><code>⌘ + B</code></td>
 </tr>
 <tr>
 <td>選択削除</td>
-<td><code>Delete</code></td>
+<td><code>fn + Delete</code></td>
 </tr>
 <tr>
 <td>グループ化</td>
-<td><code>⌘ + G</code></td>
+<td><code>⇧ + G</code></td>
+</tr>
+<tr>
+<td>グループ解除</td>
+<td><code>⌥ + G</code></td>
 </tr>
 <tr>
 <td>選択解除</td>
 <td><code>⌘ + D</code></td>
+</tr>
+<tr>
+<td>クリップ先頭をクオンタイズ</td>
+<td><code>⇧ + Q</code></td>
+</tr>
+<tr>
+<td>クリップをナッジ</td>
+<td><code>⇧ + ⌥ + マウスホイール</code></td>
 </tr>
 </tbody></table><h2 class='title is-3'>ミキサー操作</h2><table class='table is-striped'><tbody><tr>
 <td>選択チャンネルをMixerへ割当</td>
 <td><code>⌘ + L</code></td>
 </tr>
 <tr>
-<td>空きMixerトラックへ自動割当</td>
-<td><code>⌃ + ⌘ + L</code></td>
+<td>選択チャンネルを開始トラックから割当</td>
+<td><code>⇧ + ⌘ + L</code></td>
 </tr>
 <tr>
 <td>Mixerトラック名変更</td>
@@ -391,15 +447,27 @@
 </tr>
 <tr>
 <td>ソロ</td>
-<td><code>⌥ + Click</code></td>
+<td><code>S</code></td>
+</tr>
+<tr>
+<td>Alt Solo</td>
+<td><code>⌥ + S</code></td>
 </tr>
 <tr>
 <td>ミュート</td>
 <td><code>Click</code></td>
 </tr>
 <tr>
+<td>複数Mixerトラック選択</td>
+<td><code>⌘ + ⇧ + Click</code></td>
+</tr>
+<tr>
+<td>Mixerトラック移動</td>
+<td><code>⌥ + ←/→</code> または <code>⇧ + マウスホイール</code></td>
+</tr>
+<tr>
 <td>ボリューム微調整</td>
-<td><code>⌘ + Drag</code></td>
+<td><code>Ctrl + Drag</code> または <code>両ボタンDrag</code></td>
 </tr>
 </tbody></table>
         </div>
@@ -410,48 +478,48 @@
 <td><code>⌥ + F8</code></td>
 </tr>
 <tr>
-<td>検索</td>
-<td><code>⌘ + F</code></td>
+<td>選択項目でChannelを置換</td>
+<td><code>Return</code></td>
 </tr>
 <tr>
-<td>お気に入り追加</td>
-<td><code>⌥ + Click</code></td>
+<td>選択項目でChannelを置換</td>
+<td><code>Ctrl + ⌥ + Click</code></td>
+</tr>
+<tr>
+<td>複数選択</td>
+<td><code>⇧ + Click</code> または <code>⌘ + ⌥ + Click</code></td>
 </tr>
 <tr>
 <td>サンプル試聴</td>
 <td><code>Click</code></td>
+</tr>
+<tr>
+<td>カーソル位置から試聴</td>
+<td><code>右クリック</code> または <code>⇧ + Click</code></td>
 </tr>
 </tbody></table><h2 class='title is-3'>録音関連</h2><table class='table is-striped'><tbody><tr>
 <td>録音開始</td>
 <td><code>R</code></td>
 </tr>
 <tr>
-<td>録音モード選択</td>
-<td>録音ボタン右クリック</td>
+<td>録音プリカウント</td>
+<td><code>⌘ + P</code></td>
 </tr>
 <tr>
-<td>Audio録音</td>
-<td>Playlistへ直接録音</td>
+<td>入力待ち録音</td>
+<td><code>⌘ + I</code></td>
 </tr>
 <tr>
-<td>MIDI録音</td>
-<td>MIDI Keyboard入力</td>
+<td>ステップ編集</td>
+<td><code>⌘ + E</code></td>
 </tr>
 </tbody></table><h2 class='title is-3'>時短テクニック</h2><table class='table is-striped'><tbody><tr>
-<td>Pattern即複製</td>
+<td>選択即複製</td>
 <td><code>⌘ + B</code></td>
 </tr>
 <tr>
 <td>選択を一括Mixer送信</td>
 <td><code>⌘ + L</code></td>
-</tr>
-<tr>
-<td>サンプル即配置</td>
-<td>BrowserからDrag</td>
-</tr>
-<tr>
-<td>Piano Roll即開く</td>
-<td>Channelダブルクリック</td>
 </tr>
 <tr>
 <td>オートメーション作成</td>
@@ -467,14 +535,14 @@
 </tr>
 <tr>
 <td>ベース量産</td>
-<td><code>⌘ + Q</code> → Quantize</td>
+<td><code>⌥ + Q</code> → Quantize</td>
 </tr>
 <tr>
 <td>ハイハットロール</td>
 <td><code>⌥ + U</code></td>
 </tr>
 <tr>
-<td>Trap系Humanize</td>
+<td>ランダマイズ</td>
 <td><code>⌥ + R</code></td>
 </tr>
 <tr>
@@ -483,18 +551,18 @@
 </tr>
 <tr>
 <td>MIDI即整理</td>
-<td><code>⌘ + A</code> → <code>⌘ + Q</code></td>
+<td><code>⌘ + A</code> → <code>⌥ + ⌘ + Q</code></td>
 </tr>
 </tbody></table><h2 class='title is-3'>覚えておくと便利な操作</h2><table class='table is-striped'><tbody><tr>
-<td><code>⌘ + Shift + H</code></td>
-<td>選択ノートをハイライト</td>
+<td><code>⇧ + H</code></td>
+<td>ノートデータのある次チャンネルへ</td>
 </tr>
 <tr>
-<td><code>Middle Click</code></td>
-<td>ノート試聴</td>
+<td><code>Middle Click + Drag</code></td>
+<td>画面パン</td>
 </tr>
 <tr>
-<td><code>Shift + Drag</code></td>
+<td><code>⌥ + Drag</code></td>
 <td>スナップ無視</td>
 </tr>
 <tr>
@@ -502,12 +570,12 @@
 <td>消去</td>
 </tr>
 <tr>
-<td><code>Scroll Wheel</code></td>
-<td>ベロシティ調整</td>
+<td><code>⌥ + Mouse Wheel</code></td>
+<td>近くのノートプロパティ変更</td>
 </tr>
 <tr>
-<td><code>⌘ + Mouse Wheel</code></td>
-<td>タイムラインズーム</td>
+<td><code>Ctrl + ⌥ + Mouse Wheel</code></td>
+<td>ノートプロパティを微調整</td>
 </tr>
 </tbody></table>
         </div>
