@@ -6,7 +6,7 @@ GEM
     ostruct (0.6.3)
     rake (13.0.6)
     redcarpet (3.5.1)
-    webrick (1.8.1)
+    webrick (1.9.2)
 
 PLATFORMS
   ruby
@@ -17,7 +17,7 @@ DEPENDENCIES
   ostruct
   rake (>= 12.3.3)
   redcarpet (>= 3.5.1)
-  webrick
+  webrick (>= 1.8.2)
 
 RUBY VERSION
    ruby 3.1.3p185
