@@ -1,0 +1,10 @@
+{
+  "name": "cheatsheet",
+  "private": true,
+  "scripts": {
+    "pdf": "node tools/pdf_export.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.61.1"
+  }
+}

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= ERB::Util.html_escape(title) %> print</title>
+  <meta name="description" content="<%= ERB::Util.html_escape(description) %>">
+  <meta name="cheatsheet-default-columns" content="<%= ERB::Util.html_escape(default_columns.to_s) %>">
+  <meta name="cheatsheet-pdf-paper" content="<%= ERB::Util.html_escape(pdf_config['paper'].to_s) %>">
+  <meta name="cheatsheet-pdf-orientation" content="<%= ERB::Util.html_escape(pdf_config['orientation'].to_s) %>">
+  <meta name="cheatsheet-pdf-columns" content="<%= ERB::Util.html_escape(pdf_config['columns'].to_s) %>">
+  <meta name="cheatsheet-pdf-margin-mm" content="<%= ERB::Util.html_escape(pdf_config['margin_mm'].to_s) %>">
+  <meta name="cheatsheet-pdf-min-font-size-pt" content="<%= ERB::Util.html_escape(pdf_config['min_font_size_pt'].to_s) %>">
+  <meta name="cheatsheet-pdf-max-font-size-pt" content="<%= ERB::Util.html_escape(pdf_config['max_font_size_pt'].to_s) %>">
+  <style>
+    :root {
+      --page-width: 297mm;
+      --page-height: 210mm;
+      --page-margin: 6mm;
+      --columns: 3;
+      --column-gap: 4mm;
+      --font-size: 7pt;
+      --line-height: 1.14;
+      --title-size: 13pt;
+      --rule-color: #b6c2d2;
+      --text-color: #111827;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", Meiryo, sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+    }
+
+    .print-page {
+      width: var(--page-width);
+      height: var(--page-height);
+      margin: 0 auto;
+      padding: var(--page-margin);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .print-title {
+      flex: 0 0 auto;
+      margin: 0 0 2.2mm;
+      padding-bottom: 1.4mm;
+      border-bottom: 0.25mm solid var(--rule-color);
+      font-size: var(--title-size);
+      line-height: 1.08;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .print-sheet {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      column-count: var(--columns);
+      column-gap: var(--column-gap);
+      column-fill: auto;
+    }
+
+    .print-block {
+      break-inside: avoid-column;
+      page-break-inside: avoid;
+      margin: 0 0 1.5mm;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0.65em 0 0.22em;
+      padding: 0;
+      line-height: 1.08;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      font-size: 1.22em;
+      border-bottom: 0.18mm solid var(--rule-color);
+      padding-bottom: 0.16em;
+    }
+
+    h3 {
+      font-size: 1.08em;
+    }
+
+    p,
+    ul,
+    ol,
+    pre,
+    table {
+      margin: 0 0 0.55em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    td,
+    th {
+      padding: 0.16em 0.42em;
+      border: 0.12mm solid #d4dbe6;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    td:first-child,
+    th:first-child {
+      width: 42%;
+      font-weight: 600;
+    }
+
+    code {
+      padding: 0 0.18em;
+      border-radius: 0.18em;
+      background: #eef2f7;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      white-space: normal;
+    }
+
+    pre,
+    div.CodeRay {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      font-size: 0.92em;
+    }
+
+    @media print {
+      html,
+      body {
+        width: var(--page-width);
+        height: var(--page-height);
+        background: #fff;
+      }
+
+      .print-page {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="print-page">
+    <h1 class="print-title"><%= ERB::Util.html_escape(title) %></h1>
+    <div class="print-sheet">
+      <% rendered_sections.each do |section| %>
+        <section class="print-block">
+          <%= section %>
+        </section>
+      <% end %>
+    </div>
+  </main>
+</body>
+</html>

@@ -5,6 +5,9 @@ tags:
 updated: 2019-12-29
 columns: 3
 description: Studio One 4
+pdf:
+  paper: A3
+  orientation: landscape
 ---
 
 ### アプリケーション
