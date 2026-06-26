@@ -22,8 +22,19 @@
       padding-bottom: 0.2em;
       margin-top: 0.2em;
     }
-    div.highlight {
-      padding: 0.5em;
+    p:has(+ div.CodeRay) {
+      margin-bottom: 0.25em;
+    }
+    div.CodeRay {
+      margin: 0.25em 0 0.5em;
+      padding: 0;
+    }
+    p + div.CodeRay {
+      margin-top: 0;
+    }
+    div.CodeRay pre {
+      margin: 0;
+      padding: 0.625em 0.75em;
     }
   </style>
   <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
@@ -598,12 +609,6 @@
             </a>
           
           
-                    
-            <a class="navbar-item" href="https://x.com/htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-x"></i>
-              </span>
-            </a>
           
           
         </div>

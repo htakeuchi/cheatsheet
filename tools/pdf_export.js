@@ -208,7 +208,7 @@ async function main() {
   const paper = normalizePaper(args.paper || metaPaper);
   const orientation = String(args.orientation || metaOrientation || 'landscape').toLowerCase();
   const [widthMm, heightMm] = pageSize(paper, orientation);
-  const marginMm = numberOption(args['margin-mm'], numberOption(metaMargin, 6));
+  const marginMm = numberOption(args['margin-mm'], numberOption(metaMargin, 3));
   const minFontSizePt = numberOption(args['min-font-size-pt'], numberOption(metaMinFont, 5.5));
   const maxFontSizePt = numberOption(args['max-font-size-pt'], numberOption(metaMaxFont, 8));
   const requestedColumns = args.columns || metaColumns || 'auto';

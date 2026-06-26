@@ -4,18 +4,18 @@ require_relative 'lib/cheatsheet_generator'
 require_relative 'lib/index_generator'
 require_relative 'lib/print_cheatsheet_generator'
 include CheatSheetGenerator
-include IndexGenerator
 
 SRC = FileList['src/*.md']
 DEST = SRC.pathmap('%{^src,docs}X.html')
 PRINT_DEST = SRC.pathmap('%{^src,docs/print}X.html')
 PDF_DEST = SRC.pathmap('%{^src,docs/pdf}X.pdf')
+INDEX_DEST = 'docs/index.html'
 CACHE = FileList['cache/*.yml']
 
 rule %r{\Adocs/[^/]+\.html\z} => '%{^docs,src}X.md' do |t|
   puts "generate #{t.source} --> #{t}"
   CheatSheetGenerator::convert(t.source, t)
-  IndexGenerator::generate(t.source)
+  refresh_index
 end
 
 rule %r{\Adocs/print/.*\.html\z} => '%{^docs/print,src}X.md' do |t|
@@ -52,6 +52,12 @@ def refresh_html_for_pdf(pdf_path)
 
   puts "refresh html #{src} --> #{dest}"
   CheatSheetGenerator::convert(src, dest)
+  refresh_index
+end
+
+def refresh_index
+  puts "refresh index #{SRC.join(', ')} --> #{INDEX_DEST}"
+  IndexGenerator::generate_all(SRC, INDEX_DEST)
 end
 
 desc 'Remove Cheetsheet HTMLs'
@@ -75,7 +81,14 @@ task :clean do
 end
 
 desc 'Generate Cheetsheet HTMLs and PDFs from Markdown'
-task :default => PDF_DEST
+task :default => DEST.to_a + PDF_DEST.to_a + [INDEX_DEST]
+
+desc 'Generate index HTML from Markdown front matter'
+task INDEX_DEST do
+  refresh_index
+end
+
+task :index => INDEX_DEST
 
 desc 'Generate print-ready HTMLs from Markdown'
 task :print => PRINT_DEST

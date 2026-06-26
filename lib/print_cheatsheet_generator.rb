@@ -11,7 +11,7 @@ module PrintCheatSheetGenerator
     'paper' => 'A4',
     'orientation' => 'landscape',
     'columns' => 'auto',
-    'margin_mm' => 6,
+    'margin_mm' => 3,
     'min_font_size_pt' => 5.5,
     'max_font_size_pt' => 8.0
   }.freeze
