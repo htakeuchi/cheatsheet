@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Herdr cheatsheet</title>
+  <meta name="description" content="Herdrのショートカットと使い方" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <style>
+    table {
+      font-size: small;
+      width: 100%;
+    }
+    h1 {
+      padding-bottom: 0.5em;
+    }
+    h2,h3,h4,h5,h6 {
+      padding-top: 1em;
+      padding-bottom: 0.2em;
+      margin-top: 0.2em;
+    }
+    p:has(+ div.CodeRay) {
+      margin-bottom: 0.25em;
+    }
+    div.CodeRay {
+      margin: 0.25em 0 0.5em;
+      padding: 0;
+    }
+    p + div.CodeRay {
+      margin-top: 0;
+    }
+    div.CodeRay pre {
+      margin: 0;
+      padding: 0.625em 0.75em;
+    }
+  </style>
+  <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
+  <script async type="text/javascript" src="/js/bulma.js"></script>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://cheatsheets.namaraii.com/">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/herdr.md">
+        <span class="icon">
+          <i class="fab fa-github"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="pdf/herdr.pdf" download title="PDFをダウンロード" aria-label="PDFをダウンロード">
+        <span class="icon">
+          <i class="fa-solid fa-file-pdf"></i>
+        </span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="section sheet padding-10m">
+    <div class="container">
+      <h1 class="title has-text-centered">Herdr</h1>
+
+      <div class="columns">
+        
+        <div class="column ">
+          <p>Herdrは、Claude Code、Codex、opencodeなどのAIエージェントを複数のペイン、タブ、ワークスペースで動かすterminal multiplexerです。</p>
+<h2 class='title is-3'>基本操作</h2><h3 class='title is-4'>起動と再接続</h3><table class='table is-striped'><tbody><tr>
+<td>起動または再接続</td>
+<td><code>herdr</code></td>
+</tr>
+<tr>
+<td>detach</td>
+<td><code>Ctrl+b</code> → <code>q</code></td>
+</tr>
+<tr>
+<td>サーバー停止</td>
+<td><code>herdr server stop</code></td>
+</tr>
+</tbody></table>
+<p><code>Ctrl+b</code> → <code>q</code> はクライアントをdetachするだけなので、ペイン内のエージェントやコマンドは動き続けます。</p>
+<h3 class='title is-4'>Prefixの押し方</h3>
+<p>デフォルトのprefixは <code>Ctrl+b</code> です。
+<code>prefix+c</code> のような表記は同時押しではなく、<code>Ctrl+b</code>を押して離してから <code>c</code>を押します。</p>
+
+<p>現在有効なキーの一覧は <code>Ctrl+b</code> → <code>?</code> で表示できます。</p>
+<h3 class='title is-4'>最初に覚えるキー</h3><table class='table is-striped'><tbody><tr>
+<td>ヘルプ表示</td>
+<td><code>prefix+?</code></td>
+</tr>
+<tr>
+<td>新しいタブ</td>
+<td><code>prefix+c</code></td>
+</tr>
+<tr>
+<td>右に分割</td>
+<td><code>prefix+v</code></td>
+</tr>
+<tr>
+<td>下に分割</td>
+<td><code>prefix+minus</code></td>
+</tr>
+<tr>
+<td>ペイン移動</td>
+<td><code>prefix+h/j/k/l</code></td>
+</tr>
+<tr>
+<td>ワークスペース切替</td>
+<td><code>prefix+w</code></td>
+</tr>
+<tr>
+<td>detach</td>
+<td><code>prefix+q</code></td>
+</tr>
+</tbody></table><h2 class='title is-3'>ペイン操作</h2><table class='table is-striped'><tbody><tr>
+<td>左／下／上／右へ移動</td>
+<td><code>prefix+h/j/k/l</code></td>
+</tr>
+<tr>
+<td>次のペイン</td>
+<td><code>prefix+tab</code></td>
+</tr>
+<tr>
+<td>前のペイン</td>
+<td><code>prefix+shift+tab</code></td>
+</tr>
+<tr>
+<td>左／下／上／右へ入れ替え</td>
+<td><code>prefix+shift+h/j/k/l</code></td>
+</tr>
+<tr>
+<td>右に分割</td>
+<td><code>prefix+v</code></td>
+</tr>
+<tr>
+<td>下に分割</td>
+<td><code>prefix+minus</code></td>
+</tr>
+<tr>
+<td>ペインを閉じる</td>
+<td><code>prefix+x</code></td>
+</tr>
+<tr>
+<td>ペインをズーム</td>
+<td><code>prefix+z</code></td>
+</tr>
+<tr>
+<td>リサイズモード</td>
+<td><code>prefix+r</code></td>
+</tr>
+<tr>
+<td>ペイン名変更</td>
+<td><code>prefix+shift+p</code></td>
+</tr>
+<tr>
+<td>スクロールバックを編集</td>
+<td><code>prefix+e</code></td>
+</tr>
+</tbody></table>
+<p>エージェントを1つずつペインに置き、隣に <code>git diff</code>、テスト、ログ監視を置くと作業状況を確認しやすくなります。
+<code>prefix+z</code> は現在のペインを一時的に最大化し、同じキーで元に戻します。</p>
+
+        </div>
+        
+        <div class="column ">
+          <h2 class='title is-3'>タブ操作</h2><table class='table is-striped'><tbody><tr>
+<td>新しいタブ</td>
+<td><code>prefix+c</code></td>
+</tr>
+<tr>
+<td>次のタブ</td>
+<td><code>prefix+n</code></td>
+</tr>
+<tr>
+<td>前のタブ</td>
+<td><code>prefix+p</code></td>
+</tr>
+<tr>
+<td>1〜9番目のタブへ移動</td>
+<td><code>prefix+1..9</code></td>
+</tr>
+<tr>
+<td>タブ名変更</td>
+<td><code>prefix+shift+t</code></td>
+</tr>
+<tr>
+<td>タブを閉じる</td>
+<td><code>prefix+shift+x</code></td>
+</tr>
+</tbody></table><table class='table is-striped'><tbody><tr>
+<td><code>main</code></td>
+<td>シェル、エージェント</td>
+</tr>
+<tr>
+<td><code>test</code></td>
+<td>テスト、ビルド、ログ</td>
+</tr>
+<tr>
+<td><code>server</code></td>
+<td>開発サーバー、watch</td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>調査メモ、作業ログ</td>
+</tr>
+</tbody></table><h2 class='title is-3'>ワークスペース操作</h2><table class='table is-striped'><tbody><tr>
+<td>一覧表示と切替</td>
+<td><code>prefix+w</code></td>
+</tr>
+<tr>
+<td>Goto picker</td>
+<td><code>prefix+g</code></td>
+</tr>
+<tr>
+<td>新しいワークスペース</td>
+<td><code>prefix+shift+n</code></td>
+</tr>
+<tr>
+<td>新しいworktree</td>
+<td><code>prefix+shift+g</code></td>
+</tr>
+<tr>
+<td>ワークスペース名変更</td>
+<td><code>prefix+shift+w</code></td>
+</tr>
+<tr>
+<td>ワークスペースを閉じる</td>
+<td><code>prefix+shift+d</code></td>
+</tr>
+<tr>
+<td>サイドバー表示切替</td>
+<td><code>prefix+b</code></td>
+</tr>
+</tbody></table>
+<p>サイドバーは複数のリポジトリやエージェントの状態（working、blocked、done）を確認するダッシュボードとして使えます。</p>
+<h2 class='title is-3'>コピー操作</h2>
+<p>コピーmodeは <code>prefix+[</code> で開始します。</p>
+<table class='table is-striped'><tbody><tr>
+<td>移動</td>
+<td><code>h/j/k/l</code></td>
+</tr>
+<tr>
+<td>単語移動</td>
+<td><code>w/b/e</code></td>
+</tr>
+<tr>
+<td>段落やブロック移動</td>
+<td><code>{</code> / <code>}</code></td>
+</tr>
+<tr>
+<td>選択開始</td>
+<td><code>v</code> または <code>Space</code></td>
+</tr>
+<tr>
+<td>コピー</td>
+<td><code>y</code> または <code>Enter</code></td>
+</tr>
+<tr>
+<td>終了</td>
+<td><code>q</code> または <code>Esc</code></td>
+</tr>
+</tbody></table>
+<p>マウスでドラッグ選択する場合は、コピーmodeに入らずに操作できます。</p>
+<h2 class='title is-3'>MacとUbuntuの注意点</h2><table class='table is-striped'><tbody><tr>
+<td>prefix</td>
+<td>どちらも <code>Ctrl+b</code>。Macでも <code>Cmd</code>ではない</td>
+</tr>
+<tr>
+<td>直接キー</td>
+<td><code>Ctrl+Alt</code>系は候補になるが、OS側との衝突を確認する</td>
+</tr>
+<tr>
+<td>MacのOption</td>
+<td>特殊文字入力になる場合があるため、terminal側で確認する</td>
+</tr>
+</tbody></table>
+<p>Ubuntuでは次のキーがOS側と衝突しやすいため、直接ショートカットには割り当てません。</p>
+<table class='table is-striped'><tbody><tr>
+<td><code>Ctrl+Alt+T</code></td>
+<td>端末起動</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+矢印</code></td>
+<td>GNOMEのワークスペース切替、terminal</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+F1..F12</code></td>
+<td>Linux仮想コンソール</td>
+</tr>
+<tr>
+<td><code>Ctrl+Alt+L</code></td>
+<td>ロック画面</td>
+</tr>
+</tbody></table>
+<p>Herdrのmouse captureを無効にすると、ホストterminalのクリック処理を優先できます。</p>
+<div class="CodeRay">
+  <div class="code"><pre>[ui]
+mouse_capture = false
+</pre></div>
+</div>
+
+<p>mouse captureを有効にしたままterminal側でクリックする場合は、Linuxでは <code>Shift+Ctrl+click</code>、macOSでは <code>Shift+Cmd+click</code>を使います。</p>
+
+        </div>
+        
+        <div class="column ">
+          <h2 class='title is-3'>設定</h2>
+<p>設定ファイルは <code>~/.config/herdr/config.toml</code> です。</p>
+<div class="CodeRay">
+  <div class="code"><pre>mkdir -p ~/.config/herdr
+herdr --default-config &gt; ~/.config/herdr/config.toml
+herdr server reload-config
+</pre></div>
+</div>
+<h3 class='title is-4'>直接ショートカットの追加</h3>
+<p>prefix操作を残したまま、よく使う移動だけ直接キーにも割り当てられます。</p>
+<div class="CodeRay">
+  <div class="code"><pre>[keys]
+prefix = &quot;ctrl+b&quot;
+focus_pane_left = [&quot;prefix+h&quot;, &quot;ctrl+alt+h&quot;]
+focus_pane_down = [&quot;prefix+j&quot;, &quot;ctrl+alt+j&quot;]
+focus_pane_up = [&quot;prefix+k&quot;, &quot;ctrl+alt+k&quot;]
+focus_pane_right = [&quot;prefix+l&quot;, &quot;ctrl+alt+shift+l&quot;]
+next_tab = [&quot;prefix+n&quot;, &quot;ctrl+alt+]&quot;]
+previous_tab = [&quot;prefix+p&quot;, &quot;ctrl+alt+[&quot;]
+new_tab = [&quot;prefix+c&quot;, &quot;ctrl+alt+c&quot;]
+zoom = [&quot;prefix+z&quot;, &quot;ctrl+alt+z&quot;]
+
+[ui]
+agent_panel_sort = &quot;priority&quot;
+show_agent_labels_on_pane_borders = true
+</pre></div>
+</div>
+
+<p><code>Ctrl+Alt+L</code> はロック画面などと衝突する場合があるため、右移動には <code>Shift</code>を加えています。</p>
+<h3 class='title is-4'>通知</h3><div class="CodeRay">
+  <div class="code"><pre>[ui.toast]
+delivery = &quot;terminal&quot;
+delay_seconds = 1
+
+[ui.sound]
+enabled = true
+</pre></div>
+</div>
+
+<p>toastの配送先は <code>off</code>、<code>herdr</code>、<code>terminal</code>、<code>system</code>から選べます。
+macOSでは <code>terminal-notifier</code> または <code>osascript</code>、Linuxでは <code>notify-send</code>が使われます。
+Linuxで通知を表示するには <code>DISPLAY</code> または <code>WAYLAND_DISPLAY</code>が必要です。</p>
+<h2 class='title is-3'>リモート利用</h2><h3 class='title is-4'>SSH先で起動する</h3><div class="CodeRay">
+  <div class="code"><pre>ssh user@server
+herdr
+</pre></div>
+</div>
+
+<p>サーバー側のHerdr serverにペインが残るため、detach後に再接続できます。</p>
+
+        </div>
+        
+        <div class="column ">
+          <h3 class='title is-4'>ローカルからremote clientとして接続する</h3><div class="CodeRay">
+  <div class="code"><pre>herdr --remote workbox
+herdr --remote ssh://user@server:2222
+</pre></div>
+</div>
+<div class="CodeRay">
+  <div class="code"><pre>Host workbox
+  HostName server.example.com
+  User user
+  Port 2222
+</pre></div>
+</div>
+<h2 class='title is-3'>CLIからペインを操作する</h2><div class="CodeRay">
+  <div class="code"><pre>herdr pane list
+herdr pane current
+herdr pane read &lt;pane_id&gt; --source recent-unwrapped --lines 120
+herdr pane run &lt;pane_id&gt; &quot;npm test&quot;
+herdr pane send-text &lt;pane_id&gt; &quot;hello&quot;
+herdr pane send-keys &lt;pane_id&gt; enter
+</pre></div>
+</div>
+
+<p>コマンドを実行する場合は、テキスト送信とEnterを分けるより <code>pane run</code>を使うほうが安全です。</p>
+<h2 class='title is-3'>MacとUbuntuの使い分け</h2><table class='table is-striped'><tbody><tr>
+<td>Mac</td>
+<td>開発リポジトリごとにHerdrを起動し、Claude Code、Codex、opencodeをタブやペインで分ける</td>
+</tr>
+<tr>
+<td>Ubuntu</td>
+<td>長時間ビルド、サーバー常駐、重い検証を動かす</td>
+</tr>
+<tr>
+<td>MacからUbuntu</td>
+<td><code>herdr --remote ubuntu-box</code>でUbuntu側の作業を操作する</td>
+</tr>
+</tbody></table>
+<p>Macでのペイン構成は、左にAIエージェント、右上に <code>git status</code>や <code>git diff</code>、右下にテストや開発サーバーを置くと扱いやすくなります。</p>
+<h2 class='title is-3'>練習メニュー</h2>
+<ol>
+<li><code>herdr</code>で起動する</li>
+<li><code>prefix+c</code>でタブを作る</li>
+<li><code>prefix+v</code>で右に分割する</li>
+<li><code>prefix+minus</code>で下に分割する</li>
+<li><code>prefix+h/j/k/l</code>で移動する</li>
+<li><code>prefix+z</code>でズームする</li>
+<li><code>prefix+q</code>でdetachする</li>
+<li><code>herdr</code>で再接続する</li>
+</ol>
+<h2 class='title is-3'>参考</h2>
+<ul>
+<li><a href="https://herdr.dev/">Herdr公式サイト</a></li>
+<li><a href="https://github.com/ogulcancelik/herdr">Herdr GitHub</a></li>
+<li><a href="https://herdr.dev/docs/keyboard/">Keyboard</a></li>
+<li><a href="https://herdr.dev/docs/configuration/">Configuration</a></li>
+<li><a href="https://herdr.dev/docs/how-to-work/">How to work with Herdr</a></li>
+<li><a href="https://herdr.dev/docs/cli-reference/">CLI reference</a></li>
+</ul>
+
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+      Copyright by TAKEUCHI Hitoshi
+      
+       ( <a href="https://namaraii.com/">namaraii.com</a> )
+      
+      </p>
+    </div>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          
+                    
+            <a class="navbar-item" href="mailto: hitoshi@namaraii.com ">
+              <span class="icon">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+            </a>
+          
+
+          
+                    
+            <a class="navbar-item" href="https://bsky.app/profile/namaraii.com ">
+              <span class="icon">
+                <i class="fab fa-bluesky"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://fedibird.com/@htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-mastodon"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://www.threads.net/@htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-threads"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://github.com/htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+            </a>
+          
+          
+          
+          
+        </div>
+      </div>
+    </nav>
+  </footer>
+
+</body>
+</html>
