@@ -18,7 +18,7 @@ description: Herdrのショートカットと使い方
 
 ### 最初に覚えるキー
 
-デフォルトのprefixは `Ctrl+b`。
+デフォルトのprefixは `Ctrl+b`
 
 | 操作 | キー |
 | --- | --- |
@@ -57,12 +57,6 @@ description: Herdrのショートカットと使い方
 | タブ名変更 | `prefix+shift+t` |
 | タブを閉じる | `prefix+shift+x` |
 
-| タブ名 | 用途 |
-| --- | --- |
-| `main` | シェル、エージェント |
-| `test` | テスト、ビルド、ログ |
-| `server` | 開発サーバー、watch |
-| `notes` | 調査メモ、作業ログ |
 
 ## ワークスペース操作
 
@@ -78,7 +72,7 @@ description: Herdrのショートカットと使い方
 
 ## コピー操作
 
-コピーmodeは `prefix+[` で開始します。
+コピーmodeは `prefix+[` で開始
 
 | 操作 | キー |
 | --- | --- |
