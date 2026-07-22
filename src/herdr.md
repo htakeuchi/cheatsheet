@@ -1,6 +1,6 @@
 ---
 title: Herdr
-category: Devops
+category: Develop
 tags: [Terminal, AIエージェント, Mac, Ubuntu]
 updated: 2026-07-23
 columns: 3

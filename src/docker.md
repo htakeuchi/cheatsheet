@@ -1,6 +1,6 @@
 ---
 title: Docker
-category: Devops
+category: Develop
 tags: 
 updated: 2018-12-19
 columns: 3
