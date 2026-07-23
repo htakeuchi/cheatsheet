@@ -3,73 +3,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Notion Shortcuts cheatsheet</title>
-  <meta name="description" content="A new tool that blends your everyday work apps into one. It's the all-in-one workspace for you and your team" />
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <title>Notion Shortcuts print</title>
+  <meta name="description" content="A new tool that blends your everyday work apps into one. It&#39;s the all-in-one workspace for you and your team">
+  <meta name="cheatsheet-default-columns" content="3">
+  <meta name="cheatsheet-pdf-paper" content="A4">
+  <meta name="cheatsheet-pdf-orientation" content="landscape">
+  <meta name="cheatsheet-pdf-columns" content="auto">
+  <meta name="cheatsheet-pdf-margin-mm" content="3">
+  <meta name="cheatsheet-pdf-min-font-size-pt" content="5.5">
+  <meta name="cheatsheet-pdf-max-font-size-pt" content="8.0">
   <style>
+    :root {
+      --page-width: 297mm;
+      --page-height: 210mm;
+      --page-margin: 3mm;
+      --columns: 3;
+      --column-gap: 4mm;
+      --font-size: 7pt;
+      --line-height: 1.14;
+      --title-size: 13pt;
+      --rule-color: #b6c2d2;
+      --text-color: #111827;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", Meiryo, sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+    }
+
+    .print-page {
+      width: var(--page-width);
+      height: var(--page-height);
+      margin: 0 auto;
+      padding: var(--page-margin);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .print-title {
+      flex: 0 0 auto;
+      margin: 0 0 2.2mm;
+      padding-bottom: 1.4mm;
+      border-bottom: 0.25mm solid var(--rule-color);
+      font-size: var(--title-size);
+      line-height: 1.08;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .print-sheet {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      column-count: var(--columns);
+      column-gap: var(--column-gap);
+      column-fill: auto;
+    }
+
+    .print-block {
+      break-inside: avoid-column;
+      page-break-inside: avoid;
+      margin: 0 0 1.5mm;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0.65em 0 0.22em;
+      padding: 0;
+      line-height: 1.08;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      font-size: 1.22em;
+      border-bottom: 0.18mm solid var(--rule-color);
+      padding-bottom: 0.16em;
+    }
+
+    h3 {
+      font-size: 1.08em;
+    }
+
+    p,
+    ul,
+    ol,
+    pre,
     table {
-      font-size: small;
-      width: 100%;
+      margin: 0 0 0.55em;
     }
-    h1 {
-      padding-bottom: 0.5em;
-    }
-    h2,h3,h4,h5,h6 {
-      padding-top: 1em;
-      padding-bottom: 0.2em;
-      margin-top: 0.2em;
-    }
+
     p:has(+ div.CodeRay) {
-      margin-bottom: 0.25em;
+      margin-bottom: 0.14em;
     }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    td,
+    th {
+      padding: 0.16em 0.42em;
+      border: 0.12mm solid #d4dbe6;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    td:first-child,
+    th:first-child {
+      width: 42%;
+      font-weight: 600;
+    }
+
+    code {
+      padding: 0 0.18em;
+      border-radius: 0.18em;
+      background: #eef2f7;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      white-space: normal;
+    }
+
     div.CodeRay {
-      margin: 0.25em 0 0.5em;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      font-size: 0.92em;
+      margin: 0 0 0.275em;
       padding: 0;
     }
+
     p + div.CodeRay {
       margin-top: 0;
     }
+
     div.CodeRay pre {
       margin: 0;
-      padding: 0.625em 0.75em;
+      padding: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    @media print {
+      html,
+      body {
+        width: var(--page-width);
+        height: var(--page-height);
+        background: #fff;
+      }
+
+      .print-page {
+        margin: 0;
+      }
     }
   </style>
-  <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
-  <script async type="text/javascript" src="/js/bulma.js"></script>
 </head>
 <body>
-  <!-- Navigation bar -->
-  <nav class="navbar is-fixed-top is-transparent">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="https://cheatsheets.namaraii.com/">
-        <span class="icon">
-          <i class="fas fa-home"></i>
-        </span>
-      </a>
-      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/notion.md">
-        <span class="icon">
-          <i class="fab fa-github"></i>
-        </span>
-      </a>
-      <a class="navbar-item" href="pdf/notion.pdf" download title="PDFをダウンロード" aria-label="PDFをダウンロード">
-        <span class="icon">
-          <i class="fa-solid fa-file-pdf"></i>
-        </span>
-      </a>
-    </div>
-  </nav>
-
-  <section class="section sheet padding-10m">
-    <div class="container">
-      <h1 class="title has-text-centered">Notion Shortcuts</h1>
-
-      <div class="columns">
-        
-        <div class="column is-one-third">
-          <h3 class='title is-4'>Markdown style</h3><table class='table is-striped'><tbody><tr>
+  <main class="print-page">
+    <h1 class="print-title">Notion Shortcuts</h1>
+    <div class="print-sheet">
+      
+        <section class="print-block">
+          <h3>Markdown style</h3><table><tbody><tr>
 <td>**</td>
 <td>on either side of your text to <strong>bold.</strong></td>
 </tr>
@@ -117,7 +244,11 @@
 <td>&quot;</td>
 <td>followed by <code>space</code> to create a quote block</td>
 </tr>
-</tbody></table><h3 class='title is-4'>Create &amp; style your content</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>Create &amp; style your content</h3><table><tbody><tr>
 <td><code>enter</code></td>
 <td>to insert a line of text</td>
 </tr>
@@ -218,10 +349,10 @@
 <td>to zoom out</td>
 </tr>
 </tbody></table>
-        </div>
-        
-        <div class="column is-one-third">
-          <h3 class='title is-4'>Edit &amp; move blocks</h3><table class='table is-striped'><tbody><tr>
+        </section>
+      
+        <section class="print-block">
+          <h3>Edit &amp; move blocks</h3><table><tbody><tr>
 <td><code>esc</code></td>
 <td>to select the block you&#39;re currently in. Or to clear selected blocks</td>
 </tr>
@@ -273,7 +404,11 @@
 <td><code>cmd/ctrl</code> + <code>enter</code></td>
 <td>to modify the current block you&#39;re in</td>
 </tr>
-</tbody></table><h3 class='title is-4'>@ Commands</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>@ Commands</h3><table><tbody><tr>
 <td>Mention a person</td>
 <td>Type <code>@</code> and another workspace member&#39;s name to get their attention on something</td>
 </tr>
@@ -293,7 +428,11 @@
 <td><code>esc</code></td>
 <td>to dismiss the @-command menu if you simply want to type @</td>
 </tr>
-</tbody></table><h3 class='title is-4'>Slash commands (Basic)</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>Slash commands (Basic)</h3><table><tbody><tr>
 <td><code>/text</code></td>
 <td>creates a new text block</td>
 </tr>
@@ -346,10 +485,10 @@
 <td>clears the <code>/</code> menu</td>
 </tr>
 </tbody></table>
-        </div>
-        
-        <div class="column is-one-third">
-          <h3 class='title is-4'>Slash commands (Database)</h3><table class='table is-striped'><tbody><tr>
+        </section>
+      
+        <section class="print-block">
+          <h3>Slash commands (Database)</h3><table><tbody><tr>
 <td><code>/table-inline</code></td>
 <td>creates a database table inside a current page</td>
 </tr>
@@ -373,7 +512,11 @@
 <td><code>/linked</code></td>
 <td>creates a linked database</td>
 </tr>
-</tbody></table><h3 class='title is-4'>Slash commands (Media)</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>Slash commands (Media)</h3><table><tbody><tr>
 <td><code>/image</code></td>
 <td>will bring up the option to upload or embed an image, or add one from <a href="http://unsplash.com">Unsplash</a></td>
 </tr>
@@ -405,7 +548,11 @@
 <td><code>/embed</code></td>
 <td>lets you add any one of the 500+ embeds that work with Notion</td>
 </tr>
-</tbody></table><h3 class='title is-4'>Slash commands (Advanced)</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>Slash commands (Advanced)</h3><table><tbody><tr>
 <td><code>/comment</code></td>
 <td>lets you create a comment on any block</td>
 </tr>
@@ -422,72 +569,9 @@
 <td>lets you write mathematical equations and symbols using <a href="https://www.math.brown.edu/%7Ejhs/ReferenceCards/TeXRefCard.v1.5.pdf">TeX</a></td>
 </tr>
 </tbody></table>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-      Copyright by TAKEUCHI Hitoshi
+        </section>
       
-       ( <a href="https://namaraii.com/">namaraii.com</a> )
-      
-      </p>
     </div>
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          
-                    
-            <a class="navbar-item" href="mailto: hitoshi@namaraii.com ">
-              <span class="icon">
-                <i class="fa-solid fa-envelope"></i>
-              </span>
-            </a>
-          
-
-          
-                    
-            <a class="navbar-item" href="https://bsky.app/profile/namaraii.com ">
-              <span class="icon">
-                <i class="fab fa-bluesky"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://fedibird.com/@htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-mastodon"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://www.threads.net/@htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-threads"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://github.com/htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-github"></i>
-              </span>
-            </a>
-          
-          
-          
-          
-        </div>
-      </div>
-    </nav>
-  </footer>
-
+  </main>
 </body>
 </html>

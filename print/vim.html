@@ -3,73 +3,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Vim cheatsheet</title>
-  <meta name="description" content="Vim Editor" />
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <title>Vim print</title>
+  <meta name="description" content="Vim Editor">
+  <meta name="cheatsheet-default-columns" content="3">
+  <meta name="cheatsheet-pdf-paper" content="A4">
+  <meta name="cheatsheet-pdf-orientation" content="landscape">
+  <meta name="cheatsheet-pdf-columns" content="auto">
+  <meta name="cheatsheet-pdf-margin-mm" content="3">
+  <meta name="cheatsheet-pdf-min-font-size-pt" content="5.5">
+  <meta name="cheatsheet-pdf-max-font-size-pt" content="8.0">
   <style>
+    :root {
+      --page-width: 297mm;
+      --page-height: 210mm;
+      --page-margin: 3mm;
+      --columns: 3;
+      --column-gap: 4mm;
+      --font-size: 7pt;
+      --line-height: 1.14;
+      --title-size: 13pt;
+      --rule-color: #b6c2d2;
+      --text-color: #111827;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", Meiryo, sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+    }
+
+    .print-page {
+      width: var(--page-width);
+      height: var(--page-height);
+      margin: 0 auto;
+      padding: var(--page-margin);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .print-title {
+      flex: 0 0 auto;
+      margin: 0 0 2.2mm;
+      padding-bottom: 1.4mm;
+      border-bottom: 0.25mm solid var(--rule-color);
+      font-size: var(--title-size);
+      line-height: 1.08;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .print-sheet {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      column-count: var(--columns);
+      column-gap: var(--column-gap);
+      column-fill: auto;
+    }
+
+    .print-block {
+      break-inside: avoid-column;
+      page-break-inside: avoid;
+      margin: 0 0 1.5mm;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0.65em 0 0.22em;
+      padding: 0;
+      line-height: 1.08;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      font-size: 1.22em;
+      border-bottom: 0.18mm solid var(--rule-color);
+      padding-bottom: 0.16em;
+    }
+
+    h3 {
+      font-size: 1.08em;
+    }
+
+    p,
+    ul,
+    ol,
+    pre,
     table {
-      font-size: small;
-      width: 100%;
+      margin: 0 0 0.55em;
     }
-    h1 {
-      padding-bottom: 0.5em;
-    }
-    h2,h3,h4,h5,h6 {
-      padding-top: 1em;
-      padding-bottom: 0.2em;
-      margin-top: 0.2em;
-    }
+
     p:has(+ div.CodeRay) {
-      margin-bottom: 0.25em;
+      margin-bottom: 0.14em;
     }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    td,
+    th {
+      padding: 0.16em 0.42em;
+      border: 0.12mm solid #d4dbe6;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    td:first-child,
+    th:first-child {
+      width: 42%;
+      font-weight: 600;
+    }
+
+    code {
+      padding: 0 0.18em;
+      border-radius: 0.18em;
+      background: #eef2f7;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      white-space: normal;
+    }
+
     div.CodeRay {
-      margin: 0.25em 0 0.5em;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      font-size: 0.92em;
+      margin: 0 0 0.275em;
       padding: 0;
     }
+
     p + div.CodeRay {
       margin-top: 0;
     }
+
     div.CodeRay pre {
       margin: 0;
-      padding: 0.625em 0.75em;
+      padding: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    @media print {
+      html,
+      body {
+        width: var(--page-width);
+        height: var(--page-height);
+        background: #fff;
+      }
+
+      .print-page {
+        margin: 0;
+      }
     }
   </style>
-  <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
-  <script async type="text/javascript" src="/js/bulma.js"></script>
 </head>
 <body>
-  <!-- Navigation bar -->
-  <nav class="navbar is-fixed-top is-transparent">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="https://cheatsheets.namaraii.com/">
-        <span class="icon">
-          <i class="fas fa-home"></i>
-        </span>
-      </a>
-      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/vim.md">
-        <span class="icon">
-          <i class="fab fa-github"></i>
-        </span>
-      </a>
-      <a class="navbar-item" href="pdf/vim.pdf" download title="PDFをダウンロード" aria-label="PDFをダウンロード">
-        <span class="icon">
-          <i class="fa-solid fa-file-pdf"></i>
-        </span>
-      </a>
-    </div>
-  </nav>
-
-  <section class="section sheet padding-10m">
-    <div class="container">
-      <h1 class="title has-text-centered">Vim</h1>
-
-      <div class="columns">
-        
-        <div class="column is-one-third">
-          <h3 class='title is-4'>モード</h3><table class='table is-striped'><tbody><tr>
+  <main class="print-page">
+    <h1 class="print-title">Vim</h1>
+    <div class="print-sheet">
+      
+        <section class="print-block">
+          <h3>モード</h3><table><tbody><tr>
 <td>i</td>
 <td>挿入モードへ</td>
 </tr>
@@ -85,7 +212,11 @@
 <td>ESC</td>
 <td>編集モードへ</td>
 </tr>
-</tbody></table><h3 class='title is-4'>カーソル移動</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>カーソル移動</h3><table><tbody><tr>
 <td>h</td>
 <td>←</td>
 </tr>
@@ -145,7 +276,11 @@
 <td>Ctrl+g</td>
 <td>ファイル中の現在の場所を知る</td>
 </tr>
-</tbody></table><h3 class='title is-4'>編集</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>編集</h3><table><tbody><tr>
 <td>J</td>
 <td>行の連結</td>
 </tr>
@@ -177,7 +312,11 @@
 <td>Ctrl+r</td>
 <td>リドゥ</td>
 </tr>
-</tbody></table><h3 class='title is-4'>ファイル</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>ファイル</h3><table><tbody><tr>
 <td>:q</td>
 <td>終了(:q!で保存せずに強制終了)</td>
 </tr>
@@ -210,10 +349,10 @@
 <td>カーソル位置にある文字列をファイル名とみなして開く</td>
 </tr>
 </tbody></table>
-        </div>
-        
-        <div class="column is-one-third">
-          <h3 class='title is-4'>検索と置換</h3><table class='table is-striped'><tbody><tr>
+        </section>
+      
+        <section class="print-block">
+          <h3>検索と置換</h3><table><tbody><tr>
 <td>/word</td>
 <td>wordを検索（nで次の候補、Nで前の候補）</td>
 </tr>
@@ -237,7 +376,11 @@
 <td>:set hlsearch</td>
 <td>ヒット結果のハイライト表示</td>
 </tr>
-</tbody></table><h3 class='title is-4'>領域選択</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>領域選択</h3><table><tbody><tr>
 <td>v</td>
 <td>領域選択スタート</td>
 </tr>
@@ -261,7 +404,11 @@
 <td>=</td>
 <td>選択領域をオートインデント</td>
 </tr>
-</tbody></table><h3 class='title is-4'>タグ移動</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>タグ移動</h3><table><tbody><tr>
 <td>:tag function 関数</td>
 <td>functionへ移動</td>
 </tr>
@@ -281,7 +428,11 @@
 <td>Ctrl+T</td>
 <td>直前のタグへ戻る</td>
 </tr>
-</tbody></table><h3 class='title is-4'>ウィンドウ</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>ウィンドウ</h3><table><tbody><tr>
 <td>:split</td>
 <td>画面を上下に分割する</td>
 </tr>
@@ -346,10 +497,10 @@
 <td>左右/上下のウィンドゥを入れ替え</td>
 </tr>
 </tbody></table>
-        </div>
-        
-        <div class="column is-one-third">
-          <h3 class='title is-4'>buffer（バッファ管理）</h3><table class='table is-striped'><tbody><tr>
+        </section>
+      
+        <section class="print-block">
+          <h3>buffer（バッファ管理）</h3><table><tbody><tr>
 <td>:ls</td>
 <td>バッファ一覧を表示</td>
 </tr>
@@ -369,7 +520,11 @@
 <td>:bp</td>
 <td>前のバッファに移動</td>
 </tr>
-</tbody></table><h3 class='title is-4'>register(レジスタ管理)</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>register(レジスタ管理)</h3><table><tbody><tr>
 <td>&quot;ay</td>
 <td>選択範囲をレジスタaに保存</td>
 </tr>
@@ -385,7 +540,11 @@
 <td>:reg</td>
 <td>レジスタに格納されている情報を一覧表示</td>
 </tr>
-</tbody></table><h3 class='title is-4'>mark（マーク）</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>mark（マーク）</h3><table><tbody><tr>
 <td>ma</td>
 <td>現在のカーソル位置をマーク名aに保存</td>
 </tr>
@@ -397,7 +556,11 @@
 <td>:marks</td>
 <td>マークの一覧を表示する</td>
 </tr>
-</tbody></table><h3 class='title is-4'>folding（折りたたみ）</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>folding（折りたたみ）</h3><table><tbody><tr>
 <td>zf</td>
 <td>選択領域を折りたたむ</td>
 </tr>
@@ -405,7 +568,11 @@
 <td>スペース</td>
 <td>折りたたみを展開する</td>
 </tr>
-</tbody></table><h3 class='title is-4'>word completion（単語補完）</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>word completion（単語補完）</h3><table><tbody><tr>
 <td>Ctrl+p</td>
 <td>単語補完（前方検索）</td>
 </tr>
@@ -413,7 +580,11 @@
 <td>Ctrl+n</td>
 <td>単語補完（後方検索）</td>
 </tr>
-</tbody></table><h3 class='title is-4'>recording（操作記憶）</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>recording（操作記憶）</h3><table><tbody><tr>
 <td>qa</td>
 <td>操作の記録を開始し、レジスタaに保存する</td>
 </tr>
@@ -429,7 +600,11 @@
 <td>5@a</td>
 <td>レジスタaに保存された操作を5回再生する</td>
 </tr>
-</tbody></table><h3 class='title is-4'>外部コマンドとの連携</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>外部コマンドとの連携</h3><table><tbody><tr>
 <td>:!command</td>
 <td>外部コマンド実行(領域指定すると出力も取込）</td>
 </tr>
@@ -438,72 +613,9 @@
 <td>外部コマンド実行(カーソル位置へ出力挿入)</td>
 </tr>
 </tbody></table>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-      Copyright by TAKEUCHI Hitoshi
+        </section>
       
-       ( <a href="https://namaraii.com/">namaraii.com</a> )
-      
-      </p>
     </div>
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          
-                    
-            <a class="navbar-item" href="mailto: hitoshi@namaraii.com ">
-              <span class="icon">
-                <i class="fa-solid fa-envelope"></i>
-              </span>
-            </a>
-          
-
-          
-                    
-            <a class="navbar-item" href="https://bsky.app/profile/namaraii.com ">
-              <span class="icon">
-                <i class="fab fa-bluesky"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://fedibird.com/@htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-mastodon"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://www.threads.net/@htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-threads"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://github.com/htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-github"></i>
-              </span>
-            </a>
-          
-          
-          
-          
-        </div>
-      </div>
-    </nav>
-  </footer>
-
+  </main>
 </body>
 </html>

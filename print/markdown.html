@@ -3,73 +3,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Markdown cheatsheet</title>
-  <meta name="description" content="CommonMark 0.31.2を中心としたMarkdown構文" />
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <title>Markdown print</title>
+  <meta name="description" content="CommonMark 0.31.2を中心としたMarkdown構文">
+  <meta name="cheatsheet-default-columns" content="3">
+  <meta name="cheatsheet-pdf-paper" content="A4">
+  <meta name="cheatsheet-pdf-orientation" content="landscape">
+  <meta name="cheatsheet-pdf-columns" content="auto">
+  <meta name="cheatsheet-pdf-margin-mm" content="3">
+  <meta name="cheatsheet-pdf-min-font-size-pt" content="5.5">
+  <meta name="cheatsheet-pdf-max-font-size-pt" content="8.0">
   <style>
+    :root {
+      --page-width: 297mm;
+      --page-height: 210mm;
+      --page-margin: 3mm;
+      --columns: 3;
+      --column-gap: 4mm;
+      --font-size: 7pt;
+      --line-height: 1.14;
+      --title-size: 13pt;
+      --rule-color: #b6c2d2;
+      --text-color: #111827;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", Meiryo, sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+    }
+
+    .print-page {
+      width: var(--page-width);
+      height: var(--page-height);
+      margin: 0 auto;
+      padding: var(--page-margin);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .print-title {
+      flex: 0 0 auto;
+      margin: 0 0 2.2mm;
+      padding-bottom: 1.4mm;
+      border-bottom: 0.25mm solid var(--rule-color);
+      font-size: var(--title-size);
+      line-height: 1.08;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .print-sheet {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      column-count: var(--columns);
+      column-gap: var(--column-gap);
+      column-fill: auto;
+    }
+
+    .print-block {
+      break-inside: avoid-column;
+      page-break-inside: avoid;
+      margin: 0 0 1.5mm;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0.65em 0 0.22em;
+      padding: 0;
+      line-height: 1.08;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      font-size: 1.22em;
+      border-bottom: 0.18mm solid var(--rule-color);
+      padding-bottom: 0.16em;
+    }
+
+    h3 {
+      font-size: 1.08em;
+    }
+
+    p,
+    ul,
+    ol,
+    pre,
     table {
-      font-size: small;
-      width: 100%;
+      margin: 0 0 0.55em;
     }
-    h1 {
-      padding-bottom: 0.5em;
-    }
-    h2,h3,h4,h5,h6 {
-      padding-top: 1em;
-      padding-bottom: 0.2em;
-      margin-top: 0.2em;
-    }
+
     p:has(+ div.CodeRay) {
-      margin-bottom: 0.25em;
+      margin-bottom: 0.14em;
     }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    td,
+    th {
+      padding: 0.16em 0.42em;
+      border: 0.12mm solid #d4dbe6;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    td:first-child,
+    th:first-child {
+      width: 42%;
+      font-weight: 600;
+    }
+
+    code {
+      padding: 0 0.18em;
+      border-radius: 0.18em;
+      background: #eef2f7;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      white-space: normal;
+    }
+
     div.CodeRay {
-      margin: 0.25em 0 0.5em;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      font-size: 0.92em;
+      margin: 0 0 0.275em;
       padding: 0;
     }
+
     p + div.CodeRay {
       margin-top: 0;
     }
+
     div.CodeRay pre {
       margin: 0;
-      padding: 0.625em 0.75em;
+      padding: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    @media print {
+      html,
+      body {
+        width: var(--page-width);
+        height: var(--page-height);
+        background: #fff;
+      }
+
+      .print-page {
+        margin: 0;
+      }
     }
   </style>
-  <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
-  <script async type="text/javascript" src="/js/bulma.js"></script>
 </head>
 <body>
-  <!-- Navigation bar -->
-  <nav class="navbar is-fixed-top is-transparent">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="https://cheatsheets.namaraii.com/">
-        <span class="icon">
-          <i class="fas fa-home"></i>
-        </span>
-      </a>
-      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/markdown.md">
-        <span class="icon">
-          <i class="fab fa-github"></i>
-        </span>
-      </a>
-      <a class="navbar-item" href="pdf/markdown.pdf" download title="PDFをダウンロード" aria-label="PDFをダウンロード">
-        <span class="icon">
-          <i class="fa-solid fa-file-pdf"></i>
-        </span>
-      </a>
-    </div>
-  </nav>
-
-  <section class="section sheet padding-10m">
-    <div class="container">
-      <h1 class="title has-text-centered">Markdown</h1>
-
-      <div class="columns">
-        
-        <div class="column is-one-third">
-          <h3 class='title is-4'>段落と空行</h3>
+  <main class="print-page">
+    <h1 class="print-title">Markdown</h1>
+    <div class="print-sheet">
+      
+        <section class="print-block">
+          <h3>段落と空行</h3>
 <p>段落は通常のテキスト。空行で別段落にする。</p>
 <div class="CodeRay">
   <div class="code"><pre>これは1つ目の段落です。
@@ -79,7 +206,11 @@
 </div>
 
 <p>行末だけの改行はソフト改行。HTMLでは実装により空白または改行として扱われる。</p>
-<h3 class='title is-4'>強制改行</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>強制改行</h3>
 <p>行末にバックスラッシュ、または半角スペース2つ以上を置く。</p>
 <div class="CodeRay">
   <div class="code"><pre>1行目\
@@ -88,7 +219,11 @@
 </div>
 
 <p>スペース2つは見えにくいので、手書きではバックスラッシュのほうが確認しやすい。</p>
-<h3 class='title is-4'>見出し</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>見出し</h3>
 <p><code>#</code>を1から6個置き、後ろに空白を入れる。</p>
 <div class="CodeRay">
   <div class="code"><pre># 見出し1
@@ -103,7 +238,11 @@
   <div class="code"><pre>## 見出し ##
 </pre></div>
 </div>
-<h3 class='title is-4'>Setext見出し</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>Setext見出し</h3>
 <p>本文の次の行に<code>=</code>または<code>-</code>を並べる。レベル1と2だけ。</p>
 <div class="CodeRay">
   <div class="code"><pre>見出し1
@@ -115,7 +254,11 @@
 </div>
 
 <p><code>---</code>は、前の行との関係で見出しにも区切り線にもなる。迷う場合はATX見出しを使う。</p>
-<h3 class='title is-4'>強調</h3><div class="CodeRay">
+
+        </section>
+      
+        <section class="print-block">
+          <h3>強調</h3><div class="CodeRay">
   <div class="code"><pre>*斜体*
 _斜体_
 **太字**
@@ -125,7 +268,11 @@ __太字__
 </div>
 
 <p>単語の途中では、<code>_</code>より<code>*</code>のほうが意図が伝わりやすい。</p>
-<h3 class='title is-4'>エスケープ</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>エスケープ</h3>
 <p>ASCII句読点の前に<code>\</code>を置くと、Markdownの意味を打ち消せる。</p>
 <div class="CodeRay">
   <div class="code"><pre>\*強調しない\*
@@ -135,7 +282,11 @@ __太字__
 </div>
 
 <p>コード、コードブロック、自動リンク、生HTML内では同じようには働かない。</p>
-<h3 class='title is-4'>引用</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>引用</h3>
 <p>行頭に<code>&gt;</code>を置く。空行にも<code>&gt;</code>を置くと、引用内の段落を保てる。</p>
 <div class="CodeRay">
   <div class="code"><pre>&gt; 引用文です。
@@ -150,7 +301,11 @@ __太字__
 &gt;&gt; 内側
 </pre></div>
 </div>
-<h3 class='title is-4'>箇条書き</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>箇条書き</h3>
 <p><code>-</code>、<code>+</code>、<code>*</code>を使える。1つのリストでは記号をそろえる。</p>
 <div class="CodeRay">
   <div class="code"><pre>- 項目
@@ -166,7 +321,11 @@ __太字__
   項目の2段落目
 </pre></div>
 </div>
-<h3 class='title is-4'>番号付きリスト</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>番号付きリスト</h3>
 <p>数字の後に<code>.</code>または<code>)</code>を置く。表示上の開始番号は先頭項目の数字が使われる。</p>
 <div class="CodeRay">
   <div class="code"><pre>1. 最初
@@ -180,10 +339,10 @@ __太字__
 
 <p>本文では番号をすべて<code>1.</code>にしてもよいが、印刷物では実番号のほうが読みやすい。</p>
 
-        </div>
-        
-        <div class="column is-one-third">
-          <h3 class='title is-4'>コードスパン</h3>
+        </section>
+      
+        <section class="print-block">
+          <h3>コードスパン</h3>
 <p>文中のコードはバッククォートで囲む。</p>
 <div class="CodeRay">
   <div class="code"><pre>`printf()`
@@ -197,7 +356,11 @@ __太字__
 </div>
 
 <p>コードスパン内ではMarkdown記法は解釈されない。</p>
-<h3 class='title is-4'>フェンス付きコード</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>フェンス付きコード</h3>
 <p>バッククォートまたはチルダを3個以上。開始と終了は同じ記号にする。</p>
 <div class="CodeRay">
   <div class="code"><pre>```ruby
@@ -211,7 +374,11 @@ puts &quot;hello&quot;
 </div>
 
 <p>開始行の後ろには情報文字列を書ける。CommonMarkは言語名の扱いまでは規定しない。</p>
-<h3 class='title is-4'>インデントコード</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>インデントコード</h3>
 <p>4スペース以上で始めるとコードブロックになる。</p>
 <div class="CodeRay">
   <div class="code"><pre>    git status
@@ -220,7 +387,11 @@ puts &quot;hello&quot;
 </div>
 
 <p>リスト内では、リスト項目の本文位置からさらに4スペース相当が目安。</p>
-<h3 class='title is-4'>区切り線</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>区切り線</h3>
 <p><code>*</code>、<code>-</code>、<code>_</code>を3個以上。間に空白を入れてもよい。</p>
 <div class="CodeRay">
   <div class="code"><pre>---
@@ -230,7 +401,11 @@ _ _ _
 </div>
 
 <p>前後の文脈でSetext見出しと紛らわしい場合は、空行を入れる。</p>
-<h3 class='title is-4'>リンク</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>リンク</h3>
 <p>インラインリンク。</p>
 <div class="CodeRay">
   <div class="code"><pre>[CommonMark](https://commonmark.org/)
@@ -253,7 +428,11 @@ _ _ _
 [CommonMark]: https://commonmark.org/
 </pre></div>
 </div>
-<h3 class='title is-4'>自動リンク</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>自動リンク</h3>
 <p>URLまたはメールアドレスを<code>&lt;</code>と<code>&gt;</code>で囲む。</p>
 <div class="CodeRay">
   <div class="code"><pre>&lt;https://commonmark.org/&gt;
@@ -262,7 +441,11 @@ _ _ _
 </div>
 
 <p>裸のURLを自動リンクにする機能はCommonMark本体ではない。必要なら<code>&lt;...&gt;</code>で囲む。</p>
-<h3 class='title is-4'>画像</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>画像</h3>
 <p>リンクの前に<code>!</code>を付ける。<code>[]</code>内は代替テキスト。</p>
 <div class="CodeRay">
   <div class="code"><pre>![ロゴ](logo.png)
@@ -277,7 +460,11 @@ _ _ _
   <div class="code"><pre>![ロゴ](logo.png &quot;CommonMark&quot;)
 </pre></div>
 </div>
-<h3 class='title is-4'>HTML</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>HTML</h3>
 <p>CommonMarkは生HTMLのブロックとインラインを扱える。</p>
 <div class="CodeRay">
   <div class="code"><pre>&lt;div class=&quot;note&quot;&gt;
@@ -289,7 +476,11 @@ MarkdownではなくHTMLとして扱う
 </div>
 
 <p>出力先がHTMLを無効化・サニタイズすることがあるため、公開先の仕様も確認する。</p>
-<h3 class='title is-4'>文字参照</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>文字参照</h3>
 <p>HTMLの文字参照と数値文字参照を使える。</p>
 <div class="CodeRay">
   <div class="code"><pre>&amp;copy;
@@ -300,12 +491,16 @@ MarkdownではなくHTMLとして扱う
 
 <p>そのまま記号を書けるなら、読みやすさを優先して直接書く。</p>
 
-        </div>
-        
-        <div class="column is-one-third">
-          <h3 class='title is-4'>よく使う拡張記法</h3>
+        </section>
+      
+        <section class="print-block">
+          <h3>よく使う拡張記法</h3>
 <p>次はCommonMark本体ではないが、GFM、Markdown Extra、Pandoc、Kramdown、各サービスでよく使われる。実装差があるため、公開先の仕様を確認する。</p>
-<h3 class='title is-4'>表</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>表</h3>
 <p>GFMなどで使われる。区切り行に<code>:</code>を置くと配置を指定できることが多い。</p>
 <div class="CodeRay">
   <div class="code"><pre>| 名前 | 説明 | 数量 |
@@ -316,7 +511,11 @@ MarkdownではなくHTMLとして扱う
 </div>
 
 <p>CommonMark本体では、この記法は通常の段落として扱われる。</p>
-<h3 class='title is-4'>脚注</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>脚注</h3>
 <p>GitHub、Pandoc、Kramdownなどで使われる。脚注本文の表示位置は処理系が決める。</p>
 <div class="CodeRay">
   <div class="code"><pre>本文に注釈を付ける[^1]。
@@ -326,7 +525,11 @@ MarkdownではなくHTMLとして扱う
 </div>
 
 <p>複数行の脚注は、2行目以降をインデントする方式が多い。</p>
-<h3 class='title is-4'>打ち消し線</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>打ち消し線</h3>
 <p>GFMなどで使われる。互換性を考えるなら<code>~~</code>で囲む。</p>
 <div class="CodeRay">
   <div class="code"><pre>~~削除した文~~
@@ -334,7 +537,11 @@ MarkdownではなくHTMLとして扱う
 </div>
 
 <p>CommonMark本体では、<code>~~</code>は普通の文字として扱われる。</p>
-<h3 class='title is-4'>タスクリスト</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>タスクリスト</h3>
 <p>GFMなどで使われる。リスト項目の先頭に<code>[ ]</code>または<code>[x]</code>を書く。</p>
 <div class="CodeRay">
   <div class="code"><pre>- [x] 完了
@@ -344,7 +551,11 @@ MarkdownではなくHTMLとして扱う
 </div>
 
 <p>HTMLではチェックボックスとして表示されることが多い。編集できるかどうかはサービスによる。</p>
-<h3 class='title is-4'>見出しID</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>見出しID</h3>
 <p>Pandoc、Kramdown、Markdown Extra系で使われる。任意のアンカーを付けたいときに使う。</p>
 <div class="CodeRay">
   <div class="code"><pre>### インストール {#install}
@@ -352,7 +563,11 @@ MarkdownではなくHTMLとして扱う
 </div>
 
 <p>GitHubは見出しから自動でIDを生成するが、上の<code>{#install}</code>形式はそのまま使えない場合がある。</p>
-<h3 class='title is-4'>定義リスト</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>定義リスト</h3>
 <p>Markdown Extra、Pandoc、Kramdownなどで使われる。</p>
 <div class="CodeRay">
   <div class="code"><pre>用語
@@ -365,7 +580,11 @@ MarkdownではなくHTMLとして扱う
 </div>
 
 <p>HTMLでは<code>&lt;dl&gt;</code>、<code>&lt;dt&gt;</code>、<code>&lt;dd&gt;</code>に変換されることが多い。</p>
-<h3 class='title is-4'>Front Matter</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>Front Matter</h3>
 <p>静的サイトジェネレータやドキュメントツールで使われるメタデータ。Markdown本文ではなく、ファイル先頭の設定として扱われる。</p>
 <div class="CodeRay">
   <div class="code"><pre>---
@@ -379,7 +598,11 @@ tags:
 </div>
 
 <p>YAML形式が多いが、TOMLやJSONを使うツールもある。</p>
-<h3 class='title is-4'>数式</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>数式</h3>
 <p>MathJaxやKaTeXを使う環境で使われる。インラインは<code>$...$</code>、別行は<code>$$...$$</code>が多い。</p>
 <div class="CodeRay">
   <div class="code"><pre>文中の数式は $E = mc^2$ のように書く。
@@ -391,7 +614,11 @@ $$
 </div>
 
 <p>通常の文章でドル記号を使う場合、数式として誤解釈されることがある。</p>
-<h3 class='title is-4'>絵文字ショートコード</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>絵文字ショートコード</h3>
 <p>GitHubやチャット系サービスなどで使われる。</p>
 <div class="CodeRay">
   <div class="code"><pre>:smile:
@@ -401,7 +628,11 @@ $$
 </div>
 
 <p>使える名前はサービスごとに異なる。Unicode絵文字を直接書くほうが移植性が高い場合もある。</p>
-<h3 class='title is-4'>裸URLの自動リンク</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>裸URLの自動リンク</h3>
 <p>GFMなどでは、<code>&lt;...&gt;</code>で囲まないURLもリンクになる。</p>
 <div class="CodeRay">
   <div class="code"><pre>https://commonmark.org/
@@ -411,7 +642,11 @@ user@example.com
 </div>
 
 <p>CommonMark本体で確実にリンクにしたい場合は<code>&lt;https://commonmark.org/&gt;</code>の形にする。</p>
-<h3 class='title is-4'>アラート</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>アラート</h3>
 <p>GitHubなど一部サービスで使われる注意書き。引用ブロックを拡張した記法。</p>
 <div class="CodeRay">
   <div class="code"><pre>&gt; [!NOTE]
@@ -423,7 +658,11 @@ user@example.com
 </div>
 
 <p>使える種類や表示デザインはサービスごとに異なる。</p>
-<h3 class='title is-4'>参考</h3>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>参考</h3>
 <ul>
 <li><a href="https://spec.commonmark.org/0.31.2/">CommonMark Spec 0.31.2</a></li>
 <li><a href="https://commonmark.org/help/">CommonMark Markdown Reference</a></li>
@@ -432,72 +671,9 @@ user@example.com
 <li><a href="https://michelf.ca/projects/php-markdown/extra/">PHP Markdown Extra</a></li>
 </ul>
 
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-      Copyright by TAKEUCHI Hitoshi
+        </section>
       
-       ( <a href="https://namaraii.com/">namaraii.com</a> )
-      
-      </p>
     </div>
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          
-                    
-            <a class="navbar-item" href="mailto: hitoshi@namaraii.com ">
-              <span class="icon">
-                <i class="fa-solid fa-envelope"></i>
-              </span>
-            </a>
-          
-
-          
-                    
-            <a class="navbar-item" href="https://bsky.app/profile/namaraii.com ">
-              <span class="icon">
-                <i class="fab fa-bluesky"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://fedibird.com/@htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-mastodon"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://www.threads.net/@htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-threads"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://github.com/htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-github"></i>
-              </span>
-            </a>
-          
-          
-          
-          
-        </div>
-      </div>
-    </nav>
-  </footer>
-
+  </main>
 </body>
 </html>

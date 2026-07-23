@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herdr print</title>
+  <meta name="description" content="Herdrのショートカットと使い方">
+  <meta name="cheatsheet-default-columns" content="3">
+  <meta name="cheatsheet-pdf-paper" content="A4">
+  <meta name="cheatsheet-pdf-orientation" content="landscape">
+  <meta name="cheatsheet-pdf-columns" content="auto">
+  <meta name="cheatsheet-pdf-margin-mm" content="3">
+  <meta name="cheatsheet-pdf-min-font-size-pt" content="5.5">
+  <meta name="cheatsheet-pdf-max-font-size-pt" content="8.0">
+  <style>
+    :root {
+      --page-width: 297mm;
+      --page-height: 210mm;
+      --page-margin: 3mm;
+      --columns: 3;
+      --column-gap: 4mm;
+      --font-size: 7pt;
+      --line-height: 1.14;
+      --title-size: 13pt;
+      --rule-color: #b6c2d2;
+      --text-color: #111827;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", Meiryo, sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+    }
+
+    .print-page {
+      width: var(--page-width);
+      height: var(--page-height);
+      margin: 0 auto;
+      padding: var(--page-margin);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .print-title {
+      flex: 0 0 auto;
+      margin: 0 0 2.2mm;
+      padding-bottom: 1.4mm;
+      border-bottom: 0.25mm solid var(--rule-color);
+      font-size: var(--title-size);
+      line-height: 1.08;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .print-sheet {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      column-count: var(--columns);
+      column-gap: var(--column-gap);
+      column-fill: auto;
+    }
+
+    .print-block {
+      break-inside: avoid-column;
+      page-break-inside: avoid;
+      margin: 0 0 1.5mm;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0.65em 0 0.22em;
+      padding: 0;
+      line-height: 1.08;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      font-size: 1.22em;
+      border-bottom: 0.18mm solid var(--rule-color);
+      padding-bottom: 0.16em;
+    }
+
+    h3 {
+      font-size: 1.08em;
+    }
+
+    p,
+    ul,
+    ol,
+    pre,
+    table {
+      margin: 0 0 0.55em;
+    }
+
+    p:has(+ div.CodeRay) {
+      margin-bottom: 0.14em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    td,
+    th {
+      padding: 0.16em 0.42em;
+      border: 0.12mm solid #d4dbe6;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    td:first-child,
+    th:first-child {
+      width: 42%;
+      font-weight: 600;
+    }
+
+    code {
+      padding: 0 0.18em;
+      border-radius: 0.18em;
+      background: #eef2f7;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      white-space: normal;
+    }
+
+    div.CodeRay {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      font-size: 0.92em;
+      margin: 0 0 0.275em;
+      padding: 0;
+    }
+
+    p + div.CodeRay {
+      margin-top: 0;
+    }
+
+    div.CodeRay pre {
+      margin: 0;
+      padding: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    @media print {
+      html,
+      body {
+        width: var(--page-width);
+        height: var(--page-height);
+        background: #fff;
+      }
+
+      .print-page {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="print-page">
+    <h1 class="print-title">Herdr</h1>
+    <div class="print-sheet">
+      
+        <section class="print-block">
+          <h2>基本操作</h2>
+        </section>
+      
+        <section class="print-block">
+          <h3>起動と再接続</h3><table><tbody><tr>
+<td>起動または再接続</td>
+<td><code>herdr</code></td>
+</tr>
+<tr>
+<td>detach</td>
+<td><code>Ctrl+b</code> → <code>q</code></td>
+</tr>
+<tr>
+<td>サーバー停止</td>
+<td><code>herdr server stop</code></td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>最初に覚えるキー</h3>
+<p>デフォルトのprefixは <code>Ctrl+b</code></p>
+<table><tbody><tr>
+<td>ヘルプ表示</td>
+<td><code>prefix+?</code></td>
+</tr>
+<tr>
+<td>新しいタブ</td>
+<td><code>prefix+c</code></td>
+</tr>
+<tr>
+<td>右に分割</td>
+<td><code>prefix+v</code></td>
+</tr>
+<tr>
+<td>下に分割</td>
+<td><code>prefix+minus</code></td>
+</tr>
+<tr>
+<td>ペイン移動</td>
+<td><code>prefix+h/j/k/l</code></td>
+</tr>
+<tr>
+<td>ワークスペース切替</td>
+<td><code>prefix+w</code></td>
+</tr>
+<tr>
+<td>detach</td>
+<td><code>prefix+q</code></td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h2>ペイン操作</h2><table><tbody><tr>
+<td>左／下／上／右へ移動</td>
+<td><code>prefix+h/j/k/l</code></td>
+</tr>
+<tr>
+<td>次のペイン</td>
+<td><code>prefix+tab</code></td>
+</tr>
+<tr>
+<td>前のペイン</td>
+<td><code>prefix+shift+tab</code></td>
+</tr>
+<tr>
+<td>左／下／上／右へ入れ替え</td>
+<td><code>prefix+shift+h/j/k/l</code></td>
+</tr>
+<tr>
+<td>右に分割</td>
+<td><code>prefix+v</code></td>
+</tr>
+<tr>
+<td>下に分割</td>
+<td><code>prefix+minus</code></td>
+</tr>
+<tr>
+<td>ペインを閉じる</td>
+<td><code>prefix+x</code></td>
+</tr>
+<tr>
+<td>ペインをズーム</td>
+<td><code>prefix+z</code></td>
+</tr>
+<tr>
+<td>リサイズモード</td>
+<td><code>prefix+r</code></td>
+</tr>
+<tr>
+<td>ペイン名変更</td>
+<td><code>prefix+shift+p</code></td>
+</tr>
+<tr>
+<td>スクロールバックを編集</td>
+<td><code>prefix+e</code></td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h2>タブ操作</h2><table><tbody><tr>
+<td>新しいタブ</td>
+<td><code>prefix+c</code></td>
+</tr>
+<tr>
+<td>次のタブ</td>
+<td><code>prefix+n</code></td>
+</tr>
+<tr>
+<td>前のタブ</td>
+<td><code>prefix+p</code></td>
+</tr>
+<tr>
+<td>1〜9番目のタブへ移動</td>
+<td><code>prefix+1..9</code></td>
+</tr>
+<tr>
+<td>タブ名変更</td>
+<td><code>prefix+shift+t</code></td>
+</tr>
+<tr>
+<td>タブを閉じる</td>
+<td><code>prefix+shift+x</code></td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h2>ワークスペース操作</h2><table><tbody><tr>
+<td>一覧表示と切替</td>
+<td><code>prefix+w</code></td>
+</tr>
+<tr>
+<td>Goto picker</td>
+<td><code>prefix+g</code></td>
+</tr>
+<tr>
+<td>新しいワークスペース</td>
+<td><code>prefix+shift+n</code></td>
+</tr>
+<tr>
+<td>新しいworktree</td>
+<td><code>prefix+shift+g</code></td>
+</tr>
+<tr>
+<td>ワークスペース名変更</td>
+<td><code>prefix+shift+w</code></td>
+</tr>
+<tr>
+<td>ワークスペースを閉じる</td>
+<td><code>prefix+shift+d</code></td>
+</tr>
+<tr>
+<td>サイドバー表示切替</td>
+<td><code>prefix+b</code></td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h2>コピー操作</h2>
+<p>コピーmodeは <code>prefix+[</code> で開始</p>
+<table><tbody><tr>
+<td>移動</td>
+<td><code>h/j/k/l</code></td>
+</tr>
+<tr>
+<td>単語移動</td>
+<td><code>w/b/e</code></td>
+</tr>
+<tr>
+<td>段落やブロック移動</td>
+<td><code>{</code> / <code>}</code></td>
+</tr>
+<tr>
+<td>選択開始</td>
+<td><code>v</code> または <code>Space</code></td>
+</tr>
+<tr>
+<td>コピー</td>
+<td><code>y</code> または <code>Enter</code></td>
+</tr>
+<tr>
+<td>終了</td>
+<td><code>q</code> または <code>Esc</code></td>
+</tr>
+</tbody></table>
+        </section>
+      
+    </div>
+  </main>
+</body>
+</html>

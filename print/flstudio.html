@@ -3,73 +3,204 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>FL Studio 2025(Mac) cheatsheet</title>
-  <meta name="description" content="FL Studio 2025 キーボードショートカット(Mac)" />
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <title>FL Studio 2025(Mac) print</title>
+  <meta name="description" content="FL Studio 2025 キーボードショートカット(Mac)">
+  <meta name="cheatsheet-default-columns" content="4">
+  <meta name="cheatsheet-pdf-paper" content="A4">
+  <meta name="cheatsheet-pdf-orientation" content="landscape">
+  <meta name="cheatsheet-pdf-columns" content="auto">
+  <meta name="cheatsheet-pdf-margin-mm" content="3">
+  <meta name="cheatsheet-pdf-min-font-size-pt" content="5.5">
+  <meta name="cheatsheet-pdf-max-font-size-pt" content="8.0">
   <style>
+    :root {
+      --page-width: 297mm;
+      --page-height: 210mm;
+      --page-margin: 3mm;
+      --columns: 3;
+      --column-gap: 4mm;
+      --font-size: 7pt;
+      --line-height: 1.14;
+      --title-size: 13pt;
+      --rule-color: #b6c2d2;
+      --text-color: #111827;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", Meiryo, sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+    }
+
+    .print-page {
+      width: var(--page-width);
+      height: var(--page-height);
+      margin: 0 auto;
+      padding: var(--page-margin);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .print-title {
+      flex: 0 0 auto;
+      margin: 0 0 2.2mm;
+      padding-bottom: 1.4mm;
+      border-bottom: 0.25mm solid var(--rule-color);
+      font-size: var(--title-size);
+      line-height: 1.08;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .print-sheet {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      column-count: var(--columns);
+      column-gap: var(--column-gap);
+      column-fill: auto;
+    }
+
+    .print-block {
+      break-inside: avoid-column;
+      page-break-inside: avoid;
+      margin: 0 0 1.5mm;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0.65em 0 0.22em;
+      padding: 0;
+      line-height: 1.08;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      font-size: 1.22em;
+      border-bottom: 0.18mm solid var(--rule-color);
+      padding-bottom: 0.16em;
+    }
+
+    h3 {
+      font-size: 1.08em;
+    }
+
+    p,
+    ul,
+    ol,
+    pre,
     table {
-      font-size: small;
-      width: 100%;
+      margin: 0 0 0.55em;
     }
-    h1 {
-      padding-bottom: 0.5em;
-    }
-    h2,h3,h4,h5,h6 {
-      padding-top: 1em;
-      padding-bottom: 0.2em;
-      margin-top: 0.2em;
-    }
+
     p:has(+ div.CodeRay) {
-      margin-bottom: 0.25em;
+      margin-bottom: 0.14em;
     }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    td,
+    th {
+      padding: 0.16em 0.42em;
+      border: 0.12mm solid #d4dbe6;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    td:first-child,
+    th:first-child {
+      width: 42%;
+      font-weight: 600;
+    }
+
+    code {
+      padding: 0 0.18em;
+      border-radius: 0.18em;
+      background: #eef2f7;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      white-space: normal;
+    }
+
     div.CodeRay {
-      margin: 0.25em 0 0.5em;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      font-size: 0.92em;
+      margin: 0 0 0.275em;
       padding: 0;
     }
+
     p + div.CodeRay {
       margin-top: 0;
     }
+
     div.CodeRay pre {
       margin: 0;
-      padding: 0.625em 0.75em;
+      padding: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    @media print {
+      html,
+      body {
+        width: var(--page-width);
+        height: var(--page-height);
+        background: #fff;
+      }
+
+      .print-page {
+        margin: 0;
+      }
     }
   </style>
-  <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
-  <script async type="text/javascript" src="/js/bulma.js"></script>
 </head>
 <body>
-  <!-- Navigation bar -->
-  <nav class="navbar is-fixed-top is-transparent">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="https://cheatsheets.namaraii.com/">
-        <span class="icon">
-          <i class="fas fa-home"></i>
-        </span>
-      </a>
-      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/flstudio.md">
-        <span class="icon">
-          <i class="fab fa-github"></i>
-        </span>
-      </a>
-      <a class="navbar-item" href="pdf/flstudio.pdf" download title="PDFをダウンロード" aria-label="PDFをダウンロード">
-        <span class="icon">
-          <i class="fa-solid fa-file-pdf"></i>
-        </span>
-      </a>
-    </div>
-  </nav>
-
-  <section class="section sheet padding-10m">
-    <div class="container">
-      <h1 class="title has-text-centered">FL Studio 2025(Mac)</h1>
-
-      <div class="columns">
-        
-        <div class="column ">
-          <h2 class='title is-3'>ピアノロール</h2><h3 class='title is-4'>基本編集</h3><table class='table is-striped'><tbody><tr>
+  <main class="print-page">
+    <h1 class="print-title">FL Studio 2025(Mac)</h1>
+    <div class="print-sheet">
+      
+        <section class="print-block">
+          <h2>ピアノロール</h2>
+        </section>
+      
+        <section class="print-block">
+          <h3>基本編集</h3><table><tbody><tr>
 <td>ピアノロールを開く</td>
 <td><code>F7</code></td>
 </tr>
@@ -133,7 +264,11 @@
 <td>カット</td>
 <td><code>⌘ + X</code></td>
 </tr>
-</tbody></table><h3 class='title is-4'>ノート移動・長さ調整</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>ノート移動・長さ調整</h3><table><tbody><tr>
 <td>ノート移動</td>
 <td><code>Drag</code></td>
 </tr>
@@ -165,7 +300,11 @@
 <td>ノート削除</td>
 <td><code>fn + Delete</code> または <code>右クリック</code></td>
 </tr>
-</tbody></table><h3 class='title is-4'>高速入力系</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>高速入力系</h3><table><tbody><tr>
 <td>クオンタイズ</td>
 <td><code>⌥ + Q</code></td>
 </tr>
@@ -202,10 +341,10 @@
 <td><code>⌘ + U</code></td>
 </tr>
 </tbody></table>
-        </div>
-        
-        <div class="column ">
-          <h3 class='title is-4'>ズーム・ナビゲーション</h3><table class='table is-striped'><tbody><tr>
+        </section>
+      
+        <section class="print-block">
+          <h3>ズーム・ナビゲーション</h3><table><tbody><tr>
 <td>ズームイン / アウト</td>
 <td><code>Page Up</code> / <code>Page Down</code></td>
 </tr>
@@ -221,7 +360,11 @@
 <td>グローバルスナップ切替</td>
 <td><code>Delete (Backspace)</code></td>
 </tr>
-</tbody></table><h3 class='title is-4'>MIDI編集高度操作</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>MIDI編集高度操作</h3><table><tbody><tr>
 <td>ゴーストノート表示</td>
 <td><code>⌥ + V</code></td>
 </tr>
@@ -261,7 +404,11 @@
 <td>ノートグループ解除</td>
 <td><code>⌥ + G</code></td>
 </tr>
-</tbody></table><h3 class='title is-4'>ピアノロールツール一覧</h3><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>ピアノロールツール一覧</h3><table><tbody><tr>
 <td>Draw</td>
 <td><code>P</code></td>
 </tr>
@@ -293,7 +440,11 @@
 <td>Mute</td>
 <td><code>T</code></td>
 </tr>
-</tbody></table><h2 class='title is-3'>基本操作</h2><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h2>基本操作</h2><table><tbody><tr>
 <td>新規バージョン保存</td>
 <td><code>⌘ + N</code></td>
 </tr>
@@ -346,10 +497,10 @@
 <td><code>F1</code></td>
 </tr>
 </tbody></table>
-        </div>
-        
-        <div class="column ">
-          <h2 class='title is-3'>ウィンドウ切替</h2><table class='table is-striped'><tbody><tr>
+        </section>
+      
+        <section class="print-block">
+          <h2>ウィンドウ切替</h2><table><tbody><tr>
 <td>Channel Rack</td>
 <td><code>F6</code></td>
 </tr>
@@ -373,7 +524,11 @@
 <td>Plugin Picker</td>
 <td><code>F8</code></td>
 </tr>
-</tbody></table><h2 class='title is-3'>プレイリスト操作</h2><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h2>プレイリスト操作</h2><table><tbody><tr>
 <td>描画ツール</td>
 <td><code>P</code></td>
 </tr>
@@ -445,7 +600,11 @@
 <td>クリップをナッジ</td>
 <td><code>⇧ + ⌥ + マウスホイール</code></td>
 </tr>
-</tbody></table><h2 class='title is-3'>ミキサー操作</h2><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h2>ミキサー操作</h2><table><tbody><tr>
 <td>選択チャンネルをMixerへ割当</td>
 <td><code>⌘ + L</code></td>
 </tr>
@@ -486,10 +645,10 @@
 <td><code>Ctrl + Drag</code> または <code>両ボタンDrag</code></td>
 </tr>
 </tbody></table>
-        </div>
-        
-        <div class="column ">
-          <h2 class='title is-3'>ブラウザ操作</h2><table class='table is-striped'><tbody><tr>
+        </section>
+      
+        <section class="print-block">
+          <h2>ブラウザ操作</h2><table><tbody><tr>
 <td>Browser表示切替</td>
 <td><code>⌥ + F8</code></td>
 </tr>
@@ -513,7 +672,11 @@
 <td>カーソル位置から試聴</td>
 <td><code>右クリック</code> または <code>⇧ + Click</code></td>
 </tr>
-</tbody></table><h2 class='title is-3'>録音関連</h2><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h2>録音関連</h2><table><tbody><tr>
 <td>録音開始</td>
 <td><code>R</code></td>
 </tr>
@@ -529,7 +692,11 @@
 <td>ステップ編集</td>
 <td><code>⌘ + E</code></td>
 </tr>
-</tbody></table><h2 class='title is-3'>時短テクニック</h2><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h2>時短テクニック</h2><table><tbody><tr>
 <td>選択即複製</td>
 <td><code>⌘ + B</code></td>
 </tr>
@@ -569,7 +736,11 @@
 <td>MIDI即整理</td>
 <td><code>⌘ + A</code> → <code>⌥ + ⌘ + Q</code></td>
 </tr>
-</tbody></table><h2 class='title is-3'>覚えておくと便利な操作</h2><table class='table is-striped'><tbody><tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h2>覚えておくと便利な操作</h2><table><tbody><tr>
 <td><code>⇧ + H</code></td>
 <td>ノートデータのある次チャンネルへ</td>
 </tr>
@@ -594,72 +765,9 @@
 <td>ノートプロパティを微調整</td>
 </tr>
 </tbody></table>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-      Copyright by TAKEUCHI Hitoshi
+        </section>
       
-       ( <a href="https://namaraii.com/">namaraii.com</a> )
-      
-      </p>
     </div>
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          
-                    
-            <a class="navbar-item" href="mailto: hitoshi@namaraii.com ">
-              <span class="icon">
-                <i class="fa-solid fa-envelope"></i>
-              </span>
-            </a>
-          
-
-          
-                    
-            <a class="navbar-item" href="https://bsky.app/profile/namaraii.com ">
-              <span class="icon">
-                <i class="fab fa-bluesky"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://fedibird.com/@htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-mastodon"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://www.threads.net/@htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-threads"></i>
-              </span>
-            </a>
-          
-          
-                    
-            <a class="navbar-item" href="https://github.com/htakeuchi ">
-              <span class="icon">
-                <i class="fab fa-github"></i>
-              </span>
-            </a>
-          
-          
-          
-          
-        </div>
-      </div>
-    </nav>
-  </footer>
-
+  </main>
 </body>
 </html>

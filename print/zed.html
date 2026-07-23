@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zed print</title>
+  <meta name="description" content="zed">
+  <meta name="cheatsheet-default-columns" content="3">
+  <meta name="cheatsheet-pdf-paper" content="A4">
+  <meta name="cheatsheet-pdf-orientation" content="landscape">
+  <meta name="cheatsheet-pdf-columns" content="auto">
+  <meta name="cheatsheet-pdf-margin-mm" content="3">
+  <meta name="cheatsheet-pdf-min-font-size-pt" content="5.5">
+  <meta name="cheatsheet-pdf-max-font-size-pt" content="8.0">
+  <style>
+    :root {
+      --page-width: 297mm;
+      --page-height: 210mm;
+      --page-margin: 3mm;
+      --columns: 3;
+      --column-gap: 4mm;
+      --font-size: 7pt;
+      --line-height: 1.14;
+      --title-size: 13pt;
+      --rule-color: #b6c2d2;
+      --text-color: #111827;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", Meiryo, sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+    }
+
+    .print-page {
+      width: var(--page-width);
+      height: var(--page-height);
+      margin: 0 auto;
+      padding: var(--page-margin);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .print-title {
+      flex: 0 0 auto;
+      margin: 0 0 2.2mm;
+      padding-bottom: 1.4mm;
+      border-bottom: 0.25mm solid var(--rule-color);
+      font-size: var(--title-size);
+      line-height: 1.08;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .print-sheet {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      column-count: var(--columns);
+      column-gap: var(--column-gap);
+      column-fill: auto;
+    }
+
+    .print-block {
+      break-inside: avoid-column;
+      page-break-inside: avoid;
+      margin: 0 0 1.5mm;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0.65em 0 0.22em;
+      padding: 0;
+      line-height: 1.08;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      font-size: 1.22em;
+      border-bottom: 0.18mm solid var(--rule-color);
+      padding-bottom: 0.16em;
+    }
+
+    h3 {
+      font-size: 1.08em;
+    }
+
+    p,
+    ul,
+    ol,
+    pre,
+    table {
+      margin: 0 0 0.55em;
+    }
+
+    p:has(+ div.CodeRay) {
+      margin-bottom: 0.14em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    td,
+    th {
+      padding: 0.16em 0.42em;
+      border: 0.12mm solid #d4dbe6;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    td:first-child,
+    th:first-child {
+      width: 42%;
+      font-weight: 600;
+    }
+
+    code {
+      padding: 0 0.18em;
+      border-radius: 0.18em;
+      background: #eef2f7;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      white-space: normal;
+    }
+
+    div.CodeRay {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      font-size: 0.92em;
+      margin: 0 0 0.275em;
+      padding: 0;
+    }
+
+    p + div.CodeRay {
+      margin-top: 0;
+    }
+
+    div.CodeRay pre {
+      margin: 0;
+      padding: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    @media print {
+      html,
+      body {
+        width: var(--page-width);
+        height: var(--page-height);
+        background: #fff;
+      }
+
+      .print-page {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="print-page">
+    <h1 class="print-title">zed</h1>
+    <div class="print-sheet">
+      
+        <section class="print-block">
+          <p>MasOS用のショートカットです。</p>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>凡例</h3><table><tbody><tr>
+<td>⌘</td>
+<td>Cmd</td>
+</tr>
+<tr>
+<td>⌥</td>
+<td>Option</td>
+</tr>
+<tr>
+<td>⇧</td>
+<td>Shift</td>
+</tr>
+<tr>
+<td>^</td>
+<td>Ctrl</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>基本操作</h3><table><tbody><tr>
+<td><code>⌘N</code></td>
+<td>新規ファイル</td>
+</tr>
+<tr>
+<td><code>⌘O</code></td>
+<td>フォルダを開く</td>
+</tr>
+<tr>
+<td><code>⌘S</code></td>
+<td>保存</td>
+</tr>
+<tr>
+<td><code>⌘⇧S</code></td>
+<td>名前を付けて保存</td>
+</tr>
+<tr>
+<td><code>⌘Q</code></td>
+<td>Zedを終了</td>
+</tr>
+<tr>
+<td><code>⌘,</code></td>
+<td>設定を開く</td>
+</tr>
+<tr>
+<td><code>⌘K⌘S</code></td>
+<td>ショートカット設定を開く</td>
+</tr>
+<tr>
+<td><code>⌘⇧W</code></td>
+<td>現在のウィンドウを閉じる</td>
+</tr>
+<tr>
+<td><code>⌘⇧N</code></td>
+<td>新しいウィンドウを開く</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>編集</h3><table><tbody><tr>
+<td><code>⌘Z</code></td>
+<td>元に戻す</td>
+</tr>
+<tr>
+<td><code>⌘⇧Z</code></td>
+<td>やり直し</td>
+</tr>
+<tr>
+<td><code>⌘X</code></td>
+<td>切り取り</td>
+</tr>
+<tr>
+<td><code>⌘C</code></td>
+<td>コピー</td>
+</tr>
+<tr>
+<td><code>⌘V</code></td>
+<td>貼り付け</td>
+</tr>
+<tr>
+<td><code>⌘A</code></td>
+<td>すべて選択</td>
+</tr>
+<tr>
+<td><code>⌘/</code></td>
+<td>行コメントの切り替え</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>行の操作</h3><table><tbody><tr>
+<td><code>⌥↑</code></td>
+<td>行を上に移動</td>
+</tr>
+<tr>
+<td><code>⌥↓</code></td>
+<td>行を下に移動</td>
+</tr>
+<tr>
+<td><code>⌥⇧↑</code></td>
+<td>行を上に複製</td>
+</tr>
+<tr>
+<td><code>⌥⇧↓</code></td>
+<td>行を下に複製</td>
+</tr>
+<tr>
+<td><code>⌘⇧K</code></td>
+<td>行を削除</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>マルチカーソル・選択</h3><table><tbody><tr>
+<td><code>⌘⇧L</code></td>
+<td>すべての同じ選択を選択</td>
+</tr>
+<tr>
+<td><code>⌘⌥↑</code></td>
+<td>上にカーソルを追加</td>
+</tr>
+<tr>
+<td><code>⌘⌥↓</code></td>
+<td>下にカーソルを追加</td>
+</tr>
+<tr>
+<td><code>^⇧→</code></td>
+<td>選択範囲を拡張</td>
+</tr>
+<tr>
+<td><code>^⇧←</code></td>
+<td>選択範囲を縮小</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>検索・置換</h3><table><tbody><tr>
+<td><code>⌘F</code></td>
+<td>バッファ内検索</td>
+</tr>
+<tr>
+<td><code>⌘⇧F</code></td>
+<td>プロジェクト内検索</td>
+</tr>
+<tr>
+<td><code>⌘⌥F</code></td>
+<td>置換</td>
+</tr>
+<tr>
+<td><code>⌘G</code></td>
+<td>次のマッチを選択</td>
+</tr>
+<tr>
+<td><code>⌘⇧G</code></td>
+<td>前のマッチを選択</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>タブ操作</h3><table><tbody><tr>
+<td><code>⌘{</code></td>
+<td>前のタブに移動</td>
+</tr>
+<tr>
+<td><code>⌘}</code></td>
+<td>次のタブに移動</td>
+</tr>
+<tr>
+<td><code>⌥⌘←</code></td>
+<td>前のタブに移動</td>
+</tr>
+<tr>
+<td><code>⌥⌘→</code></td>
+<td>次のタブに移動</td>
+</tr>
+<tr>
+<td><code>^1〜^9</code></td>
+<td>1〜9番目のタブに移動</td>
+</tr>
+<tr>
+<td><code>^0</code></td>
+<td>最後のタブに移動</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>分割・ペイン</h3><table><tbody><tr>
+<td><code>⌘\</code></td>
+<td>右に分割</td>
+</tr>
+<tr>
+<td><code>⌘K ↑</code></td>
+<td>上に分割</td>
+</tr>
+<tr>
+<td><code>⌘K ↓</code></td>
+<td>下に分割</td>
+</tr>
+<tr>
+<td><code>⌘K ←</code></td>
+<td>左に分割</td>
+</tr>
+<tr>
+<td><code>⌘K →</code></td>
+<td>右に分割</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>パネル・ドック</h3><table><tbody><tr>
+<td><code>⌘B</code></td>
+<td>左ドックの切り替え</td>
+</tr>
+<tr>
+<td><code>⌘J</code></td>
+<td>下ドックの切り替え</td>
+</tr>
+<tr>
+<td><code>⌘⇧B</code></td>
+<td>アウトラインパネル</td>
+</tr>
+<tr>
+<td><code>^~</code></td>
+<td>ターミナル</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>コード編集・ナビゲーション</h3><table><tbody><tr>
+<td><code>F12</code></td>
+<td>定義に移動</td>
+</tr>
+<tr>
+<td><code>⌥F12</code></td>
+<td>定義を分割で開く</td>
+</tr>
+<tr>
+<td><code>⇧F12</code></td>
+<td>実装に移動</td>
+</tr>
+<tr>
+<td><code>F2</code></td>
+<td>名前変更</td>
+</tr>
+<tr>
+<td><code>⌘.</code></td>
+<td>コードアクション</td>
+</tr>
+<tr>
+<td><code>^Space</code></td>
+<td>補完表示</td>
+</tr>
+<tr>
+<td><code>⌘⇧I</code></td>
+<td>コードをフォーマット</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>AI・エージェント機能</h3><table><tbody><tr>
+<td><code>^↵</code></td>
+<td>インラインアシスト</td>
+</tr>
+<tr>
+<td><code>⌘&gt;</code></td>
+<td>選択範囲を引用</td>
+</tr>
+</tbody></table>
+        </section>
+      
+    </div>
+  </main>
+</body>
+</html>

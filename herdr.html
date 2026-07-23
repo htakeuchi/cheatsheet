@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Herdr cheatsheet</title>
+  <meta name="description" content="Herdrのショートカットと使い方" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bulmaswatch/cerulean/bulmaswatch.min.css">
+  <style>
+    table {
+      font-size: small;
+      width: 100%;
+    }
+    h1 {
+      padding-bottom: 0.5em;
+    }
+    h2,h3,h4,h5,h6 {
+      padding-top: 1em;
+      padding-bottom: 0.2em;
+      margin-top: 0.2em;
+    }
+    p:has(+ div.CodeRay) {
+      margin-bottom: 0.25em;
+    }
+    div.CodeRay {
+      margin: 0.25em 0 0.5em;
+      padding: 0;
+    }
+    p + div.CodeRay {
+      margin-top: 0;
+    }
+    div.CodeRay pre {
+      margin: 0;
+      padding: 0.625em 0.75em;
+    }
+  </style>
+  <link href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
+  <script async type="text/javascript" src="/js/bulma.js"></script>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar is-fixed-top is-transparent">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://cheatsheets.namaraii.com/">
+        <span class="icon">
+          <i class="fas fa-home"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="https://github.com/htakeuchi/cheatsheet/tree/master/src/herdr.md">
+        <span class="icon">
+          <i class="fab fa-github"></i>
+        </span>
+      </a>
+      <a class="navbar-item" href="pdf/herdr.pdf" download title="PDFをダウンロード" aria-label="PDFをダウンロード">
+        <span class="icon">
+          <i class="fa-solid fa-file-pdf"></i>
+        </span>
+      </a>
+    </div>
+  </nav>
+
+  <section class="section sheet padding-10m">
+    <div class="container">
+      <h1 class="title has-text-centered">Herdr</h1>
+
+      <div class="columns">
+        
+        <div class="column is-one-third">
+          <h2 class='title is-3'>基本操作</h2><h3 class='title is-4'>起動と再接続</h3><table class='table is-striped'><tbody><tr>
+<td>起動または再接続</td>
+<td><code>herdr</code></td>
+</tr>
+<tr>
+<td>detach</td>
+<td><code>Ctrl+b</code> → <code>q</code></td>
+</tr>
+<tr>
+<td>サーバー停止</td>
+<td><code>herdr server stop</code></td>
+</tr>
+</tbody></table><h3 class='title is-4'>最初に覚えるキー</h3>
+<p>デフォルトのprefixは <code>Ctrl+b</code></p>
+<table class='table is-striped'><tbody><tr>
+<td>ヘルプ表示</td>
+<td><code>prefix+?</code></td>
+</tr>
+<tr>
+<td>新しいタブ</td>
+<td><code>prefix+c</code></td>
+</tr>
+<tr>
+<td>右に分割</td>
+<td><code>prefix+v</code></td>
+</tr>
+<tr>
+<td>下に分割</td>
+<td><code>prefix+minus</code></td>
+</tr>
+<tr>
+<td>ペイン移動</td>
+<td><code>prefix+h/j/k/l</code></td>
+</tr>
+<tr>
+<td>ワークスペース切替</td>
+<td><code>prefix+w</code></td>
+</tr>
+<tr>
+<td>detach</td>
+<td><code>prefix+q</code></td>
+</tr>
+</tbody></table>
+        </div>
+        
+        <div class="column is-one-third">
+          <h2 class='title is-3'>ペイン操作</h2><table class='table is-striped'><tbody><tr>
+<td>左／下／上／右へ移動</td>
+<td><code>prefix+h/j/k/l</code></td>
+</tr>
+<tr>
+<td>次のペイン</td>
+<td><code>prefix+tab</code></td>
+</tr>
+<tr>
+<td>前のペイン</td>
+<td><code>prefix+shift+tab</code></td>
+</tr>
+<tr>
+<td>左／下／上／右へ入れ替え</td>
+<td><code>prefix+shift+h/j/k/l</code></td>
+</tr>
+<tr>
+<td>右に分割</td>
+<td><code>prefix+v</code></td>
+</tr>
+<tr>
+<td>下に分割</td>
+<td><code>prefix+minus</code></td>
+</tr>
+<tr>
+<td>ペインを閉じる</td>
+<td><code>prefix+x</code></td>
+</tr>
+<tr>
+<td>ペインをズーム</td>
+<td><code>prefix+z</code></td>
+</tr>
+<tr>
+<td>リサイズモード</td>
+<td><code>prefix+r</code></td>
+</tr>
+<tr>
+<td>ペイン名変更</td>
+<td><code>prefix+shift+p</code></td>
+</tr>
+<tr>
+<td>スクロールバックを編集</td>
+<td><code>prefix+e</code></td>
+</tr>
+</tbody></table><h2 class='title is-3'>タブ操作</h2><table class='table is-striped'><tbody><tr>
+<td>新しいタブ</td>
+<td><code>prefix+c</code></td>
+</tr>
+<tr>
+<td>次のタブ</td>
+<td><code>prefix+n</code></td>
+</tr>
+<tr>
+<td>前のタブ</td>
+<td><code>prefix+p</code></td>
+</tr>
+<tr>
+<td>1〜9番目のタブへ移動</td>
+<td><code>prefix+1..9</code></td>
+</tr>
+<tr>
+<td>タブ名変更</td>
+<td><code>prefix+shift+t</code></td>
+</tr>
+<tr>
+<td>タブを閉じる</td>
+<td><code>prefix+shift+x</code></td>
+</tr>
+</tbody></table>
+        </div>
+        
+        <div class="column is-one-third">
+          <h2 class='title is-3'>ワークスペース操作</h2><table class='table is-striped'><tbody><tr>
+<td>一覧表示と切替</td>
+<td><code>prefix+w</code></td>
+</tr>
+<tr>
+<td>Goto picker</td>
+<td><code>prefix+g</code></td>
+</tr>
+<tr>
+<td>新しいワークスペース</td>
+<td><code>prefix+shift+n</code></td>
+</tr>
+<tr>
+<td>新しいworktree</td>
+<td><code>prefix+shift+g</code></td>
+</tr>
+<tr>
+<td>ワークスペース名変更</td>
+<td><code>prefix+shift+w</code></td>
+</tr>
+<tr>
+<td>ワークスペースを閉じる</td>
+<td><code>prefix+shift+d</code></td>
+</tr>
+<tr>
+<td>サイドバー表示切替</td>
+<td><code>prefix+b</code></td>
+</tr>
+</tbody></table><h2 class='title is-3'>コピー操作</h2>
+<p>コピーmodeは <code>prefix+[</code> で開始</p>
+<table class='table is-striped'><tbody><tr>
+<td>移動</td>
+<td><code>h/j/k/l</code></td>
+</tr>
+<tr>
+<td>単語移動</td>
+<td><code>w/b/e</code></td>
+</tr>
+<tr>
+<td>段落やブロック移動</td>
+<td><code>{</code> / <code>}</code></td>
+</tr>
+<tr>
+<td>選択開始</td>
+<td><code>v</code> または <code>Space</code></td>
+</tr>
+<tr>
+<td>コピー</td>
+<td><code>y</code> または <code>Enter</code></td>
+</tr>
+<tr>
+<td>終了</td>
+<td><code>q</code> または <code>Esc</code></td>
+</tr>
+</tbody></table>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+      Copyright by TAKEUCHI Hitoshi
+      
+       ( <a href="https://namaraii.com/">namaraii.com</a> )
+      
+      </p>
+    </div>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          
+                    
+            <a class="navbar-item" href="mailto: hitoshi@namaraii.com ">
+              <span class="icon">
+                <i class="fa-solid fa-envelope"></i>
+              </span>
+            </a>
+          
+
+          
+                    
+            <a class="navbar-item" href="https://bsky.app/profile/namaraii.com ">
+              <span class="icon">
+                <i class="fab fa-bluesky"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://fedibird.com/@htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-mastodon"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://www.threads.net/@htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-threads"></i>
+              </span>
+            </a>
+          
+          
+                    
+            <a class="navbar-item" href="https://github.com/htakeuchi ">
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+            </a>
+          
+          
+          
+          
+        </div>
+      </div>
+    </nav>
+  </footer>
+
+</body>
+</html>

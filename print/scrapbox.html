@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrapbox print</title>
+  <meta name="description" content="Scrapbox">
+  <meta name="cheatsheet-default-columns" content="3">
+  <meta name="cheatsheet-pdf-paper" content="A4">
+  <meta name="cheatsheet-pdf-orientation" content="landscape">
+  <meta name="cheatsheet-pdf-columns" content="auto">
+  <meta name="cheatsheet-pdf-margin-mm" content="3">
+  <meta name="cheatsheet-pdf-min-font-size-pt" content="5.5">
+  <meta name="cheatsheet-pdf-max-font-size-pt" content="8.0">
+  <style>
+    :root {
+      --page-width: 297mm;
+      --page-height: 210mm;
+      --page-margin: 3mm;
+      --columns: 3;
+      --column-gap: 4mm;
+      --font-size: 7pt;
+      --line-height: 1.14;
+      --title-size: 13pt;
+      --rule-color: #b6c2d2;
+      --text-color: #111827;
+    }
+
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      color: var(--text-color);
+      background: #f3f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "YuGothic", Meiryo, sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+    }
+
+    .print-page {
+      width: var(--page-width);
+      height: var(--page-height);
+      margin: 0 auto;
+      padding: var(--page-margin);
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .print-title {
+      flex: 0 0 auto;
+      margin: 0 0 2.2mm;
+      padding-bottom: 1.4mm;
+      border-bottom: 0.25mm solid var(--rule-color);
+      font-size: var(--title-size);
+      line-height: 1.08;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .print-sheet {
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow: hidden;
+      column-count: var(--columns);
+      column-gap: var(--column-gap);
+      column-fill: auto;
+    }
+
+    .print-block {
+      break-inside: avoid-column;
+      page-break-inside: avoid;
+      margin: 0 0 1.5mm;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0.65em 0 0.22em;
+      padding: 0;
+      line-height: 1.08;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    h2 {
+      font-size: 1.22em;
+      border-bottom: 0.18mm solid var(--rule-color);
+      padding-bottom: 0.16em;
+    }
+
+    h3 {
+      font-size: 1.08em;
+    }
+
+    p,
+    ul,
+    ol,
+    pre,
+    table {
+      margin: 0 0 0.55em;
+    }
+
+    p:has(+ div.CodeRay) {
+      margin-bottom: 0.14em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    td,
+    th {
+      padding: 0.16em 0.42em;
+      border: 0.12mm solid #d4dbe6;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    td:first-child,
+    th:first-child {
+      width: 42%;
+      font-weight: 600;
+    }
+
+    code {
+      padding: 0 0.18em;
+      border-radius: 0.18em;
+      background: #eef2f7;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      white-space: normal;
+    }
+
+    div.CodeRay {
+      break-inside: avoid;
+      page-break-inside: avoid;
+      font-family: "SFMono-Regular", Consolas, Menlo, monospace;
+      font-size: 0.92em;
+      margin: 0 0 0.275em;
+      padding: 0;
+    }
+
+    p + div.CodeRay {
+      margin-top: 0;
+    }
+
+    div.CodeRay pre {
+      margin: 0;
+      padding: 0;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    @media print {
+      html,
+      body {
+        width: var(--page-width);
+        height: var(--page-height);
+        background: #fff;
+      }
+
+      .print-page {
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="print-page">
+    <h1 class="print-title">Scrapbox</h1>
+    <div class="print-sheet">
+      
+        <section class="print-block">
+          <h3>文字修飾</h3>
+<p>いわゆるHeadingに該当する記法は無いため、見出しは太字を使って表現する。</p>
+<table><tbody><tr>
+<td>太字</td>
+<td>[太字]</td>
+</tr>
+<tr>
+<td>太字</td>
+<td>[* 太字]</td>
+</tr>
+<tr>
+<td>もっと太字</td>
+<td>[**** 太字]</td>
+</tr>
+<tr>
+<td>斜体文字</td>
+<td>[/ 斜体文字]</td>
+</tr>
+<tr>
+<td>太字斜体文字</td>
+<td>[/* 太字斜体文字]</td>
+</tr>
+<tr>
+<td>打ち消し線</td>
+<td>[- 打ち消し線]</td>
+</tr>
+<tr>
+<td>斜体太字打ち消し線</td>
+<td>[-***/ 打ち消し線]</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>箇条書き</h3>
+<p>行頭にスペースかタブを入力する。文字数に応じてインデントが深くなる。</p>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>リンク</h3><table><tbody><tr>
+<td>Scrapboxページへのリンク</td>
+<td>[Scrapboxの特長]</td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td><a href="http://yahoo.co.jp">http://yahoo.co.jp</a></td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td>[<a href="http://yahoo.co.jp">http://yahoo.co.jp</a>]</td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td>[<a href="http://yahoo.co.jp">http://yahoo.co.jp</a> Yahoo!]</td>
+</tr>
+<tr>
+<td>外部リンク</td>
+<td>[Yahoo! <a href="http://yahoo.co.jp">http://yahoo.co.jp</a>]</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>ハッシュタグ記法</h3>
+<p><code>#ハッシュ</code> と<code>[ハッシュ]</code> は同じ意味。</p>
+
+<p>文章の中では<code>[ハッシュ]</code>と書き、文書外では <code>#ハッシュ</code> と書くとわかりやすい。</p>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>画像</h3><table><tbody><tr>
+<td>画像の引用</td>
+<td>[<a href="https://gyazo.com/da78d.png">https://gyazo.com/da78d.png</a>]</td>
+</tr>
+<tr>
+<td>画像+リンク</td>
+<td>[<a href="http://yahoo.co.jp">http://yahoo.co.jp</a> <a href="https://i.gyazo.com/da78d.png">https://i.gyazo.com/da78d.png</a>]</td>
+</tr>
+<tr>
+<td>画像+リンク</td>
+<td>[<a href="https://i.gyazo.com/da78d.png">https://i.gyazo.com/da78d.png</a> <a href="http://yahoo.co.jp">http://yahoo.co.jp</a>]</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>引用</h3>
+<p>行頭に<code>&gt;</code>を書くと引用になる。</p>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>テーブル</h3>
+<p><code>table:テーブル名</code> の後、インデントしてタブ区切りで行を書く。</p>
+<div class="CodeRay">
+  <div class="code"><pre>table:テーブルの例
+  abc   def
+  12345 6789
+  すごく長い文字列  短い文字列
+</pre></div>
+</div>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>コード（インライン）</h3>
+<p>バッククオートで括る。</p>
+<div class="CodeRay">
+  <div class="code"><pre>`function() {  return true }`
+</pre></div>
+</div>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>コードブロック</h3>
+<p><code>code:言語名</code>もしくは<code>code:ファイル名</code>もしくは<code>code:ファイル名(言語名)</code>の下のブロックがシンタックスハイライトされる。</p>
+<div class="CodeRay">
+  <div class="code"><pre>    code:hello.js
+      <span style="color:#080;font-weight:bold">function</span> () {
+        alert(document.location.href)
+        console.log(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">hello</span><span style="color:#710">&quot;</span></span>)
+      }
+</pre></div>
+</div>
+
+        </section>
+      
+        <section class="print-block">
+          <h3>アイコン</h3><table><tbody><tr>
+<td>アイコン</td>
+<td>[rakusai.icon]</td>
+</tr>
+<tr>
+<td>アイコン</td>
+<td>[/icons/炎上.icon]</td>
+</tr>
+</tbody></table>
+        </section>
+      
+        <section class="print-block">
+          <h3>数式</h3><div class="CodeRay">
+  <div class="code"><pre>[$ \frac{-b \pm \sqrt{b^2-4ac}}{2a}]
+</pre></div>
+</div>
+
+        </section>
+      
+    </div>
+  </main>
+</body>
+</html>
